@@ -1,0 +1,8 @@
+.slider-nav ul li.active a, .slider-nav ul li a:hover { background:none; }
+
+#navigation, #loopedSlider .container, .slider-nav  { border:1px solid #dbdbdb; }
+#main.box, .wp-pagenavi, #comments .comment .comment-container, #sidebar .widget, #nav li ul   { border: 1px solid #e6e6e6; }
+
+.button, .button:visited, .reply a{ color:#555 !important; border:1px solid #ccc; }
+
+.widget input#s, .widget input.field { width:160px; }

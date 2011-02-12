@@ -1,0 +1,48 @@
+<%= javascript_include_tag "jquery.simplemodal", "init" %>
+
+<div id="header" class="col-full">
+  <div id="logo">
+
+    <a href="http://localhost:3000/" title="Ещё один сайт на WordPress"><%= image_tag('logo.png', :alt => 'Munik') %> </a>
+
+    <h1 class="site-title"><a href="http://localhost/wordpress">Delegate</a></h1>
+    <span class="site-description">Ещё один сайт на Munik</span>
+
+  </div>
+  <div id="lang">
+    <%= language_selector %>
+  </div>
+  <div id="address">
+    <ul>
+      <li class="name">ОФ 'ГИИП'</li>
+      <li class="street">г.Бишкек, Ахунбаева 129/б</li>
+      <li class="telephone">(0312) 540440</li>
+      <li class="email">giip@gipi.kg</li>
+    </ul>
+  </div>
+</div>
+
+
+<div id="navigation" class="col-full">
+  <ul id="nav" class="fl sf-js-enabled sf-shadow">
+    <li><%= link_to t('general.home'), root_path %></li>
+    <li><%= link_to t('general.report_prob'), new_report_path %></li>
+    <li><%= link_to t('general.recent_reports'), reports_path %></li>
+    <li><%= link_to t('general.about'), root_path %></li>
+    <li><%= link_to t('general.contact'), new_contact_form_path %></li>
+  </ul>
+
+  <div id="user_nav">
+    <% if user_signed_in? %>
+        <%= current_user.name %>
+        <%= link_to t('general.sign_out'), destroy_user_session_path %>
+        <% if admin? %>
+            <%= link_to " | Admin", {:controller=>"rails_admin/main", :action=>"index"} %>
+        <% end %>
+    <% else %>
+        <%= link_to t('general.registration'), new_user_registration_path %>
+        |  <%= link_to t('general.sign_in'), new_user_session_path  %>
+    <% end %>
+  </div>
+
+</div>

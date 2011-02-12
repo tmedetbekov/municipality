@@ -1,0 +1,105 @@
+
+
+<% @page_title = 'Show report' %>
+
+<div id="main" class='col-left box'>
+  <h3><%= t('general.report') %></h3><br>
+
+  <p>
+    <strong><%= t('general.subject') %>:</strong>
+    <%= @reports.subject %>
+  </p>
+
+  <p>
+    <strong><%= t('general.description') %>:</strong>
+    <%= @reports.description %>
+  </p>
+
+  <p>
+    <strong><%= t('general.reporter') %>:</strong>
+    <%= @reports.user.full_name %>
+  </p>
+
+  <p>
+    <strong><%= t('general.date') %>:</strong>
+    <%= display_date(@reports.created_at) %>
+  </p>
+
+  <p>
+
+    <strong><%= t('general.state') %></strong>
+    <%= @reports.address %>
+  </p>
+  <% if admin? %>
+      <%= link_to t('general.edit'), edit_report_path(@reports) %> |
+      <%= link_to t('general.destroy'), @reports, :confirm => 'Are you sure?', :method => :delete %> |
+  <% end %>
+  <%= link_to t('general.view'), reports_path %>
+
+  <div id='comments'>
+    <h3><%= t('general.comments') %> (<%= @reports.comments.count %>)</h3>
+
+    <div class='fix'></div>
+    <ol class='commentlist'>
+      <% @reports.comments.each do |comment| %>
+          <li class="comment byuser">
+            <a href="#"></a>
+
+            <div class="avatar-box">
+              <%= image_tag "default_avatar.png" %>
+            </div>
+            <div class="comment-container">
+              <div class="comment-head">
+                <span><b><%= comment.author %></b></span><br/>
+                <span class="date"><%= display_date(comment.created_at) %></span>
+              </div>
+              <div class="comment-entry">
+                <%= comment.content %>
+              </div>
+              <% if admin? %>
+                  <%= link_to "Delete", [@reports, comment], :confirm => "Are you sure?", :method => :delete %>
+              <% end %>
+            </div>
+          </li>
+      <% end %>
+    </ol>
+  </div>
+  <% if user_signed_in? %>
+      <%= form_for [@reports, Comment.new], :html => {:id => 'commentform'} do |form| %>
+          <div id="respond">
+            <h3>Add new Comment</h3>
+            
+            <%= form.text_field :author, :label => "User", :value => current_user.name %>
+            <%= form.text_area :content, :size => '10x10' %>
+            <%= form.submit :submit, :id => 'submit', :class => 'button' %>
+          </div>
+      <% end %>
+  <% else %>
+      <span>Чтобы оставлять комментарии необходимо -</span><%= link_to ' зарегистрироваться', new_user_registration_path %>
+      / <%= link_to 'войти', new_user_session_path %>
+  <% end %>
+
+</div>
+
+<div id="sidebar" class="col-right">
+  <div class='widget'>
+    <script type='text/javascript'>
+        $(function() {
+            $('.static_map').each(function() {
+                var latLng = "<%= escape_javascript(@reports.coordinates) %>";
+                $(this).html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>")
+            });
+        });
+    </script>
+    <div class="static_map widget"></div>
+  </div>
+
+  <div class="widget">
+    <% if @reports.photo_file_name %>
+        <strong><%= t('general.photo') %>: </strong>
+
+        <div class="images_widget widget"><%= image_tag @reports.photo.url(:medium) %></div>
+    <% end %>
+  </div>
+</div>
+

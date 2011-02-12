@@ -1,0 +1,88 @@
+/* CSS3 / Browser specific CSS */
+
+#navigation, #main.box, .wp-pagenavi, .widget input#s, .widget input.field, #new_report, #new_report input.txt, #new_report textarea, #commentform, #commentform input.txt,#commentform input, #commentform textarea, #comments .comment .comment-container,
+#loopedSlider .container, #sidebar .widget {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+#navigation, #loopedSlider .container, .slider-nav {
+  box-shadow: 0 0 4px #818181;
+  -webkit-box-shadow: 0 0 4px #818181;
+  -moz-box-shadow: 0 0 4px #818181;
+}
+
+#main.box, .wp-pagenavi, #comments .comment .comment-container, #sidebar .widget {
+  box-shadow: 0 0 4px #c4c4c4;
+  -webkit-box-shadow: 0 0 4px #c4c4c4;
+  -moz-box-shadow: 0 0 4px #c4c4c4;
+}
+
+#footer {
+  border-top-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px;
+}
+
+.slider-nav {
+  border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+}
+
+#logo .site-title a {
+  text-shadow: 1px 1px 1px #333;
+}
+
+#logo .site-description {
+  text-shadow: 0px 1px #fff;
+}
+
+.slider-nav ul li a {
+  text-shadow: 1px 1px 0 #333;
+}
+
+#nav a:hover, #nav .current_page_item a {
+  text-shadow: 1px 1px 0 #fff;
+}
+
+#address {
+  text-shadow: 1px 1px 0 #dae8f0;
+}
+
+#featured h2 {
+  text-shadow: 1px 1px 0 #dbdbdb;
+}
+
+#footer h3 {
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.post .title a:link, .post .title a:visited {
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.button, .button:visited, .reply a {
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, .25);
+  border-bottom-color: rgba(0, 0, 0, .35);
+}
+
+.button:hover, .reply a:hover {
+  opacity: 0.9;
+}
+
+.button.grey {
+  text-shadow: 0 -1px 1px rgba(255, 255, 255, 1);
+}

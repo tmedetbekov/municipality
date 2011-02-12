@@ -1,0 +1,13 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+Gemfile.lock
+test
+test/*
+.redcar
+.redcar/*
+*.*.swp
+*.swp
+.idea
+.idea/*

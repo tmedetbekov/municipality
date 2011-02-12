@@ -1,0 +1,18 @@
+<h1>Send a message</h1>
+
+<%= simple_form_for(@contact_form) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :message, :as => :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', contact_forms_path %>

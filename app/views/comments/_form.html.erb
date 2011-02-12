@@ -1,0 +1,5 @@
+<%= simple_form_for @comments do |f| %>
+  <%= f.error_messages %>
+  <%= f.text_area :content, :style => "margin-left: 120px" %><br />
+  <%= f.button :submit %>
+<% end %>

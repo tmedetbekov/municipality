@@ -1,0 +1,44 @@
+<h3><%= t('general.sign_in') %></h3>
+
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'commentform'}) do |f| %>
+    <%= f.input :email, :label => t('general.email') %>
+    <%= f.input :password, :label => t('general.password') %>
+    <% if devise_mapping.rememberable? -%>
+        <%= f.input :remember_me, :as => :boolean, :label => t('general.remember') %>
+    <% end -%>
+    <%= f.button :submit, :value => t('general.sign_in') %>
+
+
+<% if @authentications %>
+    <% unless @authentications.empty? %>
+        <p><strong>You can sign in to this account using:</strong></p>
+        <div class="authentications">
+          <% for authentication in @authentications %>
+              <div class="authentication">
+                <%= image_tag "#{authentication.provider}_256.png", :size => "64x64" %>
+                <div class="provider"><%= authentication.provider.titleize %></div>
+                <div class="uid"><%= authentication.uid %></div>
+                <%= link_to "X", authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "remove" %>
+              </div>
+          <% end %>
+          <div class="clear"></div>
+        </div>
+    <% end %>
+    <p><strong>Add another service to sign in with:</strong></p>
+<% else %>
+    <p><strong>Sign in through one of these services:</strong></p>
+<% end %>
+<%= link_to image_tag("twitter_256.png", :border=>0, :size => '32x32'), '/auth/twitter' %>
+<%= link_to image_tag("facebook_256.png", :border=>0, :size => '32x32'), '/auth/facebook' %>
+
+<div id="user_nav">
+  <% if user_signed_in? %>
+      Signed in as <%= current_user.email %>
+      <%= link_to "Sign out", destroy_user_session_path %>
+  <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+</div>
+<% end %>
+
+<!--<%= render :partial => "devise/shared/links" %>-->

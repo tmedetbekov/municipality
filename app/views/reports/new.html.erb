@@ -1,0 +1,54 @@
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=ru"></script>
+<%= javascript_include_tag "epoly3" %>
+<%= javascript_include_tag "gmap" %>
+
+<% @page_title = 'New report' %>
+<h3><%= t('general.report_new')%></h3><br />
+
+<div id="featured" class="col-full">
+  <div id="loopedSlider">
+
+    <div class="container" style="height: 470px; display: block;">
+      <div class="map" id="report_map" style="height:450px;"></div>
+    </div>
+
+    <div class="fix"></div>
+
+    <div class="slider-nav col-full">
+
+      <ul class="pagination">
+        <li class=""><a href="#" onclick="goto_state('bi');" rel="1">Бишкек</a></li>
+        <li class=""><a href="#" onclick="goto_state('co');" rel="2">Чуй</a></li>
+        <li class=""><a href="#" onclick="goto_state('oo');" rel="3">Ош</a></li>
+        <li class=""><a href="#" onclick="goto_state('bo');" rel="3">Баткен</a></li>
+        <li class=""><a href="#" onclick="goto_state('jo');" rel="3">Джалал-Абад</a></li>
+        <li class=""><a href="#" onclick="goto_state('to');" rel="3">Талас</a></li>
+        <li class=""><a href="#" onclick="goto_state('no');" rel="3">Нарын</a></li>
+        <li class=""><a href="#" onclick="goto_state('io');" rel="3">Иссык-Куль</a></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div id="content" class="col-full">
+  <div id="main" class="col-left box">
+    <div class="post-2 page type-page hentry">
+      <h1 class="title"><%= t('general.report_form') %></h1>
+
+      <div class="entry">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.</p>
+      </div>
+
+    </div>
+
+    <div id="respond">
+      <%= render 'form' %>
+    </div>
+  </div>
+  <div id="sidebar" class="col-right">
+
+  </div>
+</div>

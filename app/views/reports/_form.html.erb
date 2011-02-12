@@ -1,0 +1,22 @@
+<!--pages title at top-->
+<% @page_title = 'New report' %>
+
+<%= simple_form_for(@reports, :html => {:id => 'commentform', :multipart => true}) do |f| %>
+  <% unless user_signed_in? %>
+      <%= f.fields_for :user do |u| %>
+        <%= u.input :name, :label => t('general.name') %>
+        <%= u.input :last_name, :label => t('general.last_name') %>
+        <%= u.input :email, :label => t('general.email') %>
+        <%= u.input :phone, :label => t('general.phone')%>
+        <%= u.hidden_field :is_anonym, :value => true %>
+      <% end %>
+    <% end %>
+		<%= f.input :address, :label => 'address' %>
+		<%= f.hidden_field :state_id, :label => 'state' %>
+		<%= f.hidden_field :coordinates, :label => 'coordinates' %>
+    <%= f.association :category, :label => t('general.category') %>
+		<%= f.input :subject, :label => t('general.subject') %>
+    <%= f.text_area :description %><br /><br />
+    <%= f.file_field :photo %> <br /><br />
+    <%= f.button :submit, :value => t('general.report_button') %>
+<% end %>

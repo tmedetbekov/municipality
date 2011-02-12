@@ -1,0 +1,8 @@
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'commentform'}) do |f| %>
+    <%= f.input :email, :label => t('general.email') %>
+    <%= f.input :password, :label => t('general.password') %>
+    <% if devise_mapping.rememberable? -%>
+        <%= f.input :remember_me, :as => :boolean, :label => t('general.remember') %>
+    <% end -%>
+    <%= f.button :submit, :value => t('general.sign_in') %>
+<% end %>

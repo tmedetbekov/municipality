@@ -1,0 +1,140 @@
+/* Style: Default */
+
+
+/*-------------------------------------------------------------------------------------------*/
+/* 1. SETUP */
+/*-------------------------------------------------------------------------------------------*/
+
+/* 1.1 Defaults */
+
+#container  { background: #ecf0f6 url(images/bgtile.jpg) repeat-x top left; }
+
+h1, h2, h3, h4, h5, h6  { color: #333; }
+
+/* 1.2 Hyperlinks */
+
+a:link, a:visited  { color: #3399cc; }
+
+
+/*-------------------------------------------------------------------------------------------*/
+/* 2. SITE STRUCTURE & APPEARANCE */
+/*-------------------------------------------------------------------------------------------*/
+
+/* 2.1 Containers & Columns */
+
+
+/* 2.2 Navigation */
+
+
+/* 2.2.1 Drop-down menus */
+
+
+/* 2.3 Header */
+#logo .site-title a { color:#3399CC; }
+
+/* 2.4 Featured Slider */
+.slider-nav  { background: url(images/featurednavtile.jpg) repeat-x left top; }
+.slider-nav ul li a  { color: #b6e1fa; }
+
+/* 2.5 Content */
+
+/* 2.6 Sidebar */
+
+/* 2.7 Footer */
+#footer  { background: #c5d6e3; }
+#footer .top  { border-bottom: 1px solid #96bcd9; }
+#footer .bottom  { border-top: 1px solid #f2f6fa; color:#555; }
+#footer .widget a:link, #footer .widget a:visited  { color: #333; }
+#footer .widget a:hover  { color: #000; }
+
+#footer #wp-calendar a:link, #footer #wp-calendar a:visited  { color: #3399cc; }
+#footer #wp-calendar th  { background: #ecf0f6; }
+#footer #wp-calendar th, #footer #wp-calendar td  { color:#333;border: 1px solid #ecf0f6;}
+
+#footer .widget_woo_twitter ul  { border-top: 1px solid #ecf0f6; }
+#footer .widget_woo_twitter li  { border-bottom: 1px solid #ecf0f6; }
+
+#footer .widget input#s, .widget input.field  { border:#ecf0f6 1px solid; }
+
+#footer .widget_woo_flickr a img  { border: #ecf0f6 2px solid; }
+#footer .widget_woo_flickr a:hover img  { border:#3399cc 2px solid; }
+
+
+/*-------------------------------------------------------------------------------------------*/
+/* 3. POSTS */
+/*-------------------------------------------------------------------------------------------*/
+
+.post.home { background: url(images/post-border-home.jpg) repeat-x left bottom; }
+
+.post-meta span  { background: url(images/metabullet.jpg) no-repeat right 3px; }
+
+/* 3.1 Typographic Elements */
+.entry blockquote  { border-left: 2px solid #3399cc; }
+
+/* 3.2 Images */
+
+/* 3.3 Pagination / WP-Pagenavi */
+.wp-pagenavi .current, 
+.wp-pagenavi .on,
+.wp-pagenavi a:hover { color: #3399cc!important; }
+
+/*-------------------------------------------------------------------------------------------*/
+/* 4. WIDGETS */
+/*-------------------------------------------------------------------------------------------*/
+
+/* 4.2 Generic Widgets */
+#sidebar .widget_recent_comments li a, .widget_woo_twitter a  { color: #3399cc!important; } /* RESET <A> STYLING FOR RECENT COMMENT & TWITTER */
+
+
+/* 4.2 Specific Widgets */
+
+/* NEWS WIDGET */
+
+/* WIDGET FORMS */
+
+/* TAG CLOUD */
+
+/* TWITTER */
+
+/* FLICKR */
+.widget_woo_flickr a img  { border: #CECFC6 1px solid; }
+.widget_woo_flickr a:hover img  { border:#A8AA99 1px solid; }
+
+/* ADS */
+
+/* LIFESTREAM */
+
+/* CALENDAR */
+
+
+/*-------------------------------------------------------------------------------------------*/
+/* 5. COMMENTS */
+/*-------------------------------------------------------------------------------------------*/
+
+/* 5.1 Comments */
+#comments .comment.depth-1  { border-bottom: 1px solid #ebeff4; }
+#comments .avatar-box img  { border: 1px solid #dee6f4; }
+
+
+/* 5.2 Pingbacks / Trackbacks */
+
+/* 5.3 Comments Form */
+#new_report, #commentform  {	background: #e0e8f3; }
+#commentform, input, #commentform input.txt  {
+     
+}
+#commentform textarea  { border: 1px solid #eee; }
+
+
+/*-------------------------------------------------------------------------------------------*/
+/* 6. MISC */
+/*-------------------------------------------------------------------------------------------*/
+
+/* 6.1 Buttons */
+.button, .button:visited, .reply a{ background-color:#3399cc; }
+.button.grey { background-color:#e0e0e0; color:#555 !important; }
+
+.login{
+    float: right;
+    border: 1px solid #c2c2c2;
+}

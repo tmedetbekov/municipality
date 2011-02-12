@@ -1,0 +1,159 @@
+/* 
+WOO CUSTOM STYLESHEET
+---------------------
+
+Instructions:
+
+Add your custom styles here instead of style.css so it 
+is easier to update the theme. Simply copy an existing 
+style from style.css to this file, and modify it to 
+your liking.
+*/
+
+.recentcomments a {
+    display: inline !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.container .map {
+    margin: 10px;
+}
+
+#content #main p {
+    font-family: "Lucida", "Lucida Grande", "Trebuchet MS", Tahoma, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+/*#content #main form label {*/
+/*width: 100px;*/
+/*float: left;*/
+/*padding-top: 5px;*/
+/*}*/
+
+/*#content #main form ul li {*/
+/*margin-top: 2px;*/
+/*}*/
+
+#content #main form input[type='text'], #content #main form input {
+    width: 250px;
+}
+
+#content #main form select {
+    margin: 0 5px 10px 0;
+    padding: 7px 5px;
+    width: 249px;
+}
+
+/*.clear-block {*/
+/*padding:0;*/
+/*margin:0;*/
+/*clear:both;*/
+/*}*/
+
+#content #main form p select {
+    min-width: 249px;
+}
+
+.simple_form label {
+    width: 100px;
+    text-align: right;
+    margin: 2px 10px;
+}
+
+.simple_form div.input {
+    margin-bottom: 10px;
+}
+
+.simple_form div.boolean, .simple_form input[type="submit"] {
+}
+
+.simple_form div.boolean label {
+    float: none;
+    margin: 0;
+}
+
+.authentications {
+    margin-bottom: 30px;
+}
+
+.authentication {
+    width: 130px;
+    float: left;
+    background-color: #EEE;
+    border: solid 1px #999;
+    padding: 5px 10px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    position: relative;
+    margin-right: 10px;
+}
+
+.authentication .remove {
+    text-decoration: none;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    color: #333;
+    padding: 2px 4px;
+    font-size: 10px;
+}
+
+.authentication .remove:hover {
+    color: #CCC;
+    background-color: #777;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+}
+
+.authentication img {
+    float: left;
+    margin-right: 10px;
+}
+
+.authentication .provider {
+    font-weight: bold;
+}
+
+.authentication .uid {
+    color: #666;
+    font-size: 11px;
+}
+
+.auth_provider img {
+    display: block;
+}
+
+.auth_provider {
+    float: left;
+    text-decoration: none;
+    margin-right: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 13px;
+}
+
+#flash_notice {
+    margin-bottom: 8px;
+    color: green;
+}
+
+.report_description {
+	float: left;
+	width: 50%;
+}
+
+
+.static_map {
+	padding: 2px;
+	margin: 0;
+}
+
+.images_widget {
+	padding: 2px;
+	margin-top: 5px;
+}

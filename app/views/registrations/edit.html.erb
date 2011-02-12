@@ -1,0 +1,22 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= simple_form_for (resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :id => "commentform"}) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.input :name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <% if @user.password_required? %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+    <%= f.hidden_field :is_anonym, :value => false %>
+  <% end %>  <br/>
+  <%= f.button :submit, "Update" %>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>
+  .</p>
+
+<%= link_to "Back", :back %>

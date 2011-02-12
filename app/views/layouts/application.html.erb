@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Municipality <%= @page_title %> </title>
+  <%= javascript_include_tag 'jquery-1.4.2.min', 'rails', 'application' %>
+  <%= render 'layouts/stylesheets' %>
+  <%= stylesheet_link_tag 'style', :media => 'screen' %>
+  <%= stylesheet_link_tag 'effects', 'default', 'custom', 'reset', :media => 'all' %>
+  <%= csrf_meta_tag %>
+  <%= yield(:head) %>
+</head>
+<body>
+<div id="container">
+  <%= render "layouts/header" %>
+  <div id="content" class="col-full">
+    <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <%= content_tag :h1, yield(:title) if show_title? %>
+    <%= yield %>
+  </div>
+  <%= render('layouts/footer') %>
+
+</div>
+</body>
+</html>
