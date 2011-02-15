@@ -9,15 +9,16 @@ class User < ActiveRecord::Base
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates_presence_of :password, :if => :password_required?
-  validates_presence_of :password_confirmation, :if => :password_required?
-  validates_confirmation_of :password
   validates_presence_of :name
   validates_presence_of :last_name
-  validates_numericality_of :phone, :if => :is_not_blank?
   validates_presence_of :email
+  validates_presence_of :password, :if => :password_required?
+  validates_presence_of :password_confirmation, :if => :password_required?
   validates_uniqueness_of :email, :if => :is_not_anonym?
-  validates :email, :format => {:with => EMAIL_REGEX}
+  validates_format_of :email, :with => EMAIL_REGEX
+  validates_confirmation_of :password
+  validates_numericality_of :phone, :allow_blank => true
+  validates_length_of :phone, :within => 6..20, :allow_blank => true
 
   def full_name
     name + " " + last_name

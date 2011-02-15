@@ -20,7 +20,6 @@ class ReportsController < ApplicationController
   end
 
   def create
-    debugger
     @reports = Report.new(params[:report])
     if current_user
       @reports.user_id = current_user.id

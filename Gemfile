@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.3'
 
 gem 'mysql2'
+gem 'client_side_validations',  '~> 2.9.9'
 gem "nifty-generators", :group => :development
 gem 'simple_form'
 gem 'ruby-debug'

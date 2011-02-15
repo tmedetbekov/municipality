@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>Municipality <%= @page_title %> </title>
-  <%= javascript_include_tag 'jquery-1.4.2.min', 'rails', 'application' %>
+  <%# javascript_include_tag 'jquery-1.4.2.min', 'rails', 'application' %>
+  <%= javascript_include_tag 'jquery', 'jquery-validation', 'client_side_validations' %>
   <%= render 'layouts/stylesheets' %>
   <%= stylesheet_link_tag 'style', :media => 'screen' %>
   <%= stylesheet_link_tag 'effects', 'default', 'custom', 'reset', :media => 'all' %>
