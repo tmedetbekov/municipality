@@ -436,7 +436,7 @@ a {
 #overlay-wrapper {
     display: none;
     z-index: 1000;
-    width: 500px;
+    /*width: 500px;*/
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
