@@ -64,7 +64,7 @@
   </div>
   <div id="respond">
     <h3>Add new Comment</h3>
-    <%= simple_form_for [@reports, Comment.new], :html => {:id => 'commentform'} do |f| %>
+    <%= simple_form_for [@reports, Comment.new], :validations => { :class => Comment }, :html => {:id => 'commentform'} do |f| %>
       <% if user_signed_in? %>
         <p>Комментировать как<b><%= current_user.name %></b> <%= link_to t('general.sign_out'), destroy_user_session_path %></p>
       <% else %>

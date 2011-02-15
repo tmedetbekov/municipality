@@ -1,7 +1,7 @@
 <!--pages title at top-->
 <% @page_title = 'New report' %>
 
-<%= simple_form_for(@reports, :html => {:id => 'commentform', :multipart => true}) do |f| %>
+<%= simple_form_for(@reports, :validations => true, :html => {:id => 'commentform', :multipart => true}) do |f| %>
   <% unless user_signed_in? %>
       <%= f.fields_for :user do |u| %>
         <%= u.input :name, :label => t('general.name') %>
