@@ -50,9 +50,11 @@ en:
 #   sign in
     remember: "Remember me"
     sign_in: "Sign in"
+    sign_out: "Logout"
 #   flash notice
     created: "New report created successfully!"
     destroyed: "Report was successfully destroyed!"
     updated: "Report was successfully updated!"
 #   Comments
     comments: "Comments"
+    send_comment: "Comment"

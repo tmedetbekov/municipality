@@ -1,6 +1,11 @@
 /* CSS3 / Browser specific CSS */
 
-#navigation, #main.box, .wp-pagenavi, .widget input#s, .widget input.field, #new_report, #new_report input.txt, #new_report textarea, #commentform, #commentform input.txt,#commentform input, #commentform textarea, #comments .comment .comment-container,
+#navigation, #main.box, .wp-pagenavi, .widget input#s, .widget input.field,
+#new_report, #new_report input.txt,
+#new_report textarea, #commentform,
+#commentform input.txt,#commentform input,
+#commentform textarea, #commentform select,
+#comments .comment .comment-container,
 #loopedSlider .container, #sidebar .widget {
   border-radius: 5px;
   -moz-border-radius: 5px;

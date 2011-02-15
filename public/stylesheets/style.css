@@ -1315,7 +1315,12 @@ h3#pings {
     text-transform: uppercase; /*font-weight: bold;*/
 }
 
-#commentform input.txt, #commentform input[type="text"], #commentform input[type="password"], #commentform input[type="email"], #commentform input[type="tel"] {
+#commentform input.txt,
+#commentform input[type="text"],
+#commentform input[type="password"],
+#commentform input[type="email"],
+#commentform input[type="tel"],
+#commentform select {
     width: 300px;
     margin: 0 5px 10px 0;
     padding: 7px 5px;

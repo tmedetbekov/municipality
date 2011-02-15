@@ -66,13 +66,13 @@
     <h3>Add new Comment</h3>
     <%= simple_form_for [@reports, Comment.new], :validations => { :class => Comment }, :html => {:id => 'commentform'} do |f| %>
       <% if user_signed_in? %>
-        <p>Комментировать как<b><%= current_user.name %></b> <%= link_to t('general.sign_out'), destroy_user_session_path %></p>
+        <p>Комментировать как <b><%= current_user.name %></b> <%= link_to t('general.sign_out'), destroy_user_session_path %></p>
       <% else %>
         <%= f.input :author, :label => 'author' %>
         <%= f.input :email, :label => 'E-mail' %>
       <% end %>
       <%= f.text_area :content, :size => '10x10' %>
-      <%= f.submit :submit, :id => 'submit', :class => 'button', :value => "Коментировать" %>
+      <%= f.submit :submit, :id => 'submit', :class => 'button', :value => t("general.send_comment") %>
     <% end %>
   </div>
 

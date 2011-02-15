@@ -39,10 +39,17 @@ your liking.
     width: 250px;
 }
 
+#content #main form input[type='submit'] {
+  width: auto;
+}
+
 #content #main form select {
     margin: 0 5px 10px 0;
     padding: 7px 5px;
     width: 249px;
+}
+#commentform select {
+  width: 310px !important;
 }
 
 /*.clear-block {*/
@@ -156,4 +163,8 @@ your liking.
 .images_widget {
 	padding: 2px;
 	margin-top: 5px;
+}
+
+.container #report_form .streetAddress a {
+  margin-top: 10px;
 }

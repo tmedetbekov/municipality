@@ -1,505 +1,496 @@
 * {
-    margin: 0px;
-    padding: 0px
+  margin: 0px;
+  padding: 0px
 }
 
 body {
-    margin: 12px 0px 12px 0px;
-    font: normal 10px/150% "Lucida Grande", "Lucida Sans Unicode", Verdana, "Jamrul", sans-serif;
-    color: #525760;
-    background: #B1D4E5
+  font: normal 10px/150% "Lucida Grande", "Lucida Sans Unicode", Verdana, "Jamrul", sans-serif;
 }
 
 #wrapper {
-    margin: 0px auto;
-    padding-bottom: 10px;
-    /*background: url(/_assets/_graphics/bg_site.png) no-repeat bottom center*/
+  margin: 0px auto;
+  padding-bottom: 10px; /*background: url(/_assets/_graphics/bg_site.png) no-repeat bottom center*/
 }
 
 #shell {
-    margin: 0px auto;
-    /*background: #B1D4E5 url(/_assets/_graphics/bg_site.png) repeat-y top center*/
+  margin: 0px auto; /*background: #B1D4E5 url(/_assets/_graphics/bg_site.png) repeat-y top center*/
 }
 
 body.loggedin {
-    background-color: #686a72
+  background-color: #686a72
 }
 
 body.loggedin
 #shell {
-    background-color: #686a72
+  background-color: #686a72
 }
 
 input, select, textarea, button {
-    display: inline-block;
-    font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, "Jamrul", sans-serif;
-    font-size: 10px;
-    color: #525760;
-    border: 1px solid #a5acb5;
-    background: white;
-    outline: none
+  display: inline-block;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, "Jamrul", sans-serif;
+  font-size: 10px;
+  color: #525760;
+  border: 1px solid #a5acb5;
+  background: white;
+  outline: none
 }
 
 input[type=hidden], input.hidden {
-    background: transparent;
-    display: auto;
-    border: none;
-    padding: 0;
-    margin: 0
+  background: transparent;
+  display: auto;
+  border: none;
+  padding: 0;
+  margin: 0
 }
 
 input.titleinside, textarea.titleinside {
-    color: #b5b9c0
+  color: #b5b9c0
 }
 
 input.titleinside.focus, textarea.titleinside.focus {
-    color: #525760
+  color: #525760
 }
 
 iframe.uploadIframe {
-    position: absolute;
-    top: 0;
-    height: 0px;
-    border: 0
+  position: absolute;
+  top: 0;
+  height: 0px;
+  border: 0
 }
 
 ol, ul {
-    list-style-type: none
+  list-style-type: none
 }
 
 hr {
-    display: none
+  display: none
 }
 
 abbr {
-    border: none
+  border: none
 }
 
 img {
-    border: none;
-    -ms-interpolation-mode: bicubic
+  border: none;
+  -ms-interpolation-mode: bicubic
 }
 
 a {
-    color: #00B0D8;
-    text-decoration: none;
-    outline: none
+  color: #00B0D8;
+  text-decoration: none;
+  outline: none
 }
 
 a:hover {
-    color: #222
+  color: #222
 }
 
 a.cancel {
-    color: #ff0a7c
+  color: #ff0a7c
 }
 
 .hide {
-    display: none
+  display: none
 }
 
 .highlight {
-    color: #62DF85
+  color: #62DF85
 }
 
 .cancel {
-    color: #ff0a7c
+  color: #ff0a7c
 }
 
 div#form_submit {
-    border-top: 1px solid #DBDCE0;
-    padding: 20px 0 60px 0;
-    margin: 0 30px;
-    width: 660px;
-    height: 35px;
-    float: left;
-    zoom: 1
+  border-top: 1px solid #DBDCE0;
+  padding: 20px 0 60px 0;
+  margin: 0 30px;
+  width: 660px;
+  height: 35px;
+  float: left;
+  zoom: 1
 }
 
 div#form_submit:after {
-    display: block;
-    visibility: hidden;
-    clear: both;
-    height: 0;
-    line-height: 0;
-    content: "."
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  line-height: 0;
+  content: "."
 }
 
 #form_submit input {
-    float: right;
-    height: 34px;
-    background: #4cc8e4;
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 0 25px;
-    text-shadow: 0px 1px 0px #179ab8;
-    box-shadow: 0px 1px 0px #4caac0;
-    -webkit-box-shadow: 0px 1px 0px #4caac0;
-    -moz-box-shadow: 0px 1px 0px #4caac0;
-    border: 0;
-    -moz-border-radius: 18px;
-    -webkit-border-radius: 18px;
-    border-radius: 18px;
-    margin: 0 0 0 10px
+  float: right;
+  height: 34px;
+  background: #4cc8e4;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0 25px;
+  text-shadow: 0px 1px 0px #179ab8;
+  box-shadow: 0px 1px 0px #4caac0;
+  -webkit-box-shadow: 0px 1px 0px #4caac0;
+  -moz-box-shadow: 0px 1px 0px #4caac0;
+  border: 0;
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
+  margin: 0 0 0 10px
 }
 
 #form_submit input[type=hidden] {
-    padding: 0;
-    margin: 0
+  padding: 0;
+  margin: 0
 }
 
 #form_submit input:hover {
-    background: #00b0d8
+  background: #00b0d8
 }
 
 #aside #form_submit
 input {
-    float: none;
-    margin: 0px auto;
-    padding: 0px 20px 0px 20px;
-    height: 28px;
-    font-size: 11px;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    border-radius: 15px
+  float: none;
+  margin: 0px auto;
+  padding: 0px 20px 0px 20px;
+  height: 28px;
+  font-size: 11px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px
 }
 
 #form_submit input[type="button"] {
-    background: #c6cecf;
-    text-shadow: 0px 1px 0px #9fa9ab;
-    box-shadow: 0px 1px 0px #aeb9bb;
-    -webkit-box-shadow: 0px 1px 0px #aeb9bb;
-    -moz-box-shadow: 0px 1px 0px #aeb9bb
+  background: #c6cecf;
+  text-shadow: 0px 1px 0px #9fa9ab;
+  box-shadow: 0px 1px 0px #aeb9bb;
+  -webkit-box-shadow: 0px 1px 0px #aeb9bb;
+  -moz-box-shadow: 0px 1px 0px #aeb9bb
 }
 
 #form_submit input[type="button"]:hover {
-    background: #aeb9bb
+  background: #aeb9bb
 }
 
 #form_submit input.deleteItem {
-    background: #ff53a3;
-    text-shadow: 0px 1px 0px #b80056;
-    box-shadow: 0px 1px 0px #b80056;
-    -webkit-box-shadow: 0px 1px 0px #b80056;
-    -moz-box-shadow: 0px 1px 0px #b80056
+  background: #ff53a3;
+  text-shadow: 0px 1px 0px #b80056;
+  box-shadow: 0px 1px 0px #b80056;
+  -webkit-box-shadow: 0px 1px 0px #b80056;
+  -moz-box-shadow: 0px 1px 0px #b80056
 }
 
 #form_submit input.deleteItem:hover {
-    background: #FF0A7C
+  background: #FF0A7C
 }
-
 
 #article ul#settingsnav li.active
 a {
-    margin: 0px -1px 0px 0px;
-    color: #00B0D8;
-    background: white;
-    font-weight: bold;
-    border-top: 1px solid #caccd2;
-    border-right: 1px solid #caccd2;
-    border-bottom: 1px solid white;
-    border-left: 1px solid #caccd2;
-    position: relative
+  margin: 0px -1px 0px 0px;
+  color: #00B0D8;
+  background: white;
+  font-weight: bold;
+  border-top: 1px solid #caccd2;
+  border-right: 1px solid #caccd2;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #caccd2;
+  position: relative
 }
 
-
 #aside {
-    padding: 30px 30px 5px 0px;
-    width: 230px;
-    float: right
+  padding: 30px 30px 5px 0px;
+  width: 230px;
+  float: right
 }
 
 #aside .link
 a {
-    display: block;
-    margin-bottom: 10px;
-    padding: 10px 15px 10px 35px;
-    font-size: 11px;
-    line-height: 15px;
-    color: #85898F;
-    background-color: #F0F1F4;
-    /*background-image: url(/_assets/_graphics/sprite_links.gif);*/
-    background-repeat: no-repeat;
-    background-position: left 0px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px 15px 10px 35px;
+  font-size: 11px;
+  line-height: 15px;
+  color: #85898F;
+  background-color: #F0F1F4; /*background-image: url(/_assets/_graphics/sprite_links.gif);*/
+  background-repeat: no-repeat;
+  background-position: left 0px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px
 }
 
 #aside .link a:hover {
-    color: #525760;
-    background-color: #DBDCE0
+  color: #525760;
+  background-color: #DBDCE0
 }
 
 #aside .link.viewsite
 a {
-    background-position: left -35px
+  background-position: left -35px
 }
 
 #aside .link.viewpage
 a {
-    background-position: left -70px
+  background-position: left -70px
 }
 
 #aside .link.customize
 a {
-    background-position: left -105px
+  background-position: left -105px
 }
 
 #aside .link.themes
 a {
-    background-position: left -140px
+  background-position: left -140px
 }
 
 #aside
 .section {
-    margin: 25px 0px 25px 0px;
-    padding: 15px;
-    background: #F0F1F4;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px
+  margin: 25px 0px 25px 0px;
+  padding: 15px;
+  background: #F0F1F4;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px
 }
 
 #aside
 .section.activate {
-    background: #ff9;
-    margin-top: 0px;
-    padding: 35px 15px 25px 15px
+  background: #ff9;
+  margin-top: 0px;
+  padding: 35px 15px 25px 15px
 }
 
 #aside .section
 hr {
-    margin: 20px 0px 15px 0px;
-    display: block;
-    border: none;
-    height: 0px;
-    background: #CACCD2;
-    border-top: 1px solid #CACCD2;
-    border-bottom: 1px solid white
+  margin: 20px 0px 15px 0px;
+  display: block;
+  border: none;
+  height: 0px;
+  background: #CACCD2;
+  border-top: 1px solid #CACCD2;
+  border-bottom: 1px solid white
 }
 
 #aside .section
 h5 {
-    margin: 0px;
-    font-size: 12px;
-    line-height: 18px;
-    font-weight: bold;
-    position: relative
+  margin: 0px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: bold;
+  position: relative
 }
 
 #aside .section h5 small.modify.settings
 a {
-    opacity: 0.25;
-    filter: alpha(opacity = 25)
+  opacity: 0.25;
+  filter: alpha(opacity = 25)
 }
 
 #aside .section h5 small.modify.settings a:hover {
-    opacity: .50;
-    filter: alpha(opacity = 50)
+  opacity: .50;
+  filter: alpha(opacity = 50)
 }
 
 #aside .section
 h6 {
-    margin: 15px 0px 0px 0px;
-    font-size: 11px;
-    font-weight: normal
+  margin: 15px 0px 0px 0px;
+  font-size: 11px;
+  font-weight: normal
 }
 
 #aside .section
 p {
-    margin: 15px 0px 0px 0px;
-    font-size: 11px;
-    color: #85898F
+  margin: 15px 0px 0px 0px;
+  font-size: 11px;
+  color: #85898F
 }
 
 #aside .section p
 small.modify.add {
-    display: block;
-    padding-bottom: 10px
+  display: block;
+  padding-bottom: 10px
 }
 
 #aside .section p
 img {
-    max-width: 200px;
-    vertical-align: middle
+  max-width: 200px;
+  vertical-align: middle
 }
 
 #aside .section p span.note
 input.checkbox {
-    margin-left: 0px
+  margin-left: 0px
 }
 
 #aside .section.activate
 p {
-    margin: 0 0 7px 0;
-    text-align: center
+  margin: 0 0 7px 0;
+  text-align: center
 }
 
 #aside .section.activate p
 a {
-    color: #525760;
-    font-size: 16px;
-    padding: 5px 10px;
-    background: #e5e690;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px
+  color: #525760;
+  font-size: 16px;
+  padding: 5px 10px;
+  background: #e5e690;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px
 }
 
 #aside .section.activate p a:hover {
-    color: #30343a;
-    background: #d3d48a
+  color: #30343a;
+  background: #d3d48a
 }
 
 #aside .section
 ul {
-    margin: 15px 0px 0px 0px;
-    font-size: 11px;
-    border-top: 1px dotted #CACCD2
+  margin: 15px 0px 0px 0px;
+  font-size: 11px;
+  border-top: 1px dotted #CACCD2
 }
 
 #aside .section ul
 li {
-    padding: 10px 0px 10px 0px;
-    border-bottom: 1px dotted #CACCD2;
-    position: relative
+  padding: 10px 0px 10px 0px;
+  border-bottom: 1px dotted #CACCD2;
+  position: relative
 }
 
 #aside .section ul li
 small.modify {
-    top: 8px
+  top: 8px
 }
 
 #aside .section ul li
 small.modify.settings {
-    visibility: hidden
+  visibility: hidden
 }
 
 #aside .section ul li:hover
 small.modify.settings {
-    visibility: visible;
-    right: 50px
+  visibility: visible;
+  right: 50px
 }
 
 #aside .section ul li
 p {
-    margin: 5px 0px 0px 0px
+  margin: 5px 0px 0px 0px
 }
 
 #aside .section ul li
 p.hide {
-    margin-top: 10px
+  margin-top: 10px
 }
 
 #aside .section ul li p.hide
 em {
-    color: #b5b9c0;
-    font-size: 10px
+  color: #b5b9c0;
+  font-size: 10px
 }
 
 #aside .section ul li
 span.note.side {
-    position: absolute;
-    top: 10px;
-    right: 0px;
-    display: inline;
-    margin: 0px
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  display: inline;
+  margin: 0px
 }
 
 #aside .section ul.feeds li
 span.field {
-    padding: 10px
+  padding: 10px
 }
 
 #aside .section ul li.active
 a {
-    color: #525760
+  color: #525760
 }
 
 #overlay {
-    background: #000;
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    opacity: .30;
-    filter: alpha(opacity = 30)
+  background: #000;
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  opacity: .30;
+  filter: alpha(opacity = 30)
 }
 
 #overlay-wrapper {
-    display: none;
-    z-index: 1000;
-    /*width: 500px;*/
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    border: solid 10px #525760;
-    border-color: rgba(0, 0, 0, 0.25)
+  display: none;
+  z-index: 1000; /*width: 500px;*/
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: solid 10px #525760;
+  border-color: rgba(0, 0, 0, 0.25)
 }
 
 #overlay-content {
-    background: #fff;
-    border: solid 1px #656b77
+  background: #fff;
+  border: solid 1px #656b77
 }
 
 #overlay-content:after {
-    display: block;
-    visibility: hidden;
-    clear: both;
-    height: 0;
-    line-height: 0;
-    content: "."
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  line-height: 0;
+  content: "."
 }
 
 #remember_me {
-    display: block;
-    padding-top: 16px
+  display: block;
+  padding-top: 16px
 }
 
 #remember_me label,
 #remember_me
 input {
-    display: inline;
-    float: none
+  display: inline;
+  float: none
 }
 
 #remember_me
 input {
-    margin-right: 8px
+  margin-right: 8px
 }
 
 #overlay-wrapper.alert h1,
 #overlay-wrapper.confirm
 h1 {
-    text-align: center;
-    margin: 40px 20px;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 20px;
-    color: #4c4c4c
+  text-align: center;
+  margin: 40px 20px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #4c4c4c
 }
 
 #overlay-wrapper.alert.welcome
 h1 {
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: left
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left
 }
 
 #overlay-wrapper.alert
 h2 {
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 0 20px 40px
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0 20px 40px
 }
 
 #cc_info h1,
@@ -519,130 +510,130 @@ h2 {
 #overlay-wrapper.overlay-modules h1,
 #overlay-wrapper.overlay-add-post
 h1 {
-    font-size: 13px;
-    font-weight: normal;
-    color: #525760;
-    background: #e9eaed;
-    display: block;
-    padding: 10px 20px;
-    border-bottom: solid 1px #cacbd1;
-    text-align: center;
-    margin-bottom: 30px
+  font-size: 13px;
+  font-weight: normal;
+  color: #525760;
+  background: #e9eaed;
+  display: block;
+  padding: 10px 20px;
+  border-bottom: solid 1px #cacbd1;
+  text-align: center;
+  margin-bottom: 30px
 }
 
 #overlay-wrapper.overlay-storage #form_submit
 span.submit {
-    background: none
+  background: none
 }
 
 #overlay-wrapper.overlay-storage
 #form_submit {
-    text-align: center;
-    line-height: 0;
-    float: none;
-    padding: 0;
-    margin: 0;
-    border: none;
-    width: auto
+  text-align: center;
+  line-height: 0;
+  float: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: auto
 }
 
 #cc_info
 #form_submit {
-    text-align: left;
-    line-height: 0;
-    float: none;
-    padding: 0;
-    margin: 0
+  text-align: left;
+  line-height: 0;
+  float: none;
+  padding: 0;
+  margin: 0
 }
 
 #overlay-wrapper
 #form_submit {
-    text-align: center;
-    line-height: 0
+  text-align: center;
+  line-height: 0
 }
 
 #overlay-wrapper.overlay-login #form_submit,
 #overlay-wrapper.overlay-signup
 #form_submit {
-    text-align: left;
-    float: left;
-    width: auto;
-    border: 0;
-    padding: 0;
-    margin: 0 15px 30px 25px
+  text-align: left;
+  float: left;
+  width: auto;
+  border: 0;
+  padding: 0;
+  margin: 0 15px 30px 25px
 }
 
 #overlay-wrapper.overlay-login #form_submit
 input {
-    float: none;
-    margin-left: 0
+  float: none;
+  margin-left: 0
 }
 
 #overlay-wrapper.overlay-login.overlay-password-reset
 #form_submit {
-    float: none;
-    text-align: center;
-    margin-bottom: 0
+  float: none;
+  text-align: center;
+  margin-bottom: 0
 }
 
 #cc_info .overlay_footer,
 #overlay-wrapper .overlay_footer {
-    float: none;
-    width: auto;
-    border-top: solid 1px #a5c8d3;
-    background: #d0e9f1;
-    clear: both;
-    margin: 0;
-    padding: 15px 25px
+  float: none;
+  width: auto;
+  border-top: solid 1px #a5c8d3;
+  background: #d0e9f1;
+  clear: both;
+  margin: 0;
+  padding: 15px 25px
 }
 
 .overlay_footer#form_submit input {
-    float: none;
-    margin: 0 5px
+  float: none;
+  margin: 0 5px
 }
 
 #form_submit input[type="button"].saveForm {
-    background: #4cc8e4;
-    text-shadow: 0px 1px 0px #179ab8;
-    box-shadow: 0px 1px 0px #4caac0;
-    -webkit-box-shadow: 0px 1px 0px #4caac0;
-    -moz-box-shadow: 0px 1px 0px #4caac0
+  background: #4cc8e4;
+  text-shadow: 0px 1px 0px #179ab8;
+  box-shadow: 0px 1px 0px #4caac0;
+  -webkit-box-shadow: 0px 1px 0px #4caac0;
+  -moz-box-shadow: 0px 1px 0px #4caac0
 }
 
 #form_submit input[type="button"].saveForm:hover {
-    background: #00b0d8
+  background: #00b0d8
 }
 
 #overlay-wrapper.overlay-login
 .overlay_footer {
-    text-align: right
+  text-align: right
 }
 
 #overlay-wrapper.overlay-login .overlay_footer
 a {
-    margin-left: 5px
+  margin-left: 5px
 }
 
 #overlay-wrapper.overlay-login.overlay-openid .overlay_footer
 #whatIsOpenId {
-    float: left
+  float: left
 }
 
 #overlay-wrapper.overlay-login .overlay_footer
 img {
-    vertical-align: -5px
+  vertical-align: -5px
 }
 
 #overlay-wrapper.alert
 .overlay_footer {
-    border-top: solid 1px #cacbd0;
-    background: #e9eaee
+  border-top: solid 1px #cacbd0;
+  background: #e9eaee
 }
 
 #cc_info #form_submit span.submit,
 #overlay-wrapper #form_submit
 span.submit {
-    background: #b0d8e3
+  background: #b0d8e3
 }
 
 #cc_info #form_submit span.submit,
@@ -650,9 +641,9 @@ span.submit {
 #overlay-wrapper #form_submit span.submit,
 #overlay-wrapper #form_submit
 span.cancel {
-    display: inline-block;
-    float: none;
-    margin: 0 15px 0 5px
+  display: inline-block;
+  float: none;
+  margin: 0 15px 0 5px
 }
 
 #overlay-wrapper.alert #form_submit span.submit,
@@ -664,95 +655,95 @@ span.cancel {
 #overlay-wrapper.prompt #form_submit span.submit,
 #overlay-wrapper.prompt #form_submit
 span.cancel {
-    display: inline-block;
-    float: none;
-    margin: 0 5px 0 5px
+  display: inline-block;
+  float: none;
+  margin: 0 5px 0 5px
 }
 
 #overlay-wrapper.alert #form_submit
 span.submit {
-    background: #f8abd0
+  background: #f8abd0
 }
 
 #overlay-wrapper.alert #form_submit span.submit
 strong {
-    border: 1px solid #c33372
+  border: 1px solid #c33372
 }
 
 #overlay-wrapper.alert #form_submit span.submit strong
 input {
-    /*background: url(/_assets/_graphics/bg_submit_pink.gif) repeat-x top left;*/
-    color: #fff;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, .35);
-    border: 1px solid #ff0279
+/*background: url(/_assets/_graphics/bg_submit_pink.gif) repeat-x top left;*/
+  color: #fff;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, .35);
+  border: 1px solid #ff0279
 }
 
 #cc_info span.field,
 #overlay-wrapper
 span.field {
-    padding: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    background: #E3E5E7;
-    display: block;
-    margin: 0 25px 20px 25px
+  padding: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #E3E5E7;
+  display: block;
+  margin: 0 25px 20px 25px
 }
 
 #overlay-wrapper.overlay-login.overlay-password-reset span.field,
 #overlay-wrapper.prompt
 span.field {
-    margin-bottom: 30px
+  margin-bottom: 30px
 }
 
 #overlay-wrapper.prompt span.field
 textarea {
-    padding: 6px;
-    font-size: 13px;
-    height: 35px;
-    width: 424px;
-    display: block
+  padding: 6px;
+  font-size: 13px;
+  height: 35px;
+  width: 424px;
+  display: block
 }
 
 #cc_info span.field input,
 #overlay-wrapper span.field input,
 #overlay-wrapper span.field
 select {
-    width: 416px;
-    padding: 10px;
-    font-size: 16px
+  width: 416px;
+  padding: 10px;
+  font-size: 16px
 }
 
 #overlay-wrapper span.field.password input#password {
-    width: 270px;
-    margin-right: 15px
+  width: 270px;
+  margin-right: 15px
 }
 
 #overlay-wrapper span.field.password input#checkbox {
-    width: 20px;
+  width: 20px;
 }
 
 #overlay-wrapper
 label.remember {
-    position: relative;
-    float: left;
-    top: 11px
+  position: relative;
+  float: left;
+  top: 11px
 }
 
 #overlay-wrapper label.remember
 input {
-    margin: 0px 5px 0px 5px;
-    border: none
+  margin: 0px 5px 0px 5px;
+  border: none
 }
 
 a.modalCloseImg {
-    background: url('images/x.png') no-repeat;
-    width: 25px;
-    height: 29px;
-    display: inline;
-    z-index: 3200;
-    position: absolute;
-    top: -15px;
-    left: -18px;
-    cursor: pointer;
+  background: url('images/x.png') no-repeat;
+  width: 25px;
+  height: 29px;
+  display: inline;
+  z-index: 3200;
+  position: absolute;
+  top: -15px;
+  left: -18px;
+  cursor: pointer;
 }

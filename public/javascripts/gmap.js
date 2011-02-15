@@ -1,5 +1,5 @@
 var geocoder = new google.maps.Geocoder();
-var form = "<div id='streetAddress' style='width:200px; height: 100px;'></div>";
+var form = "<div id='streetAddress' style='width:250px; height: 100px;'></div>";
 
 var steetinfowindow = new google.maps.InfoWindow({
   content: form
@@ -33,7 +33,7 @@ function updateMarkerAddress(str, state) {
   var info = str.replace('Киргизия', 'Кыргызстан');
   html = document.getElementById('streetAddress');
   if (html) {
-    html.innerHTML = info + "<hr>" + "<a href='#' id='show_form'>Сообщить</a>";
+    html.innerHTML = info + "<br><hr>" + "<a href='#' id='show_form'>Сообщить</a>";
   }
   if (state == 'Бишкек')
     $('#respond form input#report_state_id').val(8);
@@ -160,7 +160,7 @@ function initialize() {
         for (j in labels[i]) {
           data += "<div style='width:200px; height:100px;'";
           data += '<b>' + labels[i]['label']['name'] + '</b>';
-          data += '<hr><a href=\'#\' id="' + labels[i]['label']['id'] + '">Перейти в область</a>';
+          data += '<br/><hr/><a href=\'#\' id="' + labels[i]['label']['id'] + '">Перейти в область</a>';
           data += '</div>';
 
           lid = labels[i]['label']['id'];
