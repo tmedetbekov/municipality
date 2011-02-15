@@ -11,3 +11,7 @@ test/*
 *.swp
 .idea
 .idea/*
+nbproject
+nbproject/*
+
+
