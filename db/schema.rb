@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110211105015) do
+ActiveRecord::Schema.define(:version => 20110213055025) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -27,15 +27,14 @@ ActiveRecord::Schema.define(:version => 20110211105015) do
 
   create_table "comments", :force => true do |t|
     t.integer  "report_id"
-    t.integer  "comment_id"
     t.integer  "user_id"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "author"
+    t.string   "email"
   end
 
-  add_index "comments", ["comment_id"], :name => "index_comments_on_comment_id"
   add_index "comments", ["report_id"], :name => "index_comments_on_report_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 

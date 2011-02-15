@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
 
   def show
     @reports = Report.find(params[:id])
-  end
+	end
 
   def new
     @reports = Report.new
