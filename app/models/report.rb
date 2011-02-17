@@ -18,11 +18,16 @@ class Report < ActiveRecord::Base
 #  validates_attachment_content_type :photo, :content_type => ['image/jpeg']
 
 
-  def self.get_reports_coordinates
-    report = Report.all
-    report.each do |r|
-      r.coordinates
-    end
+  def self.total_on(date)
+    where("date(created_at) = ?", date).count()
   end
+
+  def self.total_month()
+#  Article.count(:group=>"DATE_FORMAT(created_at, '%Y %b')")
+    Report.count(:group=>"DATE_FORMAT(created_at, '%Y %b')")
+
+#  where("date(created_at) = ?", datas).count()
+  end
+
 
 end

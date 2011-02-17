@@ -61,3 +61,86 @@
 
   </div>
 </div>
+<div id="content" class="col-full">
+  <div id="main" class="col-left box">
+    <div class="post">
+      <div id="orders_chart" style="width: 540px;">
+        <script type="text/javascript" charset="utf-8">
+            $(function() {
+                new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'orders_chart',
+//                        plotBackgroundColor: 'rgba(255, 255, 255, .9)',
+//                        plotShadow: true,
+                        defaultSeriesType: 'spline',
+                        width: 540,
+                        height: 280,
+                        borderWidth: 1
+                    },
+                    xAxis: {
+                        type: 'datetime',
+                        labels: {
+                            style: {
+                                color: '#000',
+                                font: '11px Trebuchet MS, Verdana, sans-serif',
+
+                            }
+                        },
+
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: { text: 'Reports' },
+                        labels: {
+                            style: {
+                                color: '#000',
+                                font: '11px Trebuchet MS, Verdana, sans-serif'
+                            }
+                        },
+                    },
+                    title: { text: 'Статистика проблем' },
+                    plotOptions: {
+                        series: {
+                            cursor: 'pointer',
+                        }
+                    },
+
+                    tooltip: {
+                        formatter: function () {
+    return Highcharts.dateFormat("%B %e %Y", this.x) + ' Found ' + ': ' + Highcharts.numberFormat(this.y, 0);
+                        }
+                    },
+
+                    series: [
+                        {
+                            name: "Проблемы",
+                            pointInterval: <%= 1.day * 1000 %>,
+                            pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+                            data: <%= (3.weeks.ago.to_date..Date.today).map { |date| Report.total_on(date)}.inspect %>
+                        }
+                    ]
+                });
+            });
+
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div id="sidebar" class="col-right">
+
+    <!-- Widgetized Sidebar -->
+    <div class="widget widget_pages"><h3>Статистика</h3>
+    <div id="month_stat">
+
+      <%= Report.total_month()   %>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
