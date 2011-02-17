@@ -1,0 +1,16 @@
+function initialize() {
+  if(GBrowserIsCompatible()) {
+    var map = new GMap2(document.getElementById('cluster_map'));
+    map.setCenter(new GLatLng(39.91, 116.38), 2);
+    map.addControl(new GLargeMapControl());
+    var icon = new GIcon(G_DEFAULT_ICON);
+    icon.image = "http://chart.apis.google.com/chart?cht=mm&chs=24x32&chco=FFFFFF,008CFF,000000&ext=.png";
+    var markers = [];
+    for (var i = 0; i < 100; ++i) {
+      var latlng = new GLatLng(data.photos[i].latitude, data.photos[i].longitude);
+      var marker = new GMarker(latlng, {icon: icon});
+      markers.push(marker);
+    }
+    var markerCluster = new MarkerClusterer(map, markers);
+  }
+}
