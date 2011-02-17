@@ -1,55 +1,65 @@
 <% @page_title = 'Reports list' %>
 
 <div id="main" class='col-left box'>
-<h3><%= t('general.recent_reports') %></h3><br>
+  <h3><%= t('general.recent_reports') %></h3><br/>
 
-<div style="color: red;">
-  <% if I18n.locale == :en %>
-      <%= pluralize(@reports.size, 'report') %> found
-  <% else %>
-      Найдено проблем <%= pluralize(@reports.size, '') %>
+  <div class="count">
+    <% if I18n.locale == :en %>
+        <%= pluralize(@reports.size, 'report') %> found
+    <% else %>
+        Найдено проблем <%= pluralize(@reports.size, '') %>
+    <% end %>
+  </div>
+  <br/>
+
+  <% for reports in @reports %>
+      <p>
+        <strong><%= t('general.subject') %>:</strong>
+        <%= reports.subject %>
+      </p>
+
+      <p>
+        <strong><%= t('general.description') %></strong>
+        <%= reports.description %>
+      </p>
+
+      <p>
+        <strong><%= t('general.category') %></strong>
+        <%= reports.category.name %>
+      </p>
+
+      <p>
+        <strong><%= t('general.state') %></strong>
+        <%= reports.address %>
+      </p>
+
+      <p>
+        <%= link_to t('general.show'), reports %>
+        <% if admin? %>
+            <%= link_to t('general.edit'), edit_report_path(reports) %>
+            <%= link_to t('general.destroy'), reports, :confirm => t('general.confirm'), :method => :delete %>
+        <% end %>
+      <hr>
+      </p>
   <% end %>
-</div><br>
 
-<% for reports in @reports %>
-    <p>
-      <strong><%= t('general.subject') %>:</strong>
-      <%= reports.subject %>
-    </p>
-    <p>
-      <strong><%= t('general.description') %></strong>
-      <%= reports.description %>
-    </p>
-    <p>
-      <strong><%= t('general.category') %></strong>
-      <%= reports.category.name %>
-    </p>
-    <p>
-      <strong><%= t('general.state') %></strong>
-      <%= reports.address %>
-    </p>
-    <p>
-      <!--<strong><%= t('general.reporter') %>:</strong>-->
-      <%# reports.user.full_name %>
-    </p>
-    <!--<p>-->
-    <!--<strong>Voted</strong>-->
-    <!--<%= reports.voted %>-->
-    <!--</p>-->
-
-    <p>
-      <%= link_to t('general.show'), reports %>
-      <% if admin? %>
-          <%= link_to t('general.edit'), edit_report_path(reports) %>
-          <%= link_to t('general.destroy'), reports, :confirm => t('general.confirm'), :method => :delete %>
-      <% end %>
-    <hr/>
-    </p>
-<% end %>
-<%= will_paginate @reports %>
+  <%= will_paginate @reports %>
 
 </div>
 
 <div id="sidebar" class="col-right">
-  <div class='widget'></div>
+  <div class='widget'>
+    <h3>Последние комментарии</h3>
+
+    <% @comments.each do |comment| %>
+        <div class="comments_show">
+          <span class="author_name"><%= comment.author %></span>
+          <span class="author_created_comment"><%= display_date(comment.created_at) %></span>
+          <br>
+          <span class="comment_content"><%= comment.content %></span>
+          
+        </div>
+        <br>
+    <% end %>
+  </div>
 </div>
