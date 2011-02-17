@@ -34,48 +34,8 @@
   <% end %>
   <%= link_to t('general.view'), reports_path %>
 
-  <div id='comments'>
-    <h3><%= t('general.comments') %> (<%= @reports.comments.count %>)</h3>
-
-    <div class='fix'></div>
-    <ol class='commentlist'>
-      <% @reports.comments.each do |comment| %>
-        <li class="comment byuser">
-          <a href="#"></a>
-
-          <div class="avatar-box">
-            <%= image_tag "default_avatar.png" %>
-          </div>
-          <div class="comment-container">
-            <div class="comment-head">
-              <span><b><%= comment.author %></b></span><br/>
-              <span class="date"><%= display_date(comment.created_at) %></span>
-            </div>
-            <div class="comment-entry">
-              <%= comment.content %>
-            </div>
-            <% if admin? %>
-              <%= link_to "Delete", [@reports, comment], :confirm => "Are you sure?", :method => :delete %>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ol>
-  </div>
-  <div id="respond">
-    <h3>Add new Comment</h3>
-    <%= simple_form_for [@reports, Comment.new], :validations => { :class => Comment }, :html => {:id => 'commentform'} do |f| %>
-      <% if user_signed_in? %>
-        <p>Комментировать как <b><%= current_user.name %></b> <%= link_to t('general.sign_out'), destroy_user_session_path %></p>
-      <% else %>
-        <%= f.input :author, :label => 'author' %>
-        <%= f.input :email, :label => 'E-mail' %>
-      <% end %>
-      <%= f.text_area :content, :size => '10x10' %>
-      <%= f.submit :submit, :id => 'submit', :class => 'button', :value => t("general.send_comment") %>
-    <% end %>
-  </div>
-
+  <div id="disqus_thread"></div>
+  <%= javascript_include_tag "disqus" %>
 </div>
 
 <div id="sidebar" class="col-right">
