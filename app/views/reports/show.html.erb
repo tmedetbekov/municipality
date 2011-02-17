@@ -29,10 +29,10 @@
     <%= @reports.address %>
   </p>
   <% if admin? %>
-    <%= link_to t('general.edit'), edit_report_path(@reports) %> |
+    <p><%= link_to t('general.edit'), edit_report_path(@reports) %> |
     <%= link_to t('general.destroy'), @reports, :confirm => 'Are you sure?', :method => :delete %> |
   <% end %>
-  <%= link_to t('general.view'), reports_path %>
+  <%= link_to t('general.view'), reports_path %></p>
 
   <%= raw(disqus_thread) %>
 </div>

@@ -40,7 +40,7 @@ your liking.
 }
 
 #content #main form input[type='submit'] {
-  width: auto;
+    width: auto;
 }
 
 #content #main form select {
@@ -48,8 +48,9 @@ your liking.
     padding: 7px 5px;
     width: 249px;
 }
+
 #commentform select {
-  width: 310px !important;
+    width: 310px !important;
 }
 
 /*.clear-block {*/
@@ -147,24 +148,59 @@ your liking.
 #flash_notice {
     margin-bottom: 8px;
     color: green;
+    font-size: 12px;
 }
 
 .report_description {
-	float: left;
-	width: 50%;
+    float: left;
+    width: 50%;
 }
 
-
 .static_map {
-	padding: 2px;
-	margin: 0;
+    padding: 2px;
+    margin: 0;
 }
 
 .images_widget {
-	padding: 2px;
-	margin-top: 5px;
+    padding: 2px;
+    margin-top: 5px;
 }
 
 .container #report_form .streetAddress a {
-  margin-top: 10px;
+    margin-top: 10px;
+}
+
+.pagination {
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    background: none repeat scroll 0 0 #C5D6E3;
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.count {
+    color: red;
+    font-size: 12px;
+}
+
+.comments_show {
+    padding: 5px;
+    border: 1px solid #EEEEEE;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -moz-box-shadow: 0 0 3px #DCDCDC;
+}
+.author_name{
+    font-weight:bold;
+    font-size: 14px;
+    font-family:"Lucida","Lucida Grande","Trebuchet MS",Tahoma,Verdana,sans-serif;
+}
+.author_created_comment{
+    font-size: 11px;
+    font-family: Arial;
+    font-style:italic;
+}
+.comment_content{
+    font-size: 12px;
+    font-family:Arial;
 }
