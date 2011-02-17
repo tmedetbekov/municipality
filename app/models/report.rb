@@ -17,4 +17,12 @@ class Report < ActiveRecord::Base
   has_attached_file :photo, :styles => {:medium => "306x238>"}
 #  validates_attachment_content_type :photo, :content_type => ['image/jpeg']
 
+
+  def self.get_reports_coordinates
+    report = Report.all
+    report.each do |r|
+      r.coordinates
+    end
+  end
+
 end
