@@ -1,10 +1,6 @@
 <%= javascript_include_tag"http://www.google.com/jsapi", "markerclusterer" %>
-
 <script type="text/javascript">
-  var coordinates = "<%= @reports.collect {|c| c.coordinates+"|" } %>";
-  var myLatLng = new Array();
-  var arr = new Array();
-  arr = coordinates.split("|");
+  var arr = <%= @reports.to_json(:only => 'coordinates').html_safe %>;
 
   google.load('maps', '3', {
     other_params: 'sensor=false'
@@ -23,12 +19,14 @@
     });
 
     var markers = [];
-    for (var i=0; i < arr.length-1; i++) {
-      myLatLng = arr[i].split(", ");
-      
-      var latLng = new google.maps.LatLng(myLatLng[0], myLatLng[1]);
+    var image = "http://chart.apis.google.com/chart?cht=mm&chs=24x32&chco=FFFFFF,008CFF,000000&ext=.png";
+    for (var i=0; i < arr.length; i++) {
+      myLatLng = arr[i]['report']['coordinates'].split(', ');
+
+      var latLng = new google.maps.LatLng(parseFloat(myLatLng[0]),parseFloat(myLatLng[1]));
       var marker = new google.maps.Marker({
         position: latLng,
+        icon : image
       });
       markers.push(marker);
     }
@@ -70,8 +68,6 @@
                 new Highcharts.Chart({
                     chart: {
                         renderTo: 'orders_chart',
-//                        plotBackgroundColor: 'rgba(255, 255, 255, .9)',
-//                        plotShadow: true,
                         defaultSeriesType: 'spline',
                         width: 540,
                         height: 280,
@@ -104,10 +100,9 @@
                             cursor: 'pointer',
                         }
                     },
-
                     tooltip: {
                         formatter: function () {
-    return Highcharts.dateFormat("%B %e %Y", this.x) + ' Found ' + ': ' + Highcharts.numberFormat(this.y, 0);
+                          return Highcharts.dateFormat("%B %e %Y", this.x) + ' Found ' + ': ' + Highcharts.numberFormat(this.y, 0);
                         }
                     },
 
