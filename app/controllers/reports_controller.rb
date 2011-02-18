@@ -6,10 +6,12 @@ class ReportsController < ApplicationController
 
   def index
     @reports = Report.order("created_at desc").paginate(:per_page => 4, :page => params[:page])
+    @comments = Comment.find(:all, :order => 'comments.created_at DESC', :limit=> 5)
   end
 
   def show
     @reports = Report.find(params[:id])
+
 	end
 
   def new
@@ -58,6 +60,5 @@ class ReportsController < ApplicationController
     flash[:notice] = t('general.destroyed')
     redirect_to reports_url
   end
-
 
 end

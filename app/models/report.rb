@@ -17,4 +17,17 @@ class Report < ActiveRecord::Base
   has_attached_file :photo, :styles => {:medium => "306x238>"}
 #  validates_attachment_content_type :photo, :content_type => ['image/jpeg']
 
+
+  def self.total_on(date)
+    where("date(created_at) = ?", date).count()
+  end
+
+  def self.total_month()
+#  Article.count(:group=>"DATE_FORMAT(created_at, '%Y %b')")
+    Report.count(:group=>"DATE_FORMAT(created_at, '%Y %b')")
+
+#  where("date(created_at) = ?", datas).count()
+  end
+
+
 end

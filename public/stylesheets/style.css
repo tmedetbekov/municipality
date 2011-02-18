@@ -113,10 +113,11 @@ p {
 }
 
 hr {
-    background-color: #000;
+    background-color: #585858;
     border: 0;
     height: 1px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 div.hr {
@@ -943,8 +944,7 @@ img.wp-smiley {
     margin: 0;
     padding: 0 0 10px;
     font-size: 16px;
-    text-transform: uppercase;
-    border-bottom: 1px solid #eee;
+    
 }
 
 #sidebar .widget ul li {
