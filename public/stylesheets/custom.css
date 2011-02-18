@@ -170,7 +170,7 @@ your liking.
     margin-top: 10px;
 }
 
-.pagination {
+#main .pagination {
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
     background: none repeat scroll 0 0 #C5D6E3;
