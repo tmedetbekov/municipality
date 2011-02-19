@@ -1,6 +1,6 @@
-<%= javascript_include_tag"http://www.google.com/jsapi", "markerclusterer" %>
+<%= javascript_include_tag "http://www.google.com/jsapi", "markerclusterer" %>
 <script type="text/javascript">
-  var arr = <%= @reports.to_json(:only => 'coordinates').html_safe %>;
+  var arr = <%= @reports.to_json(:only => [:coordinates, :address, :subject, :id]).html_safe %>;
 
   google.load('maps', '3', {
     other_params: 'sensor=false'
@@ -20,14 +20,27 @@
 
     var markers = [];
     var image = "http://chart.apis.google.com/chart?cht=mm&chs=24x32&chco=FFFFFF,008CFF,000000&ext=.png";
-    for (var i=0; i < arr.length; i++) {
+    var infoWindow = new google.maps.InfoWindow();
+    for (var i = 0; i < arr.length; i++) {
       myLatLng = arr[i]['report']['coordinates'].split(', ');
+      contentString = "<b><a href='/reports/"+arr[i]['report']['id']+"'>"+ arr[i]['report']['subject']+"</a></b><hr>";
 
-      var latLng = new google.maps.LatLng(parseFloat(myLatLng[0]),parseFloat(myLatLng[1]));
+      var latLng = new google.maps.LatLng(parseFloat(myLatLng[0]), parseFloat(myLatLng[1]));
       var marker = new google.maps.Marker({
         position: latLng,
-        icon : image
+        icon : image,
+        marker_address : contentString
       });
+
+      var infowindow = new google.maps.InfoWindow({
+        content: ''
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent("<div style='width:200;height:100px;'>"+this.marker_address+"</div>");
+        infowindow.open(map, this);
+      });
+
       markers.push(marker);
     }
 
@@ -64,58 +77,58 @@
     <div class="post">
       <div id="orders_chart" style="width: 540px;">
         <script type="text/javascript" charset="utf-8">
-            $(function() {
-                new Highcharts.Chart({
-                    chart: {
-                        renderTo: 'orders_chart',
-                        defaultSeriesType: 'spline',
-                        width: 540,
-                        height: 280,
-                        borderWidth: 1
-                    },
-                    xAxis: {
-                        type: 'datetime',
-                        labels: {
-                            style: {
-                                color: '#000',
-                                font: '11px Trebuchet MS, Verdana, sans-serif',
+          $(function() {
+            new Highcharts.Chart({
+              chart: {
+                renderTo: 'orders_chart',
+                defaultSeriesType: 'spline',
+                width: 540,
+                height: 280,
+                borderWidth: 1
+              },
+              xAxis: {
+                type: 'datetime',
+                labels: {
+                  style: {
+                    color: '#000',
+                    font: '11px Trebuchet MS, Verdana, sans-serif',
 
-                            }
-                        },
+                  }
+                },
 
-                    },
-                    yAxis: {
-                        min: 0,
-                        title: { text: 'Reports' },
-                        labels: {
-                            style: {
-                                color: '#000',
-                                font: '11px Trebuchet MS, Verdana, sans-serif'
-                            }
-                        },
-                    },
-                    title: { text: 'Статистика проблем' },
-                    plotOptions: {
-                        series: {
-                            cursor: 'pointer',
-                        }
-                    },
-                    tooltip: {
-                        formatter: function () {
-                          return Highcharts.dateFormat("%B %e %Y", this.x) + ' Found ' + ': ' + Highcharts.numberFormat(this.y, 0);
-                        }
-                    },
+              },
+              yAxis: {
+                min: 0,
+                title: { text: 'Reports' },
+                labels: {
+                  style: {
+                    color: '#000',
+                    font: '11px Trebuchet MS, Verdana, sans-serif'
+                  }
+                },
+              },
+              title: { text: 'Статистика проблем' },
+              plotOptions: {
+                series: {
+                  cursor: 'pointer',
+                }
+              },
+              tooltip: {
+                formatter: function () {
+                  return Highcharts.dateFormat("%B %e %Y", this.x) + ' Found ' + ': ' + Highcharts.numberFormat(this.y, 0);
+                }
+              },
 
-                    series: [
-                        {
-                            name: "Проблемы",
-                            pointInterval: <%= 1.day * 1000 %>,
-                            pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
-                            data: <%= (3.weeks.ago.to_date..Date.today).map { |date| Report.total_on(date)}.inspect %>
-                        }
-                    ]
-                });
+              series: [
+                {
+                  name: "Проблемы",
+                  pointInterval: <%= 1.day * 1000 %>,
+                  pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+                  data: <%= (3.weeks.ago.to_date..Date.today).map { |date| Report.total_on(date)}.inspect %>
+                }
+              ]
             });
+          });
 
         </script>
       </div>
@@ -126,10 +139,10 @@
 
     <!-- Widgetized Sidebar -->
     <div class="widget widget_pages"><h3>Статистика</h3>
-    <div id="month_stat">
 
-      <%= Report.total_month()   %>
+      <div id="month_stat">
 
+        <%= Report.total_month() %>
 
 
       </div>
