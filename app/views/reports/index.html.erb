@@ -51,5 +51,7 @@
 </div>
 
 <div id="sidebar" class="col-right">
-  <div class='widget'></div>
+  <div class='widget'>
+    <%= raw disqus_recent_comments(:color => "blue", :hide_mods => false, :num_items => 5, :avatar_size => 32)%>
+  </div>
 </div>

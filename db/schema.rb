@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20110213055025) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.string   "subject"
-    t.string   "description"
+    t.text     "description"
     t.string   "coordinates"
     t.string   "file_path"
     t.string   "pincolor"

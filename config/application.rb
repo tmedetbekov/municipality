@@ -40,6 +40,12 @@ module Monica
     config.filter_parameters += [:password]
 
     config.i18n.default_locale = 'ru'
-
+    config.after_initialize do
+      Disqus::defaults[:account] = "municipality"
+      # so that the comments will load up in development environment
+      Disqus::defaults[:developer] = true
+      Disqus::defaults[:container_id] = "disqus_thread"
+      Disqus::defaults[:show_powered_by] = false
+    end
   end
 end

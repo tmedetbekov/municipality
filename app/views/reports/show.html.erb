@@ -34,8 +34,7 @@
   <% end %>
   <%= link_to t('general.view'), reports_path %>
 
-  <div id="disqus_thread"></div>
-  <%= javascript_include_tag "disqus" %>
+  <%= raw(disqus_thread) %>
 </div>
 
 <div id="sidebar" class="col-right">
@@ -50,7 +49,6 @@
     </script>
     <div class="static_map widget"></div>
   </div>
-
   <div class="widget">
     <% if @reports.photo_file_name %>
       <strong><%= t('general.photo') %>: </strong>
@@ -59,4 +57,3 @@
     <% end %>
   </div>
 </div>
-
