@@ -7,11 +7,11 @@
   });
   google.setOnLoadCallback(initialize);
 
-  function initialize() {
-    var center = new google.maps.LatLng(41.269550, 74.766098);
+  getKgMap = function (lat, lng, zoom) {
+    var center = new google.maps.LatLng(lat, lng);
 
     var map = new google.maps.Map(document.getElementById('cluster_map'), {
-      zoom: 7,
+      zoom: zoom,
       center: center,
       minZoom: 7,
       streetViewControl: false,
@@ -23,7 +23,7 @@
     var infoWindow = new google.maps.InfoWindow();
     for (var i = 0; i < arr.length; i++) {
       myLatLng = arr[i]['report']['coordinates'].split(', ');
-      contentString = "<b><a href='/reports/"+arr[i]['report']['id']+"'>"+ arr[i]['report']['subject']+"</a></b><hr>";
+      contentString = "<b><a href='/reports/" + arr[i]['report']['id'] + "'>" + arr[i]['report']['subject'] + "</a></b><hr>";
 
       var latLng = new google.maps.LatLng(parseFloat(myLatLng[0]), parseFloat(myLatLng[1]));
       var marker = new google.maps.Marker({
@@ -37,7 +37,7 @@
       });
 
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent("<div style='width:200;height:100px;'>"+this.marker_address+"</div>");
+        infowindow.setContent("<div style='width:200;height:100px;'>" + this.marker_address + "</div>");
         infowindow.open(map, this);
       });
 
@@ -46,6 +46,30 @@
 
     var markerCluster = new MarkerClusterer(map, markers);
   }
+
+  function initialize() {
+    this.getKgMap(41.269550, 74.766098, 7);
+  }
+
+  function goto_state(lid) {
+    if (lid == "io")
+      getKgMap(42.472097, 78.384361, 15);
+    if (lid == "oo")
+      getKgMap(40.528284, 72.801075, 15);
+    if (lid == "bo")
+      getKgMap(40.053570, 70.816069, 15);
+    if (lid == "no")
+      getKgMap(41.425352, 75.998054, 15);
+    if (lid == "to")
+      getKgMap(42.517062, 72.233520, 15);
+    if (lid == "jo")
+      getKgMap(40.934719, 72.999859, 15);
+    if (lid == "co")
+      getKgMap(42.874958, 74.586868, 9);
+    if (lid == "bi")
+      getKgMap(42.874958, 74.586868, 11);
+  }
+
 </script>
 <div id="featured" class="col-full">
   <div id="loopedSlider">
