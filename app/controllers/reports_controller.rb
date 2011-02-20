@@ -6,13 +6,12 @@ class ReportsController < ApplicationController
 
   def index
     @reports  = Report.order("created_at desc").paginate(:per_page => 4, :page => params[:page])
-    @comments = Comment.find(:all, :order => 'comments.created_at DESC', :limit=> 5)
+    #@comments = Comment.find(:all, :order => 'comments.created_at DESC', :limit=> 5)
   end
 
   def show
     @reports = Report.find(params[:id])
-
-  end
+	end
 
   def new
     @reports = Report.new

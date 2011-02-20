@@ -48,14 +48,15 @@
   <div class='widget'>
     <h3>Последние комментарии</h3>
 
-    <% @comments.each do |comment| %>
-        <div class="comments_show">
-          <span class="author_name"><%= comment.author %></span>
-          <span class="author_created_comment"><%= display_date(comment.created_at) %></span>          <br>
-          <span class="comment_content"><%= comment.content %></span>
-          
-        </div>
-        <br>
-    <% end %>
+    <!--<%# @comments.each do |comment| %>-->
+        <!--<div class="comments_show">-->
+          <!--<span class="author_name"><%#= comment.author %></span>-->
+          <!--<span class="author_created_comment"><%#= display_date(comment.created_at) %></span>          <br>-->
+          <!--<span class="comment_content"><%#= comment.content %></span>-->
+          <!---->
+        <!--</div>-->
+        <!--<br>-->
+    <!--<%# end %>-->
+    <%= raw disqus_recent_comments(:color => "blue", :hide_mods => false, :num_items => 5, :avatar_size => 32)%>
   </div>
 </div>

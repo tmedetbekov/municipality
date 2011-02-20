@@ -287,20 +287,17 @@ span.status.false {
     -moz-border-radius: 5px 5px 5px 5px;
     -moz-box-shadow: 0 0 3px #DCDCDC;
 }
-
-.author_name {
-    font-weight: bold;
+.author_name{
+    font-weight:bold;
     font-size: 14px;
-    font-family: "Lucida", "Lucida Grande", "Trebuchet MS", Tahoma, Verdana, sans-serif;
+    font-family:"Lucida","Lucida Grande","Trebuchet MS",Tahoma,Verdana,sans-serif;
 }
-
-.author_created_comment {
+.author_created_comment{
     font-size: 11px;
     font-family: Arial;
-    font-style: italic;
+    font-style:italic;
 }
-
-.comment_content {
+.comment_content{
     font-size: 12px;
-    font-family: Arial;
+    font-family:Arial;
 }
