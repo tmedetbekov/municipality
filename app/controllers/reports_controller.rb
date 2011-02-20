@@ -1,7 +1,7 @@
 # encoding: utf-8
 class ReportsController < ApplicationController
 
-  before_filter :authorize, :except => [:index, :new, :show, :create, :destroy]
+  before_filter :authorize, :except => [:index, :new, :show, :create, :destroy, :vote_up]
 
 
   def index
@@ -65,5 +65,18 @@ class ReportsController < ApplicationController
     flash[:notice] = t('general.destroyed')
     redirect_to reports_url
   end
+
+	def vote_up
+		@reports = Report.find(params[:id])
+    if current_user.vote_for(@reports)
+			respond_to do |format|
+				format.js
+			end
+    else
+			respond_to do |format|
+				format.js
+			end
+    end
+	end
 
 end

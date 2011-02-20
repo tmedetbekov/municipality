@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110219183420) do
+ActiveRecord::Schema.define(:version => 20110220084242) do
 
   create_table "assets", :force => true do |t|
     t.integer  "report_id"
@@ -72,8 +72,12 @@ ActiveRecord::Schema.define(:version => 20110219183420) do
     t.integer  "voted"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.string   "address"
-    t.boolean  "solved",      :default => false
+    t.boolean  "solved",             :default => false
   end
 
   add_index "reports", ["category_id"], :name => "index_reports_on_category_id"
@@ -108,5 +112,19 @@ ActiveRecord::Schema.define(:version => 20110219183420) do
 
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.boolean  "vote",          :default => false
+    t.integer  "voteable_id",                      :null => false
+    t.string   "voteable_type",                    :null => false
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["voteable_id", "voteable_type"], :name => "index_votes_on_voteable_id_and_voteable_type"
+  add_index "votes", ["voter_id", "voter_type", "voteable_id", "voteable_type"], :name => "fk_one_vote_per_user_per_entity", :unique => true
+  add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
 
 end

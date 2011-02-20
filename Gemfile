@@ -15,3 +15,5 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'will_paginate'
 gem 'mail_form'
 gem 'disqus'
+gem 'thumbs_up'
+gem "mocha", :group => :test

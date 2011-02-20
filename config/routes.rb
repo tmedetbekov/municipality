@@ -1,5 +1,6 @@
 Monica::Application.routes.draw do
 
+
   resources :contact_forms
 
   devise_for :users, :controllers => {:registrations => 'registrations'}
@@ -12,11 +13,15 @@ Monica::Application.routes.draw do
   resources :authentications
 
 
-  resources(:reports) { resources :comments }
+  resources :reports do
+    member do
+      post :vote_up
+    end
+  end
 
 
   resources :categories
-  
+
   match "/auth/:provider/callback" => "authentications#create"
 
   # The priority is based upon order of creation:

@@ -1,4 +1,9 @@
 <% @page_title = 'Show report' %>
+<div class="vote">
+  <%= link_to image_tag("thumbs_up.png"), vote_up_report_path(@reports), :remote => true, :method => :post, :class => "vote-up-off", :title => "Нажмите чтобы проголосовать!" %>
+    &nbsp;&nbsp;<span class="vote-count-post"><%= @reports.votes_count %></span>
+    <!--<a class="vote-down-off" title="This question is unclear or not useful (click again to undo)">down vote</a>-->
+</div>
 
 <div id="main" class='col-left box'>
   <h3><%= t('general.report') %></h3><br>

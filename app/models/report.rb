@@ -1,4 +1,5 @@
 class Report < ActiveRecord::Base
+  acts_as_voteable
   belongs_to :category
   belongs_to :user
   belongs_to :state
