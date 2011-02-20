@@ -1,1 +1,6 @@
-$('.vote-count-post').html("<%= escape_javaScript(@reports.votes_count) %>")
+var vote = $(".vote-count");
+$(vote).html(<%= @reports.votes_count %>);
+
+<% unless (user_signed_in?) %>
+   $(vote).html('| Зарегистрироваться чтобы проголосовать');
+<% end %>

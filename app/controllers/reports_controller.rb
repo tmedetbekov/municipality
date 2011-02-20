@@ -5,13 +5,13 @@ class ReportsController < ApplicationController
 
 
   def index
-    @reports  = Report.order("created_at desc").paginate(:per_page => 4, :page => params[:page])
+    @reports = Report.order("created_at desc").paginate(:per_page => 4, :page => params[:page])
     #@comments = Comment.find(:all, :order => 'comments.created_at DESC', :limit=> 5)
   end
 
   def show
     @reports = Report.find(params[:id])
-	end
+  end
 
   def new
     @reports = Report.new
@@ -66,17 +66,23 @@ class ReportsController < ApplicationController
     redirect_to reports_url
   end
 
-	def vote_up
-		@reports = Report.find(params[:id])
-    if current_user.vote_for(@reports)
-			respond_to do |format|
-				format.js
-			end
+  def vote_up
+    @reports = Report.find(params[:id])
+    if user_signed_in?
+      unless current_user.voted_for?(@reports)
+        if current_user.vote_for(@reports)
+          respond_to do |format|
+            format.html
+            format.js { redirect_to :action => 'show' }
+          end
+        end
+      end
     else
-			respond_to do |format|
-				format.js
-			end
+      respond_to do |format|
+        format.html
+        format.js { redirect_to :action => 'show' }
+      end
     end
-	end
+  end
 
 end
