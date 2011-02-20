@@ -13,26 +13,23 @@
   <br/>
 
   <% for reports in @reports %>
+        <%= status_tag(reports.solved) %>
       <p>
         <strong><%= t('general.subject') %>:</strong>
         <%= reports.subject %>
       </p>
-
       <p>
         <strong><%= t('general.description') %></strong>
-        <%= reports.description %>
+        <%= truncate(reports.description, :length => 200, :omission => "...") %>
       </p>
-
       <p>
         <strong><%= t('general.category') %></strong>
         <%= reports.category.name %>
       </p>
-
       <p>
         <strong><%= t('general.state') %></strong>
         <%= reports.address %>
       </p>
-
       <p>
         <%= link_to t('general.show'), reports %>
         <% if admin? %>
@@ -54,8 +51,7 @@
     <% @comments.each do |comment| %>
         <div class="comments_show">
           <span class="author_name"><%= comment.author %></span>
-          <span class="author_created_comment"><%= display_date(comment.created_at) %></span>
-          <br>
+          <span class="author_created_comment"><%= display_date(comment.created_at) %></span>          <br>
           <span class="comment_content"><%= comment.content %></span>
           
         </div>

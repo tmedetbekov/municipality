@@ -55,7 +55,7 @@ function updateMarkerAddress(str, state) {
   $('#respond form input#report_address').val(info);
 
   $('#show_form').click(function() {
-    $('.hidden_report_form').modal();
+    $('.hidden_report_form').show(300);
   });
 }
 

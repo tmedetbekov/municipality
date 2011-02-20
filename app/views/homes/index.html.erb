@@ -1,50 +1,45 @@
-<%= javascript_include_tag"http://www.google.com/jsapi", "markerclusterer" %>
+<%= javascript_include_tag "http://www.google.com/jsapi", "markerclusterer" %>
 <script type="text/javascript">
-  var arr = <%= @reports.to_json(:only => 'coordinates').html_safe %>;
-
-  google.load('maps', '3', {
-    other_params: 'sensor=false'
-  });
-  google.setOnLoadCallback(initialize);
-
-  function initialize() {
-    var center = new google.maps.LatLng(41.269550, 74.766098);
-
-    var map = new google.maps.Map(document.getElementById('cluster_map'), {
-      zoom: 7,
-      center: center,
-      minZoom: 7,
-      streetViewControl: false,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+    var arr = <%= @reports.to_json(:only => 'coordinates').html_safe %>;
+    google.load('maps', '3', {
+        other_params: 'sensor=false'
     });
+    google.setOnLoadCallback(initialize);
 
-    var markers = [];
-    var image = "http://chart.apis.google.com/chart?cht=mm&chs=24x32&chco=FFFFFF,008CFF,000000&ext=.png";
-    for (var i=0; i < arr.length; i++) {
-      myLatLng = arr[i]['report']['coordinates'].split(', ');
+    function initialize() {
+        var center = new google.maps.LatLng(41.269550, 74.766098);
 
-      var latLng = new google.maps.LatLng(parseFloat(myLatLng[0]),parseFloat(myLatLng[1]));
-      var marker = new google.maps.Marker({
-        position: latLng,
-        icon : image
-      });
-      markers.push(marker);
+        var map = new google.maps.Map(document.getElementById('cluster_map'), {
+            zoom: 7,
+            center: center,
+            minZoom: 7,
+            streetViewControl: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var markers = [];
+        var image = "http://chart.apis.google.com/chart?cht=mm&chs=24x32&chco=FFFFFF,008CFF,000000&ext=.png";
+        for (var i = 0; i < arr.length; i++) {
+            myLatLng = arr[i]['report']['coordinates'].split(', ');
+
+            var latLng = new google.maps.LatLng(parseFloat(myLatLng[0]), parseFloat(myLatLng[1]));
+            var marker = new google.maps.Marker({
+                position: latLng,
+                icon : image
+            });
+            markers.push(marker);
+        }
+
+        var markerCluster = new MarkerClusterer(map, markers);
     }
-
-    var markerCluster = new MarkerClusterer(map, markers);
-  }
 </script>
 <div id="featured" class="col-full">
   <div id="loopedSlider">
-
     <div class="container" style="height: 470px; display: block;">
       <div class="map" id="cluster_map" style="height:450px;"></div>
     </div>
-
     <div class="fix"></div>
-
     <div class="slider-nav col-full">
-
       <ul class="pagination">
         <li class=""><a href="#" onclick="goto_state('bi');" rel="1">Бишкек</a></li>
         <li class=""><a href="#" onclick="goto_state('co');" rel="2">Чуй</a></li>
@@ -56,86 +51,104 @@
         <li class=""><a href="#" onclick="goto_state('io');" rel="3">Иссык-Куль</a></li>
       </ul>
     </div>
-
   </div>
 </div>
 <div id="content" class="col-full">
-  <div id="main" class="col-left box">
-    <div class="post">
-      <div id="orders_chart" style="width: 540px;">
-        <script type="text/javascript" charset="utf-8">
-            $(function() {
-                new Highcharts.Chart({
-                    chart: {
-                        renderTo: 'orders_chart',
-                        defaultSeriesType: 'spline',
-                        width: 540,
-                        height: 280,
-                        borderWidth: 1
-                    },
-                    xAxis: {
-                        type: 'datetime',
-                        labels: {
-                            style: {
-                                color: '#000',
-                                font: '11px Trebuchet MS, Verdana, sans-serif',
+  <div id="solved">
+    <h1>Решенные проблемы</h1>
+    <ul>
+      <% @reports = Report.where(:solved => true).limit(5).order("created_at desc") %>
+      <% for reports in @reports %>
+          <li><span class="number">№ <%= link_to reports.id, reports %></span>
+            <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
+            <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
+            <br>
+            <b><%= t('general.description') %></b> </b> <%= truncate(reports.description, :length => 200, :omission => "...") %>
+          </li>
+      <% end %>
+    </ul>
+  </div>
 
-                            }
-                        },
+  <div id="unsolved">
+    <h1>Нерешенные проблемы</h1>
+    <ul>
+      <% @reports = Report.where(:solved => false).limit(5).order("created_at desc") %>
+      <% for reports in @reports %>
+          <li><span class="number">№ <%= link_to reports.id, reports %></span>
+            <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
+            <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
+            <br>
+            <b><%= t('general.description') %></b> </b> <%= truncate(reports.description, :length => 200, :omission => "...") %>
+          </li>
+      <% end %>
+    </ul>
+  </div>
 
-                    },
-                    yAxis: {
-                        min: 0,
-                        title: { text: 'Reports' },
-                        labels: {
-                            style: {
-                                color: '#000',
-                                font: '11px Trebuchet MS, Verdana, sans-serif'
-                            }
-                        },
-                    },
-                    title: { text: 'Статистика проблем' },
-                    plotOptions: {
-                        series: {
-                            cursor: 'pointer',
+
+</div>
+<br>
+<div id="main" class="col-left box">
+  <div id="orders_chart" style="width: 540px;">
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            new Highcharts.Chart({
+                chart: {
+                    renderTo: 'orders_chart',
+                    defaultSeriesType: 'spline',
+                    width: 538,
+                    height: 240,
+                    borderWidth: 1
+                },
+                xAxis: {
+                    type: 'datetime',
+                    labels: {
+                        style: {
+                            color: '#000',
+                            font: '11px Trebuchet MS, Verdana, sans-serif'
+                        }
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: { text: 'Reports' },
+                    labels: {
+                        style: {
+                            color: '#000',
+                            font: '11px Trebuchet MS, Verdana, sans-serif'
                         }
                     },
-                    tooltip: {
-                        formatter: function () {
-                          return Highcharts.dateFormat("%B %e %Y", this.x) + ' Found ' + ': ' + Highcharts.numberFormat(this.y, 0);
-                        }
-                    },
-
-                    series: [
-                        {
-                            name: "Проблемы",
-                            pointInterval: <%= 1.day * 1000 %>,
-                            pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
-                            data: <%= (3.weeks.ago.to_date..Date.today).map { |date| Report.total_on(date)}.inspect %>
-                        }
-                    ]
-                });
+                },
+                title: { text: 'Статистика проблем' },
+                plotOptions: {
+                    series: {
+                        cursor: 'pointer',
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return Highcharts.dateFormat("%B %e %Y", this.x) + ' Найдено ' + ': ' + Highcharts.numberFormat(this.y, 0);
+                    }
+                },
+                series: [
+                    {
+                        name: "Проблемы",
+                        pointInterval: <%= 1.day * 1000 %>,
+                        pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,
+                        data: <%= (2.weeks.ago.to_date..Date.today).map { |date| Report.total_on(date)}.inspect %>
+                    }
+                ]
             });
-
-        </script>
-      </div>
-    </div>
+        });
+    </script>
   </div>
+</div>
 
-  <div id="sidebar" class="col-right">
+<div id="sidebar" class="col-right">
+  <!-- Widgetized Sidebar -->
+  <div class="widget widget_pages"><h3>Статистика</h3>
 
-    <!-- Widgetized Sidebar -->
-    <div class="widget widget_pages"><h3>Статистика</h3>
     <div id="month_stat">
-
-      <%= Report.total_month()   %>
-
-
-
-      </div>
-
+      <%= Report.total_month() %>
     </div>
-
   </div>
-
 </div>

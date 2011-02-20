@@ -1,0 +1,27 @@
+<!--pages title at top-->
+<% @page_title = 'New report' %>
+
+<%= simple_form_for(@reports, :validations => true, :html => {:id => 'commentform', :multipart => true}) do |f| %>
+    <div style="float: right; vertical-align: top; margin-right: 20px; color: green;">
+        <%= f.input :solved, :label => t('general.solved')  %>
+    </div>
+    <%= f.input :address, :label => t('general.address') %>
+    <%= f.hidden_field :state_id, :label => 'state' %>
+    <%= f.hidden_field :coordinates, :label => 'coordinates' %>
+    <%= f.association :category, :label => t('general.category') %>
+    <%= f.input :subject, :label => t('general.subject') %>
+    <%= f.text_area :description %><br />
+
+    <div class="newPaperclipFiles">
+      <%= f.fields_for :assets do |asset| %>
+          <% if asset.object.new_record? %><br><br>
+              <%= asset.file_field :image %>
+          <% end %>
+      <% end %>
+    </div>
+    <br>
+
+
+    <%= f.button :submit, :value => t('general.update') %>
+
+<% end %>

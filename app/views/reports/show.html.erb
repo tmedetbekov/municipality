@@ -24,13 +24,12 @@
   </p>
 
   <p>
-
     <strong><%= t('general.state') %></strong>
     <%= @reports.address %>
   </p>
   <% if admin? %>
-    <p><%= link_to t('general.edit'), edit_report_path(@reports) %> |
-    <%= link_to t('general.destroy'), @reports, :confirm => 'Are you sure?', :method => :delete %> |
+      <p><%= link_to t('general.edit'), edit_report_path(@reports) %> |
+        <%= link_to t('general.destroy'), @reports, :confirm => 'Are you sure?', :method => :delete %> |
   <% end %>
   <%= link_to t('general.view'), reports_path %></p>
 
@@ -41,22 +40,32 @@
 <div id="sidebar" class="col-right">
   <div class='widget'>
     <script type='text/javascript'>
-      $(function() {
-        $('.static_map').each(function() {
-          var latLng = "<%= escape_javascript(@reports.coordinates) %>";
-          $(this).html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>")
+        $(function() {
+            $('.static_map').each(function() {
+                var latLng = "<%= escape_javascript(@reports.coordinates) %>";
+                $(this).html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>")
+            });
         });
-      });
     </script>
     <div class="static_map widget"></div>
   </div>
 
   <div class="widget">
-    <% if @reports.photo_file_name %>
-      <strong><%= t('general.photo') %>: </strong>
 
-      <div class="images_widget widget"><%= image_tag @reports.photo.url(:medium) %></div>
-    <% end %>
+    <strong><%= t('general.photo') %>: </strong>
+
+    <div class="images_widget widget">
+      <%= form_for(@reports, :html => {:multipart => true}) do |f| %>
+          <% f.fields_for :assets do |asset| %>
+              <% unless asset.object.new_record? %>
+                  <div class="thumbnail">
+                    <%= link_to(image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:large)) %>
+                  </div>
+              <% end %>
+          <% end %>
+      <% end %>
+    </div>
+
   </div>
 </div>
 

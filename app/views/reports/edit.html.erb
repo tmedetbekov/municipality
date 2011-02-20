@@ -1,10 +1,10 @@
 <% @page_title = 'Edit report' %>
 
-<% title "Edit Reports" %>
+<h3><%= t('general.edit') %></h3>
 
-<%= render 'form' %>
+<%= render 'formEdit' %>
 
 <p>
-  <%= link_to "Show", @reports %> |
-  <%= link_to "View All", reports_path %>
+  <%= link_to t('general.edit'), @reports %> |
+  <%= link_to t('general.view'), reports_path %>
 </p>

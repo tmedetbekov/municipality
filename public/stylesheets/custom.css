@@ -10,6 +10,103 @@ style from style.css to this file, and modify it to
 your liking.
 */
 
+#solved {
+    box-shadow: 0 0 4px #C4C4C4;
+    -webkit-box-shadow: 0 0 4px #C4C4C4;
+    -moz-box-shadow: 0 0 4px #C4C4C4;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+    width: 45%;
+    float: left;
+}
+
+#solved h1 {
+    border-bottom: 1px solid #009045;
+    color: #009045;
+    font-size: 14pt;
+    margin-bottom: 10px;
+    padding: 0px 0px 3px;
+    line-height: 1.0em;
+}
+
+#solved li {
+    border-bottom: 1px solid #009045;
+    margin: 5px 0px;
+    padding-bottom: 5px;
+
+}
+
+.date_main {
+    float: right;
+    color: #c2c2c2;
+    font-style: italic;
+    font-size: 11px;
+}
+
+.number {
+    color: #0071BC;
+    float: left;
+}
+
+#unsolved li {
+    border-bottom: 1px solid #C22;
+    margin: 5px 0px;
+    padding-bottom: 5px;
+}
+
+#unsolved h1 {
+    border-bottom: 1px solid #C22;
+    color: #C22;
+    font-size: 14pt;
+    margin-bottom: 10px;
+    padding: 0px 0px 3px;
+    line-height: 1.0em;
+}
+
+#unsolved {
+    box-shadow: 0 0 4px #C4C4C4;
+    -webkit-box-shadow: 0 0 4px #C4C4C4;
+    -moz-box-shadow: 0 0 4px #C4C4C4;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+    width: 45%;
+    float: right;
+}
+
+span.status {
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 0.25em auto;
+    padding: 0;
+    border: 1px solid #000000;
+    float: right;
+}
+
+span.status.true {
+    background: green;
+    color: green;
+}
+
+span.status.false {
+    background: red;
+    color: red;
+}
+
 .recentcomments a {
     display: inline !important;
     padding: 0 !important;
@@ -190,17 +287,20 @@ your liking.
     -moz-border-radius: 5px 5px 5px 5px;
     -moz-box-shadow: 0 0 3px #DCDCDC;
 }
-.author_name{
-    font-weight:bold;
+
+.author_name {
+    font-weight: bold;
     font-size: 14px;
-    font-family:"Lucida","Lucida Grande","Trebuchet MS",Tahoma,Verdana,sans-serif;
+    font-family: "Lucida", "Lucida Grande", "Trebuchet MS", Tahoma, Verdana, sans-serif;
 }
-.author_created_comment{
+
+.author_created_comment {
     font-size: 11px;
     font-family: Arial;
-    font-style:italic;
+    font-style: italic;
 }
-.comment_content{
+
+.comment_content {
     font-size: 12px;
-    font-family:Arial;
+    font-family: Arial;
 }

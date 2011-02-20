@@ -3,6 +3,9 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
+  time:
+    formats:
+      short: "%d"
   datetime:
     distance_in_words:
       x_minutes: " minutes"
@@ -33,6 +36,9 @@ ru:
     edit: "Редактировать"
     destroy: "Удалить"
     confirm: "Вы уверены что хотите удалить эту проблему?"
+    update: "Обновить"
+    address: "Адрес"
+    solved: "Решена ли это проблема ?"
 #   recent reports - show
     report: "Проблема"
     date: "Дата публикации"
@@ -64,3 +70,5 @@ ru:
 #   comments
     comments: "Коментарии"
     send_comment: "Комментировать"
+
+    

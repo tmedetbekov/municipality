@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
   helper_method :admin?
+  helper_method :solved_not?
 
   protected
   # Set the locale from parameters

@@ -5,19 +5,24 @@ class ReportsController < ApplicationController
 
 
   def index
-    @reports = Report.order("created_at desc").paginate(:per_page => 4, :page => params[:page])
+    @reports  = Report.order("created_at desc").paginate(:per_page => 4, :page => params[:page])
     @comments = Comment.find(:all, :order => 'comments.created_at DESC', :limit=> 5)
   end
 
   def show
     @reports = Report.find(params[:id])
 
-	end
+  end
 
   def new
     @reports = Report.new
+    3.times { @reports.assets.build }
     unless current_user
       @reports.user = User.new
+    end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js
     end
   end
 
@@ -42,6 +47,7 @@ class ReportsController < ApplicationController
 
   def edit
     @reports = Report.find(params[:id])
+    3.times { @reports.assets.build }
   end
 
   def update

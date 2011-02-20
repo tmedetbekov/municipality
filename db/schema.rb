@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110213055025) do
+ActiveRecord::Schema.define(:version => 20110219183420) do
+
+  create_table "assets", :force => true do |t|
+    t.integer  "report_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+  end
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -56,18 +65,15 @@ ActiveRecord::Schema.define(:version => 20110213055025) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.string   "subject"
-    t.string   "description"
+    t.text     "description"
     t.string   "coordinates"
     t.string   "file_path"
     t.string   "pincolor"
     t.integer  "voted"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
     t.string   "address"
+    t.boolean  "solved",      :default => false
   end
 
   add_index "reports", ["category_id"], :name => "index_reports_on_category_id"
