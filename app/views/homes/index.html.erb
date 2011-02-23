@@ -1,74 +1,16 @@
 <%= javascript_include_tag "http://www.google.com/jsapi", "markerclusterer" %>
 <script type="text/javascript">
-    var arr = <%= @reports.to_json(:only => [:coordinates, :address, :subject, :id]).html_safe %>;
+  var arr = <%= @reports.to_json(:only => [:coordinates, :address, :subject, :id, :image_file_name, :solved], :include => :assets).html_safe%>;
 
-    google.load('maps', '3', {
-        other_params: 'sensor=false'
-    });
-    google.setOnLoadCallback(initialize);
+  google.load('maps', '3', {
+    other_params: 'sensor=false'
+  });
 
-    getKgMap = function (lat, lng, zoom) {
-        var center = new google.maps.LatLng(lat, lng);
+  google.setOnLoadCallback(initialize);
 
-        var map = new google.maps.Map(document.getElementById('cluster_map'), {
-            zoom: zoom,
-            center: center,
-            minZoom: 7,
-            streetViewControl: false,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-
-        var markers = [];
-        var image = "http://chart.apis.google.com/chart?cht=mm&chs=24x32&chco=FFFFFF,008CFF,000000&ext=.png";
-        var infoWindow = new google.maps.InfoWindow();
-        for (var i = 0; i < arr.length; i++) {
-            myLatLng = arr[i]['report']['coordinates'].split(', ');
-            contentString = "<b><a href='/reports/" + arr[i]['report']['id'] + "'>" + arr[i]['report']['subject'] + "</a></b><hr>";
-
-            var latLng = new google.maps.LatLng(parseFloat(myLatLng[0]), parseFloat(myLatLng[1]));
-            var marker = new google.maps.Marker({
-                position: latLng,
-                icon : image,
-                marker_address : contentString
-            });
-
-            var infowindow = new google.maps.InfoWindow({
-                content: ''
-            });
-
-            google.maps.event.addListener(marker, 'click', function() {
-                infowindow.setContent("<div style='width:200;height:100px;'>" + this.marker_address + "</div>");
-                infowindow.open(map, this);
-            });
-
-            markers.push(marker);
-        }
-
-        var markerCluster = new MarkerClusterer(map, markers);
-    }
-
-    function initialize() {
-        this.getKgMap(41.269550, 74.766098, 7);
-    }
-
-    function goto_state(lid) {
-        if (lid == "io")
-            getKgMap(42.472097, 78.384361, 15);
-        if (lid == "oo")
-            getKgMap(40.528284, 72.801075, 15);
-        if (lid == "bo")
-            getKgMap(40.053570, 70.816069, 15);
-        if (lid == "no")
-            getKgMap(41.425352, 75.998054, 15);
-        if (lid == "to")
-            getKgMap(42.517062, 72.233520, 15);
-        if (lid == "jo")
-            getKgMap(40.934719, 72.999859, 15);
-        if (lid == "co")
-            getKgMap(42.874958, 74.586868, 9);
-        if (lid == "bi")
-            getKgMap(42.874958, 74.586868, 11);
-    }
+  function initialize() {
+    this.getKgMap(41.269550, 74.766098, 7);
+  }
 
 </script>
 <div id="featured" class="col-full">
@@ -92,35 +34,35 @@
   </div>
 </div>
 <div id="content" class="col-full">
-<div id="block">
-  <div id="solved">
-    <h1>Решенные проблемы</h1>
-    <ul>
-      <% @reports = Report.where(:solved => true).limit(5).order("created_at desc") %>
-      <% for reports in @reports %>
+  <div id="block">
+    <div id="solved">
+      <h1>Решенные проблемы</h1>
+      <ul>
+        <% @reports = Report.where(:solved => true).limit(5).order("created_at desc") %>
+        <% for reports in @reports %>
           <li><span class="number">№ <%= link_to reports.id, reports %></span>
             <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
             <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
             <br>
             <b><%= t('general.description') %></b> </b> <%= truncate(reports.description, :length => 200, :omission => "...") %>
           </li>
-      <% end %>
-    </ul>
-  </div>
-  <div id="unsolved">
-    <h1>Нерешенные проблемы</h1>
-    <ul>
-      <% @reports = Report.where(:solved => false).limit(5).order("created_at desc") %>
-      <% for reports in @reports %>
+        <% end %>
+      </ul>
+    </div>
+    <div id="unsolved">
+      <h1>Нерешенные проблемы</h1>
+      <ul>
+        <% @reports = Report.where(:solved => false).limit(5).order("created_at desc") %>
+        <% for reports in @reports %>
           <li><span class="number">№ <%= link_to reports.id, reports %></span>
             <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
             <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
             <br>
             <b><%= t('general.description') %></b> </b> <%= truncate(reports.description, :length => 200, :omission => "...") %>
           </li>
-      <% end %>
-    </ul>
-  </div>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -128,55 +70,55 @@
 <div id="main" class="col-left box">
   <div id="orders_chart" style="width: 540px;">
     <script type="text/javascript" charset="utf-8">
-        $(function() {
-            new Highcharts.Chart({
-                chart: {
-                    renderTo: 'orders_chart',
-                    defaultSeriesType: 'spline',
-                    width: 538,
-                    height: 240,
-                    borderWidth: 1
-                },
-                xAxis: {
-                    type: 'datetime',
-                    labels: {
-                        style: {
-                            color: '#000',
-                            font: '11px Trebuchet MS, Verdana, sans-serif'
-                        }
-                    }
-                },
-                yAxis: {
-                    min: 0,
-                    title: { text: 'Reports' },
-                    labels: {
-                        style: {
-                            color: '#000',
-                            font: '11px Trebuchet MS, Verdana, sans-serif'
-                        }
-                    }
-                },
-                title: { text: 'Статистика проблем' },
-                plotOptions: {
-                    series: {
-                        cursor: 'pointer'
-                    }
-                },
-                tooltip: {
-                    formatter: function () {
-                        return Highcharts.dateFormat("%B %e %Y", this.x) + ' Найдено ' + ': ' + Highcharts.numberFormat(this.y, 0);
-                    }
-                },
-                series: [
-                    {
-                        name: "Проблемы",
-                        pointInterval: <%= 1.day * 1000 %>,
-                        pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,
-                        data: <%= (2.weeks.ago.to_date..Date.today).map { |date| Report.total_on(date)}.inspect %>
-                    }
-                ]
-            });
+      $(function() {
+        new Highcharts.Chart({
+          chart: {
+            renderTo: 'orders_chart',
+            defaultSeriesType: 'spline',
+            width: 538,
+            height: 240,
+            borderWidth: 1
+          },
+          xAxis: {
+            type: 'datetime',
+            labels: {
+              style: {
+                color: '#000',
+                font: '11px Trebuchet MS, Verdana, sans-serif'
+              }
+            }
+          },
+          yAxis: {
+            min: 0,
+            title: { text: 'Reports' },
+            labels: {
+              style: {
+                color: '#000',
+                font: '11px Trebuchet MS, Verdana, sans-serif'
+              }
+            }
+          },
+          title: { text: 'Статистика проблем' },
+          plotOptions: {
+            series: {
+              cursor: 'pointer'
+            }
+          },
+          tooltip: {
+            formatter: function () {
+              return Highcharts.dateFormat("%B %e %Y", this.x) + ' Найдено ' + ': ' + Highcharts.numberFormat(this.y, 0);
+            }
+          },
+          series: [
+            {
+              name: "Проблемы",
+              pointInterval: <%= 1.day * 1000 %>,
+              pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,
+              data: <%= (2.weeks.ago.to_date..Date.today).map { |date| Report.total_on(date)}.inspect %>
+            }
+          ]
         });
+      });
     </script>
   </div>
 </div>

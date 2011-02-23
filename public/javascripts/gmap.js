@@ -11,7 +11,6 @@ function geocodePosition(pos) {
     latLng: pos
   }, function(responses) {
     if (responses && responses.length > 0) {
-      console.log(responses);
       var state = responses[0].address_components[1].long_name;
       updateMarkerAddress(responses[0].formatted_address, state);
     } else {
@@ -54,9 +53,9 @@ function updateMarkerAddress(str, state) {
 
   $('#respond form input#report_address').val(info);
 
-  $('#show_form').click(function() {
-    $('.hidden_report_form').show(300);
-  });
+//  $('#show_form').click(function() {
+//    $('.hidden_report_form').show(300);
+//  });
 }
 
 function getState(lat, lng, zoom) {
@@ -72,12 +71,14 @@ function getState(lat, lng, zoom) {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
 
+  var markerImage = "/images/add.png";
   var map = new google.maps.Map(document.getElementById('report_map'), options);
 
   var marker = new google.maps.Marker({
     position: latLng,
     title: 'Point A',
     map: map,
+    icon : markerImage,
     draggable: true
   });
 
@@ -87,7 +88,8 @@ function getState(lat, lng, zoom) {
 
   // Add dragging event listeners.
   google.maps.event.addListener(marker, 'dragstart', function() {
-    //updateMarkerAddress('Dragging...');
+    $('.hidden_report_form').css('display', 'block');
+
     steetinfowindow.close();
   });
 
@@ -110,7 +112,7 @@ function show_form() {
 function getKgMap(lat, lng, zoom, iszoom) {
   var options;
   var latLng = new google.maps.LatLng(lat, lng);
-  
+
   if (!iszoom) {
     options = {
       zoom : zoom,
