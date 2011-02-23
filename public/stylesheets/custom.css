@@ -9,27 +9,37 @@ is easier to update the theme. Simply copy an existing
 style from style.css to this file, and modify it to
 your liking.
 */
+
+.dsq-widget-title{
+    display: none;
+}
+
 .vote-count-post{
     font-size: 50px;
 }
 
-#solved {
+#block {
     box-shadow: 0 0 4px #C4C4C4;
     -webkit-box-shadow: 0 0 4px #C4C4C4;
     -moz-box-shadow: 0 0 4px #C4C4C4;
-    padding: 30px 20px;
     background: white;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    border-top-left-radius: 5px 5px;
-    border-top-right-radius: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
-    border-bottom-left-radius: 5px 5px;
+    width: 940px;
+    float: left;
+}
+#solved {
+    padding: 30px 20px;
+    background: white;
+    border-radius: 5px;
     width: 45%;
     float: left;
 }
-
+#generalmain {
+    width: 940px;
+    background: white;
+}
 #solved h1 {
     border-bottom: 1px solid #009045;
     color: #009045;
@@ -74,18 +84,9 @@ your liking.
 }
 
 #unsolved {
-    box-shadow: 0 0 4px #C4C4C4;
-    -webkit-box-shadow: 0 0 4px #C4C4C4;
-    -moz-box-shadow: 0 0 4px #C4C4C4;
     padding: 30px 20px;
     background: white;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-top-left-radius: 5px 5px;
-    border-top-right-radius: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
-    border-bottom-left-radius: 5px 5px;
     width: 45%;
     float: right;
 }

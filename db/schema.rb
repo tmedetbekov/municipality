@@ -72,12 +72,8 @@ ActiveRecord::Schema.define(:version => 20110220084242) do
     t.integer  "voted"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
     t.string   "address"
-    t.boolean  "solved",             :default => false
+    t.boolean  "solved",      :default => false
   end
 
   add_index "reports", ["category_id"], :name => "index_reports_on_category_id"
