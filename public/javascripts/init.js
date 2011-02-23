@@ -38,10 +38,6 @@ getKgMap = function (lat, lng, zoom) {
       marker_info : contentString
     });
 
-    var infowindow = new google.maps.InfoWindow({
-      content: ''
-    });
-
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.setContent("<div id='marker_info'>" + this.marker_info + "</div>");
       infowindow.open(map, this);
@@ -76,7 +72,7 @@ function goto_state(lid) {
 $(document).ready(function() {
 
   $("#login_link").click(function() {
-    $('#login-div').modal();
+    $('#commentform').modal();
   });
 
 });

@@ -39,13 +39,14 @@ class RegistrationsController < Devise::RegistrationsController
         session[:omniauth] = nil
       else
         if (@user.errors[:email] == ["has already been taken"] || @user.errors[:email] == ["Такой email уже существует"]) && @user.errors.count <= 1
-          user = User.where(:email => @user.email, :is_anonym => false).first
+          user = any_users(@user.email)
           if user
             flash[:notice] = "You have already have an account!"
             @user = user
             @user.authentications.create!(:provider => session[:omniauth]['provider'], :uid => session[:omniauth]["uid"])
             session[:omniauth] = nil
-            sign_in_and_redirect(@user)
+            sign_in(@user)
+            redirect_to root_url
           else
             session[:omniauth] = nil
             @user.save(:validate => false)
@@ -55,11 +56,18 @@ class RegistrationsController < Devise::RegistrationsController
           session[:omniauth] = nil
           flash[:notice] = "You have been registered, please provide your email in order to complete your registration!"
           sign_in(@user)
-          edit_user_registration_path(@user)
+          redirect_to edit_user_registration_path(@user)
         else
-          session[omniauth] = nil
+          session[:omniauth] = nil
         end
       end
+    end
+  end
+
+  def any_users(email)
+    user = User.where(:email => email) - User.where(:email => email, :is_anonym => true)
+    if(user.count > 0)
+      user.first
     end
   end
 end

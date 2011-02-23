@@ -3,7 +3,7 @@ Monica::Application.routes.draw do
 
   resources :contact_forms
 
-  devise_for :users, :controllers => {:registrations => 'registrations'}
+  devise_for :users, :controllers => {:registrations => 'registrations', :sessions => 'sessions'}
   root :to => "homes#index"
   match '/comments', :to => "homes#index"
   match '/states', :to => "homes#index"

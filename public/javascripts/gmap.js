@@ -32,7 +32,7 @@ function updateMarkerAddress(str, state) {
   var info = str.replace('Киргизия', 'Кыргызстан');
   html = document.getElementById('streetAddress');
   if (html) {
-    html.innerHTML = info + "<br><hr>" + "<a href='#' id='show_form'>Сообщить</a>";
+    html.innerHTML = info + "<br><hr>" + "<a href='#main' id='show_form'>Сообщить</a>";
   }
   if (state == 'Бишкек')
     $('#respond form input#report_state_id').val(8);
