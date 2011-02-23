@@ -6,26 +6,25 @@ en:
     errors:
       messages:
         inclusion:
-        blank: "Cannot be blank"
-        taken: "Email has already been taken"
-        
+        blank: "Бош калтырууга болбойт"
+        taken: "Бул Email бош эмес"
 
   general:
 #   header
-    home: "Home"
-    report_prob: "Report a problem"
-    about: "About"
-    contact: "Contacts"
+    home: "Башкы бет"
+    report_prob: "Табыштоо"
+    about: "Биз жонундо"
+    contact: "Контакт"
 #   recent reports 
-    recent_reports: "Recent Reports"
-    subject: "Subject"
-    description: "Description"
-    category: "Category"
-    state: "State"
-    reporter: "Reported by"
-    show: "Show"
-    edit: "Edit"
-    destroy: "Destroy"
+    recent_reports: "Акыркы табыштоолор"
+    subject: "Аты"
+    description: "Баяндоо"
+    category: "Категория"
+    state: "Аймак"
+    reporter: "Автор"
+    show: "Корсотуу"
+    edit: "Озгортуу"
+    destroy: "Delete"
     confirm: "Are you sure that you want to delete this reports?"
     update: "Update"
     address: "Adress"
@@ -36,12 +35,12 @@ en:
     photo: "Attached photo"
     view: "View all"
 #   reports new
-    name: "Name"
-    last_name: "Last name"
+    name: "Аты"
+    last_name: "Фамилия"
     email: "Email"
-    phone: "Phone"
+    phone: "Телефон"
     category: "Category"
-    subject: "Subject"
+    subject: "Тема"
     report_button: "Create report"
     report_new: "Create new report"
     report_form: "Report form"
