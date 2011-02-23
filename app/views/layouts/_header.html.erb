@@ -41,7 +41,7 @@
         <% end %>
     <% else %>
         <%= link_to t('general.registration'), new_user_registration_path %>
-        |  <%= link_to t('general.sign_in'), new_user_session_path + '#', :id => "login_link"  %>
+        |  <%= link_to t('general.sign_in'), new_user_session_path, :id => "login_link"  %>
     <% end %>
   </div>
   <div id="user_session_new" style="display:none">
