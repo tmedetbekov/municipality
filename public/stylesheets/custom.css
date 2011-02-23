@@ -9,12 +9,28 @@ is easier to update the theme. Simply copy an existing
 style from style.css to this file, and modify it to
 your liking.
 */
+#dsq-combo-widget #dsq-combo-tabs {
+    background-color: #B5E2FD;
+    height: 16px;
+    padding: 10px 0 7px;
+    width: 100%;
+    -webkit-border-radius: 7px 8px 0px 0px;
+}
 
-.dsq-widget-title{
+#dsq-combo-widget.blue #dsq-combo-tabs li.dsq-active {
+    background: #E1F3FC;
+    padding: 6px 10px 0px 10px;
+    height: 20px;
+}
+#dsq-combo-widget #dsq-combo-tabs #dsq-combo-content #dsq-combo-recent  .dsq-widget-meta a {
+    font-size: 11px;
+}
+
+.dsq-widget-title {
     display: none;
 }
 
-.vote-count-post{
+.vote-count-post {
     font-size: 50px;
 }
 
@@ -29,17 +45,7 @@ your liking.
     width: 940px;
     float: left;
 }
-#solved {
-    padding: 30px 20px;
-    background: white;
-    border-radius: 5px;
-    width: 45%;
-    float: left;
-}
-#generalmain {
-    width: 940px;
-    background: white;
-}
+
 #solved h1 {
     border-bottom: 1px solid #009045;
     color: #009045;
@@ -54,6 +60,22 @@ your liking.
     margin: 5px 0px;
     padding-bottom: 5px;
 
+}
+
+#solved .support {
+    color: #009045
+}
+
+#unsolved .support {
+    color: #C22
+}
+
+#dsq-combo-logo {
+    display: none;
+}
+
+#dsq-combo-widget #dsq-combo-tabs li {
+    text-transform: none;
 }
 
 .date_main {
@@ -84,11 +106,33 @@ your liking.
 }
 
 #unsolved {
-    padding: 30px 20px;
+    padding: 15px 15px;
     background: white;
-    border-radius: 5px;
-    width: 45%;
+    width: 280px;
     float: right;
+}
+
+#solved {
+    padding: 15px 15px;
+    background: white;
+    width: 280px;
+    float: left;
+}
+
+#discussed {
+    width: 280px;
+    background: white;
+    padding: 15px 15px;
+    float: right;
+}
+
+#discussed h1 {
+    border-bottom: 1px solid #338;
+    color: #338;
+    margin-bottom: 10px;
+    padding: 0px 0px 3px;
+    line-height: 1.0em;
+    font-size: 14pt;
 }
 
 span.status {
@@ -281,17 +325,20 @@ span.status.false {
     -moz-border-radius: 5px 5px 5px 5px;
     -moz-box-shadow: 0 0 3px #DCDCDC;
 }
-.author_name{
-    font-weight:bold;
+
+.author_name {
+    font-weight: bold;
     font-size: 14px;
-    font-family:"Lucida","Lucida Grande","Trebuchet MS",Tahoma,Verdana,sans-serif;
+    font-family: "Lucida", "Lucida Grande", "Trebuchet MS", Tahoma, Verdana, sans-serif;
 }
-.author_created_comment{
+
+.author_created_comment {
     font-size: 11px;
     font-family: Arial;
-    font-style:italic;
+    font-style: italic;
 }
-.comment_content{
+
+.comment_content {
     font-size: 12px;
     font-family:Arial;
 }
@@ -304,4 +351,5 @@ span.status.false {
 #marker_info span {
   font-size: 11px;
   color: #000000;
+  font-family: Arial;
 }

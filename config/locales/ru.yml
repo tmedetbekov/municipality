@@ -54,6 +54,7 @@ ru:
     report_button: "Сообщить"
     report_new: "Сообщить о проблеме"
     report_form: "Форма заполнения"
+    support: "Поддерживают"
 #   registration
     password: "Пароль"
     password_confirm: "Подтверждение пароля"

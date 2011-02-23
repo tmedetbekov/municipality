@@ -6,7 +6,9 @@ gem 'mysql2'
 gem 'client_side_validations',  '~> 2.9.9'
 gem "nifty-generators", :group => :development
 gem 'simple_form'
-gem 'ruby-debug'
+
+#gem 'ruby-debug'
+
 gem 'devise' # Devise must be required before RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'omniauth'
