@@ -5,8 +5,13 @@ class ReportsController < ApplicationController
 
 
   def index
-    @reports = Report.order("created_at desc").paginate(:per_page => 4, :page => params[:page])
+    sleep 2
+    @reports = Report.order("created_at desc").paginate(:per_page => 5, :page => params[:page])
     #@comments = Comment.find(:all, :order => 'comments.created_at DESC', :limit=> 5)
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def show

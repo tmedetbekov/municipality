@@ -92,35 +92,43 @@
   </div>
 </div>
 <div id="content" class="col-full">
-<div id="block">
-  <div id="solved">
-    <h1>Решенные проблемы</h1>
-    <ul>
-      <% @reports = Report.where(:solved => true).limit(5).order("created_at desc") %>
-      <% for reports in @reports %>
-          <li><span class="number">№ <%= link_to reports.id, reports %></span>
-            <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
-            <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
-            <br>
-            <b><%= t('general.description') %></b> </b> <%= truncate(reports.description, :length => 200, :omission => "...") %>
-          </li>
-      <% end %>
-    </ul>
-  </div>
-  <div id="unsolved">
-    <h1>Нерешенные проблемы</h1>
-    <ul>
-      <% @reports = Report.where(:solved => false).limit(5).order("created_at desc") %>
-      <% for reports in @reports %>
-          <li><span class="number">№ <%= link_to reports.id, reports %></span>
-            <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
-            <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
-            <br>
-            <b><%= t('general.description') %></b> </b> <%= truncate(reports.description, :length => 200, :omission => "...") %>
-          </li>
-      <% end %>
-    </ul>
-  </div>
+  <div id="block">
+    <div id="solved">
+      <h1>Решенные проблемы</h1>
+      <ul>
+        <% @reports = Report.where(:solved => true).limit(5).order("created_at desc") %>
+        <% for reports in @reports %>
+            <li><span class="number">№ <%= link_to reports.id, reports %></span>
+              <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
+              <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
+              <br>
+              <b><%= t('general.description') %> </b><%= truncate(reports.description, :length => 200, :omission => "...") %>
+              <br>
+              <b><%= t('general.support') %>: </b><span class="support"><%= reports.votes.count %></span>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+    <div id="discussed">
+      <%= raw disqus_combo(:color => "blue", :hide_mods => false, :num_items => 5)%>
+    </div>
+    <div id="unsolved">
+      <h1>Нерешенные проблемы</h1>
+      <ul>
+        <% @reports = Report.where(:solved => false).limit(5).order("created_at desc") %>
+        <% for reports in @reports %>
+            <li><span class="number">№ <%= link_to reports.id, reports %></span>
+              <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
+              <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
+              <br>
+              <b><%= t('general.description') %></b> </b> <%= truncate(reports.description, :length => 200, :omission => "...") %>
+              <br>
+              <b><%= t('general.support') %>: </b><span class="support"><%= reports.votes.count %></span>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+
   </div>
 </div>
 
