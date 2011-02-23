@@ -1,26 +1,23 @@
-class SessionsController < ApplicationController
-  before_filter :notauthorized_user, :except => [:new, :create]
-  before_filter :authorized_user, :except => [:destroy]
+class SessionsController < Devise::SessionsController
+  prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
+  include Devise::Controllers::InternalHelpers
+
+  # GET /resource/sign_in
   def new
+    clean_up_passwords(build_resource)
+    render_with_scope :new
   end
 
+  # POST /resource/sign_in
   def create
-    user = User.authenticate(params["/sessions"][:email], params["/sessions"][:password])
-    if user
-      session[:user_id] = user.id
-      redirect_to root_url, :notice => "Logged in!"
-    else
-      flash.now.alert = 'Invalid email or password'
-      render 'new'
-    end
+    resource = warden.authenticate!(:scope => resource_name, :recall => "new")
+    set_flash_message :notice, :signed_in
+    sign_in_and_redirect(resource_name, resource)
   end
 
+  # GET /resource/sign_out
   def destroy
-    user = User.find(session[:user_id])
-    user.ip_address = request.remote_ip
-    user.save
-
-    session[:user_id] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    set_flash_message :notice, :signed_out if signed_in?(resource_name)
+    sign_out_and_redirect(resource_name)
   end
 end
