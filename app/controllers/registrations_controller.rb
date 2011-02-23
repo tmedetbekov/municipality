@@ -52,7 +52,6 @@ class RegistrationsController < Devise::RegistrationsController
             @user.save(:validate => false)
           end
         elsif (@user.errors[:email] == ["Cannot be blank", "is invalid"] || @user.errors[:email] == ["Это поле не может быть пустым", "Неправильный формат email"]) && @user.errors.count <= 2
-          debugger
           @user.save(:validate => false)
           session[:omniauth] = nil
           flash[:notice] = "You have been registered, please provide your email in order to complete your registration!"
@@ -66,7 +65,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def any_users(email)
-    debugger
     user = User.where(:email => email) - User.where(:email => email, :is_anonym => true)
     if(user.count > 0)
       user.first
