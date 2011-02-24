@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'easySlider1.5' %>
+
 <% @page_title = 'Show report' %>
 
 <div id="main" class='col-left box'>
@@ -29,42 +31,51 @@
   </p>
   <% if admin? %>
     <p><%= link_to t('general.edit'), edit_report_path(@reports) %> |
-    <%= link_to t('general.destroy'), @reports, :confirm => 'Are you sure?', :method => :delete %> |
+      <%= link_to t('general.destroy'), @reports, :confirm => 'Are you sure?', :method => :delete %> |
   <% end %>
-  <%= link_to t('general.view'), reports_path %> | 
+  <%= link_to t('general.view'), reports_path %> |
   <%= link_to 'Поддержать ', vote_up_report_path(@reports), :remote => true, :method => :post, :title => "Нажмите чтобы проголосовать!" %>
   <span class="vote-count"><%= @reports.votes_count %></span></p>
 
   <%= raw(disqus_thread) %>
 </div>
-
 <div id="sidebar" class="col-right">
   <div class='widget'>
-    <script type='text/javascript'>
-        $(function() {
-            $('.static_map').each(function() {
-                var latLng = "<%= escape_javascript(@reports.coordinates) %>";
-                $(this).html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>")
-            });
-        });
-    </script>
     <div class="static_map widget"></div>
   </div>
   <div class="widget">
 
+    <script type="text/javascript">
+      var arr = <%= @reports.to_json(:only => [:coordinates, :id, :image_file_name], :include => :assets).html_safe %>;
+      var latLng = arr['report']['coordinates'];
+
+      $(document).ready(function() {
+
+        $('.static_map').html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>")
+        
+        for (var i = 0; i < arr['report']['assets'].length; i++) {
+          var image_id = arr['report']['assets'][i]['id'];
+          var image_name = arr['report']['assets'][i]['image_file_name'];
+
+          $('#slider ul').each(function() {
+            $(this).append("<li><img src='/system/images/" + image_id + "/thumb/" + image_name + "'/></li>")
+          });
+        }
+
+        $("#slider").easySlider({
+          auto: true,
+          continuous: true,
+          prevText : 'Предыдущий ',
+          nextText : 'Следующий'
+        });
+      });
+    </script>
     <strong><%= t('general.photo') %>: </strong>
 
     <div class="images_widget widget">
-      <%= form_for(@reports, :html => {:multipart => true}) do |f| %>
-          <% f.fields_for :assets do |asset| %>
-              <% unless asset.object.new_record? %>
-                  <div class="thumbnail">
-                    <%= link_to(image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:large)) %>
-                  </div>
-              <% end %>
-          <% end %>
-      <% end %>
+      <div class="thumbnail" id="slider">
+        <ul></ul>
+      </div>
     </div>
-
   </div>
 </div>
