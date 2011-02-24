@@ -26,10 +26,11 @@ getKgMap = function (lat, lng, zoom) {
       image = "/images/unsolved.png";
     }
 
-
     contentString = "<b><a href='/reports/" + report_id + "'>" + report_subject + "</a></b><hr><img src='/system/images/" + image_id + "/marker/" + image_file_name + "'/><br><span>" + report_address + "</span>";
 
-
+    var infowindow = new google.maps.InfoWindow({
+      content : ''
+    });
 
     var latLng = new google.maps.LatLng(parseFloat(myLatLng[0]), parseFloat(myLatLng[1]));
     var marker = new google.maps.Marker({
