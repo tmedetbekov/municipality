@@ -703,16 +703,14 @@ textarea {
   display: block
 }
 
-#cc_info span.field input,
-#overlay-wrapper span.field input,
-#overlay-wrapper span.field
-select {
+#overlay-wrapper span.field #email {
   width: 416px;
   padding: 10px;
   font-size: 16px
 }
 
-#overlay-wrapper span.field.password input#password {
+#overlay-wrapper span.field input#userPassword {
+  padding: 10px;
   width: 270px;
   margin-right: 15px
 }

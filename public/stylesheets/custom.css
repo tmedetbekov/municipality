@@ -396,3 +396,7 @@ span.status.false {
 /*#nextBtn a {*/
   /*background: url(/images/btn_next.gif) no-repeat 0 0;*/
 /*}*/
+
+#overlay-wrapper span.field input#user_remember_me {
+  width: 15px;
+}

@@ -47,7 +47,7 @@ ru:
 #   reports new
     name: "Имя"
     last_name: "Фамилия"
-    email: "Email"
+    email: "E-mail"
     phone: "Телефон"
     category: "Категория"
     subject: "Тема"

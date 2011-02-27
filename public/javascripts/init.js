@@ -10,7 +10,7 @@ getKgMap = function (lat, lng, zoom) {
   });
 
   var markers = [];
-  var image ='';
+  var image = '';
   for (var i = 0; i < arr.length; i++) {
     var myLatLng = arr[i]['report']['coordinates'].split(', ');
     var image_id = arr[i]['report']['assets'][0]['id'];
@@ -69,11 +69,19 @@ function goto_state(lid) {
     getKgMap(42.874958, 74.586868, 11);
 }
 
-
 $(document).ready(function() {
 
   $("#login_link").click(function() {
-    $('#commentform').modal();
+    $('#overlay-content').modal();
+    return false;
+  });
+
+  $('#email').focus(function(event) {
+    $this = $(this);
+    if($this.val() == 'E-mail') {
+      $this.val('');
+    }
   });
 
 });
+
