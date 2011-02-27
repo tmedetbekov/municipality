@@ -10,7 +10,7 @@ getKgMap = function (lat, lng, zoom) {
   });
 
   var markers = [];
-  var image ='';
+  var image = '';
   for (var i = 0; i < arr.length; i++) {
     var myLatLng = arr[i]['report']['coordinates'].split(', ');
     var image_id = arr[i]['report']['assets'][0]['id'];
@@ -26,10 +26,11 @@ getKgMap = function (lat, lng, zoom) {
       image = "/images/unsolved.png";
     }
 
-
     contentString = "<b><a href='/reports/" + report_id + "'>" + report_subject + "</a></b><hr><img src='/system/images/" + image_id + "/marker/" + image_file_name + "'/><br><span>" + report_address + "</span>";
 
-
+    var infowindow = new google.maps.InfoWindow({
+      content : ''
+    });
 
     var latLng = new google.maps.LatLng(parseFloat(myLatLng[0]), parseFloat(myLatLng[1]));
     var marker = new google.maps.Marker({
@@ -68,12 +69,18 @@ function goto_state(lid) {
     getKgMap(42.874958, 74.586868, 11);
 }
 
-
 $(document).ready(function() {
 
   $("#login_link").click(function() {
-    $('#commentform').modal();
+    $('#overlay-content').modal();
     return false;
+  });
+
+  $('#email').focus(function(event) {
+    $this = $(this);
+    if($this.val() == 'E-mail') {
+      $this.val('');
+    }
   });
 
 });

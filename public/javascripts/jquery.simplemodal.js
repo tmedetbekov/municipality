@@ -52,7 +52,16 @@
             this.dialog.iframe = $('<iframe src="javascript:false;"/>').css($.extend(this.opts.iframeCss, {display:'none',opacity:0,position:'fixed',height:w[0],width:w[1],zIndex:this.opts.zIndex,top:0,left:0})).appendTo('body');
         }
         this.dialog.overlay = $('<div/>').attr('id', 'overlay').css($.extend(this.opts.overlayCss, {display:'none',opacity:this.opts.opacity / 100,height:w[0],width:w[1],position:'fixed',left:0,top:0,zIndex:this.opts.zIndex - 1})).appendTo('body');
-        this.dialog.container = $('<div/>').attr({'id':'overlay-wrapper', 'class':'overlay-login'}).css($.extend(this.opts.containerCss, {display: 'none', position:'absolute', zIndex:this.opts.zIndex + 2})).append(this.opts.close ? $(this.opts.closeHTML).addClass(this.opts.closeClass) : '').appendTo('body');
+      
+        this.dialog.container = $('<div/>').attr({
+          'id':'overlay-wrapper',
+          'class':'overlay-login'
+        }).css($.extend(this.opts.containerCss, {
+          display: 'none',
+          position:'absolute',
+          zIndex:this.opts.zIndex + 2
+        })).append(this.opts.close ? $(this.opts.closeHTML).addClass(this.opts.closeClass) : '').appendTo('body');
+
         this.setPosition();
         if (ie6 || ieQuirks) {
             this.fixIE();
@@ -121,7 +130,7 @@
             left = this.opts.position[1] || vCenter;
         } else {
             top = hCenter;
-            left = vCenter;
+            left = vCenter + 100;
         }
         this.dialog.container.css({left:left,top:top});
     },open:function() {

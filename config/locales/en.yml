@@ -37,7 +37,7 @@ en:
 #   reports new
     name: "Аты"
     last_name: "Фамилия"
-    email: "Email"
+    email: "E-mail"
     phone: "Телефон"
     category: "Category"
     subject: "Тема"

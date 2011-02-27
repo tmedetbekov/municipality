@@ -10,164 +10,165 @@ style from style.css to this file, and modify it to
 your liking.
 */
 #dsq-combo-widget #dsq-combo-tabs {
-    background-color: #B5E2FD;
-    height: 16px;
-    padding: 10px 0 7px;
-    width: 100%;
-    -webkit-border-radius: 7px 8px 0px 0px;
+  background-color: #B5E2FD;
+  height: 16px;
+  padding: 10px 0 7px;
+  width: 100%;
+  -webkit-border-radius: 7px 8px 0px 0px;
 }
 
 #dsq-combo-widget.blue #dsq-combo-tabs li.dsq-active {
-    background: #E1F3FC;
-    padding: 6px 10px 0px 10px;
-    height: 20px;
+  background: #E1F3FC;
+  padding: 6px 10px 0px 10px;
+  height: 20px;
 }
+
 #dsq-combo-widget #dsq-combo-tabs #dsq-combo-content #dsq-combo-recent  .dsq-widget-meta a {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .dsq-widget-title {
-    display: none;
+  display: none;
 }
 
 .vote-count-post {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 #block {
-    box-shadow: 0 0 4px #C4C4C4;
-    -webkit-box-shadow: 0 0 4px #C4C4C4;
-    -moz-box-shadow: 0 0 4px #C4C4C4;
-    background: white;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    width: 940px;
-    float: left;
+  box-shadow: 0 0 4px #C4C4C4;
+  -webkit-box-shadow: 0 0 4px #C4C4C4;
+  -moz-box-shadow: 0 0 4px #C4C4C4;
+  background: white;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  width: 940px;
+  float: left;
 }
 
 #solved h1 {
-    border-bottom: 1px solid #009045;
-    color: #009045;
-    font-size: 14pt;
-    margin-bottom: 10px;
-    padding: 0px 0px 3px;
-    line-height: 1.0em;
+  border-bottom: 1px solid #009045;
+  color: #009045;
+  font-size: 14pt;
+  margin-bottom: 10px;
+  padding: 0px 0px 3px;
+  line-height: 1.0em;
 }
 
 #solved li {
-    border-bottom: 1px solid #009045;
-    margin: 5px 0px;
-    padding-bottom: 5px;
+  border-bottom: 1px solid #009045;
+  margin: 5px 0px;
+  padding-bottom: 5px;
 
 }
 
 #solved .support {
-    color: #009045
+  color: #009045
 }
 
 #unsolved .support {
-    color: #C22
+  color: #C22
 }
 
 #dsq-combo-logo {
-    display: none;
+  display: none;
 }
 
 #dsq-combo-widget #dsq-combo-tabs li {
-    text-transform: none;
+  text-transform: none;
 }
 
 .date_main {
-    float: right;
-    color: #c2c2c2;
-    font-style: italic;
-    font-size: 11px;
+  float: right;
+  color: #c2c2c2;
+  font-style: italic;
+  font-size: 11px;
 }
 
 .number {
-    color: #0071BC;
-    float: left;
+  color: #0071BC;
+  float: left;
 }
 
 #unsolved li {
-    border-bottom: 1px solid #C22;
-    margin: 5px 0px;
-    padding-bottom: 5px;
+  border-bottom: 1px solid #C22;
+  margin: 5px 0px;
+  padding-bottom: 5px;
 }
 
 #unsolved h1 {
-    border-bottom: 1px solid #C22;
-    color: #C22;
-    font-size: 14pt;
-    margin-bottom: 10px;
-    padding: 0px 0px 3px;
-    line-height: 1.0em;
+  border-bottom: 1px solid #C22;
+  color: #C22;
+  font-size: 14pt;
+  margin-bottom: 10px;
+  padding: 0px 0px 3px;
+  line-height: 1.0em;
 }
 
 #unsolved {
-    padding: 15px 15px;
-    background: white;
-    width: 280px;
-    float: right;
+  padding: 15px 15px;
+  background: white;
+  width: 280px;
+  float: right;
 }
 
 #solved {
-    padding: 15px 15px;
-    background: white;
-    width: 280px;
-    float: left;
+  padding: 15px 15px;
+  background: white;
+  width: 280px;
+  float: left;
 }
 
 #discussed {
-    width: 280px;
-    background: white;
-    padding: 15px 15px;
-    float: right;
+  width: 280px;
+  background: white;
+  padding: 15px 15px;
+  float: right;
 }
 
 #discussed h1 {
-    border-bottom: 1px solid #338;
-    color: #338;
-    margin-bottom: 10px;
-    padding: 0px 0px 3px;
-    line-height: 1.0em;
-    font-size: 14pt;
+  border-bottom: 1px solid #338;
+  color: #338;
+  margin-bottom: 10px;
+  padding: 0px 0px 3px;
+  line-height: 1.0em;
+  font-size: 14pt;
 }
 
 span.status {
-    display: block;
-    width: 10px;
-    height: 10px;
-    margin: 0.25em auto;
-    padding: 0;
-    border: 1px solid #000000;
-    float: right;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0.25em auto;
+  padding: 0;
+  border: 1px solid #000000;
+  float: right;
 }
 
 span.status.true {
-    background: green;
-    color: green;
+  background: green;
+  color: green;
 }
 
 span.status.false {
-    background: red;
-    color: red;
+  background: red;
+  color: red;
 }
 
 .recentcomments a {
-    display: inline !important;
-    padding: 0 !important;
-    margin: 0 !important;
+  display: inline !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .container .map {
-    margin: 10px;
+  margin: 10px;
 }
 
 #content #main p {
-    font-family: "Lucida", "Lucida Grande", "Trebuchet MS", Tahoma, Verdana, sans-serif;
-    font-size: 14px;
+  font-family: "Lucida", "Lucida Grande", "Trebuchet MS", Tahoma, Verdana, sans-serif;
+  font-size: 14px;
 }
 
 /*#content #main form label {*/
@@ -181,166 +182,166 @@ span.status.false {
 /*}*/
 
 #content #main form input[type='text'], #content #main form input {
-    width: 250px;
+  width: 250px;
 }
 
 #content #main form input[type='submit'] {
-    width: auto;
+  width: auto;
 }
 
 #content #main form select {
-    margin: 0 5px 10px 0;
-    padding: 7px 5px;
-    width: 249px;
+  margin: 0 5px 10px 0;
+  padding: 7px 5px;
+  width: 249px;
 }
 
 #content #main form p select {
-    min-width: 249px;
+  min-width: 249px;
 }
 
 .simple_form label {
-    width: 100px;
-    text-align: right;
-    margin: 2px 10px;
+  width: 100px;
+  text-align: right;
+  margin: 2px 10px;
 }
 
 .simple_form div.input {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .simple_form div.boolean, .simple_form input[type="submit"] {
 }
 
 .simple_form div.boolean label {
-    float: none;
-    margin: 0;
+  float: none;
+  margin: 0;
 }
 
 .authentications {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .authentication {
-    width: 130px;
-    float: left;
-    background-color: #EEE;
-    border: solid 1px #999;
-    padding: 5px 10px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    position: relative;
-    margin-right: 10px;
+  width: 130px;
+  float: left;
+  background-color: #EEE;
+  border: solid 1px #999;
+  padding: 5px 10px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  position: relative;
+  margin-right: 10px;
 }
 
 .authentication .remove {
-    text-decoration: none;
-    position: absolute;
-    top: 3px;
-    right: 3px;
-    color: #333;
-    padding: 2px 4px;
-    font-size: 10px;
+  text-decoration: none;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: #333;
+  padding: 2px 4px;
+  font-size: 10px;
 }
 
 .authentication .remove:hover {
-    color: #CCC;
-    background-color: #777;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
+  color: #CCC;
+  background-color: #777;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
 }
 
 .authentication img {
-    float: left;
-    margin-right: 10px;
+  float: left;
+  margin-right: 10px;
 }
 
 .authentication .provider {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .authentication .uid {
-    color: #666;
-    font-size: 11px;
+  color: #666;
+  font-size: 11px;
 }
 
 .auth_provider img {
-    display: block;
+  display: block;
 }
 
 .auth_provider {
-    float: left;
-    text-decoration: none;
-    margin-right: 20px;
-    text-align: center;
-    margin-bottom: 10px;
+  float: left;
+  text-decoration: none;
+  margin-right: 20px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .error {
-    color: red;
-    font-size: 13px;
+  color: red;
+  font-size: 13px;
 }
 
 #flash_notice {
-    margin-bottom: 8px;
-    color: green;
-    font-size: 12px;
+  margin-bottom: 8px;
+  color: green;
+  font-size: 12px;
 }
 
 .report_description {
-    float: left;
-    width: 50%;
+  float: left;
+  width: 50%;
 }
 
 .static_map {
-    padding: 2px;
-    margin: 0;
+  padding: 2px;
+  margin: 0;
 }
 
 .images_widget {
-    padding: 2px;
-    margin-top: 5px;
+  padding: 2px;
+  margin-top: 5px;
 }
 
 .container #report_form .streetAddress a {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 #main .pagination {
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    background: none repeat scroll 0 0 #C5D6E3;
-    font-size: 12px;
-    margin-top: 10px;
-    padding: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  background: none repeat scroll 0 0 #C5D6E3;
+  font-size: 12px;
+  margin-top: 10px;
+  padding: 5px;
 }
 
 .count {
-    color: red;
-    font-size: 12px;
+  color: red;
+  font-size: 12px;
 }
 
 .comments_show {
-    padding: 5px;
-    border: 1px solid #EEEEEE;
-    -moz-border-radius: 5px 5px 5px 5px;
-    -moz-box-shadow: 0 0 3px #DCDCDC;
+  padding: 5px;
+  border: 1px solid #EEEEEE;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -moz-box-shadow: 0 0 3px #DCDCDC;
 }
 
 .author_name {
-    font-weight: bold;
-    font-size: 14px;
-    font-family: "Lucida", "Lucida Grande", "Trebuchet MS", Tahoma, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "Lucida", "Lucida Grande", "Trebuchet MS", Tahoma, Verdana, sans-serif;
 }
 
 .author_created_comment {
-    font-size: 11px;
-    font-family: Arial;
-    font-style: italic;
+  font-size: 11px;
+  font-family: Arial;
+  font-style: italic;
 }
 
 .comment_content {
-    font-size: 12px;
-    font-family:Arial;
+  font-size: 12px;
+  font-family: Arial;
 }
 
 #marker_info {
@@ -352,4 +353,50 @@ span.status.false {
   font-size: 11px;
   color: #000000;
   font-family: Arial;
+}
+
+/* -------------------------------Slider------------------------------- */
+
+#slider ul, #slider li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#slider li {
+/*width: 296px;*/
+  height: 241px;
+  overflow: hidden;
+}
+
+/*.widget span#prevBtn {*/
+  /*margin-top: 80px;*/
+  /*right: 686px;*/
+/*}*/
+
+/*.widget span#nextBtn {*/
+  /*margin-top: 80px;*/
+  /*right: 350px;*/
+/*}*/
+
+/*.widget #prevBtn, .widget #nextBtn {*/
+  /*display: block;*/
+  /*width: 30px;*/
+  /*height: 77px;*/
+  /*position: absolute;*/
+/*}*/
+
+/*#prevBtn a, #nextBtn a {*/
+  /*display: block;*/
+  /*width: 30px;*/
+  /*height: 77px;*/
+  /*background: url(/images/btn_prev.gif) no-repeat 0 0;*/
+/*}*/
+
+/*#nextBtn a {*/
+  /*background: url(/images/btn_next.gif) no-repeat 0 0;*/
+/*}*/
+
+#overlay-wrapper span.field input#user_remember_me {
+  width: 15px;
 }
