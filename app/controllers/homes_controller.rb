@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
 
   def index
-    @reports = Report.all
+    @report = Report.approved
   end
-  
+
 end

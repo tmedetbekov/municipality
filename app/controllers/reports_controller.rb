@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
 
   def index
     sleep 2
-    @reports = Report.order("created_at desc").paginate(:per_page => 5, :page => params[:page])
+    @reports = Report.approved.order("created_at desc").paginate(:per_page => 5, :page => params[:page])
     #@comments = Comment.find(:all, :order => 'comments.created_at DESC', :limit=> 5)
     respond_to do |format|
       format.js
@@ -19,7 +19,7 @@ class ReportsController < ApplicationController
 
   def new
     statistics
-    
+
     @reports = Report.new
     3.times { @reports.assets.build }
     unless current_user

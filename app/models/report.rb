@@ -21,6 +21,7 @@ class Report < ActiveRecord::Base
   has_many :assets, :dependent => :destroy
   accepts_nested_attributes_for :assets
 
+  scope :approved, where(:approved => true)
   def self.total_on(date)
     where("date(created_at) = ?", date).count()
   end
