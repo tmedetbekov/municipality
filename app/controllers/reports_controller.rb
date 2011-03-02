@@ -18,6 +18,8 @@ class ReportsController < ApplicationController
   end
 
   def new
+    statistics
+    
     @reports = Report.new
     3.times { @reports.assets.build }
     unless current_user
@@ -27,6 +29,7 @@ class ReportsController < ApplicationController
       format.html # index.html.erb
       format.js
     end
+
   end
 
   def create
@@ -87,6 +90,32 @@ class ReportsController < ApplicationController
         format.js { redirect_to :action => 'show' }
       end
     end
+  end
+
+  def statistics
+    @bi_solved = Report.where(:state_id => 8, :solved => true).count
+    @bi_not_solved = Report.where(:state_id => 8, :solved => false).count
+
+    @co_solved = Report.where(:state_id => 1, :solved => true).count
+    @co_not_solved = Report.where(:state_id => 1, :solved => false).count
+
+    @oo_solved = Report.where(:state_id => 2, :solved => true).count
+    @oo_not_solved = Report.where(:state_id => 2, :solved => false).count
+
+    @bo_solved = Report.where(:state_id => 3, :solved => true).count
+    @bo_not_solved = Report.where(:state_id => 3, :solved => false).count
+
+    @jo_solved = Report.where(:state_id => 4, :solved => true).count
+    @jo_not_solved = Report.where(:state_id => 4, :solved => false).count
+
+    @to_solved = Report.where(:state_id => 5, :solved => true).count
+    @to_not_solved = Report.where(:state_id => 5, :solved => false).count
+
+    @io_solved = Report.where(:state_id => 6, :solved => true).count
+    @io_not_solved = Report.where(:state_id => 6, :solved => false).count
+
+    @no_solved = Report.where(:state_id => 7, :solved => true).count
+    @no_not_solved = Report.where(:state_id => 7, :solved => false).count
   end
 
 end
