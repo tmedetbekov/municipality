@@ -1,5 +1,7 @@
 class StatesController < ApplicationController
+
   before_filter :authorize
+
   def index
     @states = State.all
   end

@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Municipality <%= @page_title %> </title>
+
   <%= javascript_include_tag 'jquery-1.4.2.min', 'rails', 'application', 'highcharts', 'init' %>
   <%= javascript_include_tag 'jquery-validation', 'client_side_validations' %>
-  <%= render 'layouts/stylesheets' %>
   <%= stylesheet_link_tag 'style', :media => 'screen' %>
   <%= stylesheet_link_tag 'effects', 'default', 'custom', 'reset', 'form', :media => 'all' %>
   <%= csrf_meta_tag %>
   <%= yield(:head) %>
+
 </head>
+
 <body>
+  
 <div id="container">
   <%= render "layouts/header" %>
   <div id="content" class="col-full">
@@ -21,7 +25,7 @@
     <%= yield %>
   </div>
   <%= render('layouts/footer') %>
-
 </div>
+
 </body>
 </html>

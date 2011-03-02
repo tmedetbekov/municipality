@@ -17,7 +17,7 @@
     <%= f.association :category, :label => t('general.category') %>
     <%= f.input :subject, :label => t('general.subject') %>
     <%= f.text_area :description %><br />
-    
+
     <div id="tasks">
       <%= f.fields_for :assets do |asset| %>
           <% if asset.object.new_record? %><br><br>
@@ -27,10 +27,10 @@
     </div>
     <%# link_to_function "Add a photo" do |page|
         page.append :bottom, :tasks
-    end %>    
+    end %>
     <br>
-  
+
 
     <%= f.button :submit, :value => t('general.report_button') %>
-    
+
 <% end %>
