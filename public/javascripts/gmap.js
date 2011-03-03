@@ -95,8 +95,9 @@ function getState(lat, lng, zoom) {
     firstInfoWindow.close();
     $('.hidden_report_form').each(function() {
       $('#before-notice').hide(300);
-      $('#respond').css('display', 'block');
-    })
+
+      $('#respond :input').removeAttr('disabled');
+    });
 
     streetInfoWindow.close();
   });
@@ -158,7 +159,6 @@ function initialize() {
     var data = '';
     var all_promlems = '';
     var solved = '';
-    var not_solved = '';
     point = event.latLng;
 
     for (var i = 0; i < polys.length; i++) {
@@ -172,7 +172,7 @@ function initialize() {
 
         for (j in labels[i]) {
           var sid = labels[i]['label']['id'];
-          
+
           if (sid == 'co') {
             all_promlems = co_0 + co_1 + bi_0 + bi_1;
             solved = co_1 + bi_1;
@@ -201,7 +201,7 @@ function initialize() {
 
           data += "<div style='width:270px; height:100px;'";
           data += '<b>' + labels[i]['label']['name'] + '</b><br/><hr/>';
-          data += 'Общих проблем '  + a + ', рещенных '+ s +'<br>';
+          data += 'Общих проблем '  + a + ', решенных '+ s +'<br>';
           data += '<br/><a href=\'#\' id="' + sid + '">Перейти в область</a>';
           data += '</div>';
 
@@ -268,7 +268,7 @@ function initialize() {
 function goto_state(lid) {
   if (lid == 'co') {
     $('#respond form input#report_state_id').val(1);
-    getKgMap(42.719777, 74.424819, 7, true);
+    getKgMap(42.719777, 74.424819, 9, true);
   }
   else if (lid == "oo") {
     $('#respond form input#report_state_id').val(2);

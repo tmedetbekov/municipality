@@ -2,7 +2,7 @@ class CreateStates < ActiveRecord::Migration
   def self.up
     create_table :states do |t|
       t.string :name
-      t.integer :state_id
+#      t.integer :state_id
 
     end
   end

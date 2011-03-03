@@ -1,6 +1,47 @@
 <%= javascript_include_tag "http://www.google.com/jsapi", "markerclusterer" %>
 <script type="text/javascript">
   var arr = <%= @reports.to_json(:only => [:coordinates, :address, :subject, :id, :image_file_name, :solved], :include => :assets).html_safe%>;
+  
+  var jan = <%= Report.jan.count %>;
+  var feb = <%= Report.feb.count %>;
+  var mar = <%= Report.mar.count %>;
+  var apr = <%= Report.apr.count %>;
+  var may = <%= Report.may.count %>;
+  var jun = <%= Report.jun.count %>;
+  var jul = <%= Report.jul.count %>;
+  var aug = <%= Report.aug.count %>;
+  var sep = <%= Report.sep.count %>;
+  var oct = <%= Report.oct.count %>;
+  var nov = <%= Report.nov.count %>;
+  var dec = <%= Report.dec.count %>;
+
+  /********Regions statictics********/
+  
+  var bi_0 = <%= Report.get_problem_count(8, false) %>;
+  var bi_1 = <%= Report.get_problem_count(8, true) %>;
+
+  var co_0 = <%= Report.get_problem_count(1, false) %>;
+  var co_1 = <%= Report.get_problem_count(1, true) %>;
+
+  var oo_0 = <%= Report.get_problem_count(2, false) %>;
+  var oo_1 = <%= Report.get_problem_count(2, true) %>;
+
+  var bo_0 = <%= Report.get_problem_count(3, false) %>;
+  var bo_1 = <%= Report.get_problem_count(3, true) %>;
+
+  var jo_0 = <%= Report.get_problem_count(4, false) %>;
+  var jo_1 = <%= Report.get_problem_count(4, true) %>;
+
+  var to_0 = <%= Report.get_problem_count(5, false) %>;
+  var to_1 = <%= Report.get_problem_count(5, true) %>;
+
+  var io_0 = <%= Report.get_problem_count(6, false) %>;
+  var io_1 = <%= Report.get_problem_count(6, true) %>;
+
+  var no_0 = <%= Report.get_problem_count(7, false) %>;
+  var no_1 = <%= Report.get_problem_count(7, true) %>;
+  
+
 
   google.load('maps', '3', {
     other_params: 'sensor=false'
@@ -9,7 +50,7 @@
   google.setOnLoadCallback(initialize);
 
   function initialize() {
-    this.getKgMap(41.269550, 74.766098, 7);
+    this.getMap(41.269550, 74.766098, 7);
   }
 
 </script>
@@ -76,66 +117,87 @@
 <br>
 <div id="main" class="col-left box">
   <div id="orders_chart" style="width: 540px;">
-    <script type="text/javascript" charset="utf-8">
-      $(function() {
-        new Highcharts.Chart({
-          chart: {
-            renderTo: 'orders_chart',
-            defaultSeriesType: 'spline',
-            width: 538,
-            height: 240,
-            borderWidth: 1
-          },
-          xAxis: {
-            type: 'datetime',
-            labels: {
-              style: {
-                color: '#000',
-                font: '11px Trebuchet MS, Verdana, sans-serif'
-              }
-            }
-          },
-          yAxis: {
-            min: 0,
-            title: { text: 'Reports' },
-            labels: {
-              style: {
-                color: '#000',
-                font: '11px Trebuchet MS, Verdana, sans-serif'
-              }
-            }
-          },
-          title: { text: 'Статистика проблем' },
-          plotOptions: {
-            series: {
-              cursor: 'pointer'
-            }
-          },
-          tooltip: {
-            formatter: function () {
-              return Highcharts.dateFormat("%B %e %Y", this.x) + ' Найдено ' + ': ' + Highcharts.numberFormat(this.y, 0);
-            }
-          },
-          series: [
-            {
-              name: "Проблемы",
-              pointInterval: <%= 1.day * 1000 %>,
-              pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,
-              data: <%= (2.weeks.ago.to_date..Date.today).map { |date| Report.total_on(date)}.inspect %>
-            }
-          ]
-        });
-      });
-    </script>
+    <%= javascript_include_tag "monica_highcharts" %>
   </div>
 </div>
 
 <div id="sidebar" class="col-right">
   <!-- Widgetized Sidebar -->
-  <div class="widget widget_pages"><h3>Статистика</h3>
+  <div class="widget widget_pages">
 
-    <div id="month_stat">
-      <%= Report.total_month() %>
+    <div id="states_statistics">
+      <script type="text/javascript">
+        var chart;
+        $(document).ready(function() {
+          chart = new Highcharts.Chart({
+            chart: {
+              renderTo: 'states_statistics',
+              defaultSeriesType: 'bar'
+            },
+            title: {
+              text: 'Статистика по областям'
+            },
+            subtitle: {
+              text: 'Мунициполитет'
+            },
+            xAxis: {
+              categories: ['Бишкек', 'Ош', 'Талас', 'Чуй', 'Баткен', 'Джалал-Абад', 'Иссык-куль', 'Нарын' ],
+              title: {
+                text: null
+              }
+            },
+            yAxis: {
+              min: 0,
+              title: {
+                text: '',
+                align: 'high'
+              }
+            },
+            tooltip: {
+              formatter: function() {
+                return '' + this.series.name + ': ' + this.y + ' проблем';
+              }
+            },
+            plotOptions: {
+              bar: {
+                dataLabels: {
+                  enabled: true
+                }
+              }
+            },
+            legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'bottom',
+              x: 10,
+              y: -10,
+              floating: true,
+              borderWidth: 1,
+              backgroundColor: '#FFFFFF',
+              shadow: true
+            },
+            credits: {
+              enabled: false
+            },
+            series: [
+              {
+                name: 'Не решенных',
+                data: [bi_0, oo_0, to_0, co_0+bi_0, bo_0, jo_0, io_0, no_0],
+                color: 'RED'
+              },
+              {
+                name: 'Решенных',
+                data: [bi_1, oo_1, to_1, co_1+bi_1, bo_1, jo_1, io_1, no_1],
+                color: 'green'
+              },
+              {
+                name: 'Общее количество',
+                data: [bi_0+bi_1,oo_0+oo_1,to_0+to_1,co_0+co_1+bi_0+bi_1,bo_0+bo_1,jo_0+jo_1, io_0+jo_1, no_0+no_1]
+              }
+            ]
+          });
+        });
+      </script>
     </div>
 
   </div>

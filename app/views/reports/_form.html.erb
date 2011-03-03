@@ -2,35 +2,33 @@
 <% @page_title = 'New report' %>
 
 <%= simple_form_for(@reports, :validations => true, :html => {:id => 'commentform', :multipart => true}) do |f| %>
-    <% unless user_signed_in? %>
-        <%= f.fields_for :user do |u| %>
-            <%= u.input :name, :label => t('general.name') %>
-            <%= u.input :last_name, :label => t('general.last_name') %>
-            <%= u.input :email, :label => t('general.email') %>
-            <%= u.input :phone, :label => t('general.phone') %>
-            <%= u.hidden_field :is_anonym, :value => true %>
-        <% end %>
+  <% unless user_signed_in? %>
+    <%= f.fields_for :user do |u| %>
+      <%= u.input :name, :label => t('general.name') %>
+      <%= u.input :last_name, :label => t('general.last_name') %>
+      <%= u.input :email, :label => t('general.email') %>
+      <%= u.input :phone, :label => t('general.phone') %>
+      <%= u.hidden_field :is_anonym, :value => true %>
     <% end %>
-    <%= f.input :address, :label => 'address' %>
-    <%= f.hidden_field :state_id, :label => 'state' %>
-    <%= f.hidden_field :coordinates, :label => 'coordinates' %>
-    <%= f.association :category, :label => t('general.category') %>
-    <%= f.input :subject, :label => t('general.subject') %>
-    <%= f.text_area :description %><br />
-    
-    <div id="tasks">
-      <%= f.fields_for :assets do |asset| %>
-          <% if asset.object.new_record? %><br><br>
-              <%= asset.file_field :image %>
-          <% end %>
-      <% end %>
-    </div>
-    <%# link_to_function "Add a photo" do |page|
-        page.append :bottom, :tasks
-    end %>    
-    <br>
-  
+  <% end %>
+  <%= f.input :address, :label => 'address' %>
+  <%= f.hidden_field :state_id, :label => 'state' %>
+  <%= f.hidden_field :coordinates, :label => 'coordinates' %>
+  <%= f.association :category, :label => t('general.category') %>
+  <%= f.input :subject, :label => t('general.subject') %>
+  <%= f.text_area :description %><br />
 
-    <%= f.button :submit, :value => t('general.report_button') %>
-    
+  <div id="tasks">
+    <%= f.fields_for :assets do |asset| %>
+      <% if asset.object.new_record? %>
+        <br><br>
+        <%= asset.file_field :image %>
+      <% end %>
+    <% end %>
+  </div>
+  <br>
+
+
+  <%= f.button :submit, :value => t('general.report_button') %>
+
 <% end %>

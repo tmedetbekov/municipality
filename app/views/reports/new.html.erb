@@ -1,30 +1,37 @@
 <script type="text/javascript">
-  var bi_0 = <%= @bi_not_solved.to_json.html_safe %>;
-  var bi_1 = <%= @bi_solved.to_json.html_safe %>;
+  
+  var bi_0 = <%= Report.get_problem_count(8, false) %>;
+  var bi_1 = <%= Report.get_problem_count(8, true) %>;
 
-  var co_0 = <%= @co_not_solved.to_json.html_safe %>;
-  var co_1 = <%= @co_solved.to_json.html_safe %>;
+  var co_0 = <%= Report.get_problem_count(1, false) %>;
+  var co_1 = <%= Report.get_problem_count(1, true) %>;
 
-  var oo_0 = <%= @oo_not_solved.to_json.html_safe %>;
-  var oo_1 = <%= @oo_solved.to_json.html_safe %>;
+  var oo_0 = <%= Report.get_problem_count(2, false) %>;
+  var oo_1 = <%= Report.get_problem_count(2, true) %>;
 
-  var bo_0 = <%= @bo_not_solved.to_json.html_safe %>;
-  var bo_1 = <%= @bo_solved.to_json.html_safe %>;
+  var bo_0 = <%= Report.get_problem_count(3, false) %>;
+  var bo_1 = <%= Report.get_problem_count(3, true) %>;
 
-  var jo_0 = <%= @jo_not_solved.to_json.html_safe %>;
-  var jo_1 = <%= @jo_solved.to_json.html_safe %>;
+  var jo_0 = <%= Report.get_problem_count(4, false) %>;
+  var jo_1 = <%= Report.get_problem_count(4, true) %>;
 
-  var to_0 = <%= @to_not_solved.to_json.html_safe %>;
-  var to_1 = <%= @to_solved.to_json.html_safe %>;
+  var to_0 = <%= Report.get_problem_count(5, false) %>;
+  var to_1 = <%= Report.get_problem_count(5, true) %>;
 
-  var io_0 = <%= @io_not_solved.to_json.html_safe %>;
-  var io_1 = <%= @io_solved.to_json.html_safe %>;
+  var io_0 = <%= Report.get_problem_count(6, false) %>;
+  var io_1 = <%= Report.get_problem_count(6, true) %>;
 
-  var no_0 = <%= @no_not_solved.to_json.html_safe %>;
-  var no_1 = <%= @no_solved.to_json.html_safe %>;
+  var no_0 = <%= Report.get_problem_count(7, false) %>;
+  var no_1 = <%= Report.get_problem_count(7, true) %>;
+
+
+  $(function() {
+    $('#respond :input').attr('disabled', true);
+  });
+
 
 </script>
-<%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=ru","gmap", "epoly3" %>
+<%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=ru", "gmap", "epoly3" %>
 
 <% @page_title = 'New report' %>
 <h3><%= t('general.report_new') %></h3><br/>
@@ -66,7 +73,7 @@
 
     </div>
 
-    <div id="respond" style="display:none;">
+    <div id="respond">
       <%= render 'form' %>
     </div>
   </div>

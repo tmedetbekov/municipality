@@ -136,6 +136,10 @@ your liking.
   font-size: 14pt;
 }
 
+#discussed p {
+  font-size: 12px;
+}
+
 span.status {
   display: block;
   width: 10px;
@@ -345,7 +349,7 @@ span.status.false {
 }
 
 #marker_info {
-  height: 238px;
+  height: auto;
   font-size: 12px;
 }
 
