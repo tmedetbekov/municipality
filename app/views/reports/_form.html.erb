@@ -23,12 +23,11 @@
       <% if asset.object.new_record? %>
         <br><br>
         <%= asset.file_field :image %>
-      <% end %>
+      <% end %> 
     <% end %>
   </div>
   <br>
 
 
   <%= f.button :submit, :value => t('general.report_button') %>
-
 <% end %>

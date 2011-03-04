@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates_presence_of :name
+  validates_format_of :name, :with => /^[^0-9`!@#\$%\^&*+_=-]+$/, :message => "Имя не должно содержать запрещенные символы"
   validates_presence_of :last_name
+  validates_format_of :last_name, :with => /^[^0-9`!@#\$%\^&*+_=-]+$/, :message => "Фамилия не должна содержать запрещенные символы"
   validates_presence_of :email
   validates_presence_of :password, :if => :password_required?
   validates_presence_of :password_confirmation, :if => :password_required?

@@ -42,6 +42,7 @@
   var no_1 = <%= Report.get_problem_count(7, true) %>;
   
 
+  var arr = <%= @report.to_json(:only => [:coordinates, :address, :subject, :id, :image_file_name, :solved], :include => :assets).html_safe%>;
 
   google.load('maps', '3', {
     other_params: 'sensor=false'
@@ -79,7 +80,7 @@
     <div id="solved">
       <h1>Решенные проблемы</h1>
       <ul>
-        <% @reports = Report.where(:solved => true).limit(5).order("created_at desc") %>
+        <% @reports = @report.where(:solved => true).limit(5).order("created_at desc") %>
         <% for reports in @reports %>
           <li><span class="number">№ <%= link_to reports.id, reports %></span>
             <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
@@ -98,7 +99,7 @@
     <div id="unsolved">
       <h1>Нерешенные проблемы</h1>
       <ul>
-        <% @reports = Report.where(:solved => false).limit(5).order("created_at desc") %>
+        <% @reports = @report.where(:solved => false).limit(5).order("created_at desc") %>
         <% for reports in @reports %>
           <li><span class="number">№ <%= link_to reports.id, reports %></span>
             <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
