@@ -225,7 +225,7 @@ function initialize() {
     }
   });
 
-  jQuery.get('http://localhost:3000/states.xml', {}, function(data) {
+  jQuery.get('http://munic.heroku.com/states.xml', {}, function(data) {
     $(data).find('state').each(function() {
       var states = $(this);
 
