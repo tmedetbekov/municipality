@@ -21,6 +21,15 @@
 </div>
 
 <div id="sidebar" class="col-right">
+  <div class="widget">
+    <h1>Последние новости</h1>
+        <% @articles = @article.order("created_at desc").limit(5) %>
+        <% for articles in @articles %>
+            <b><%= articles.title %></b><br>
+            <p><%= truncate(articles.content, :length => 200, :omission => "...") %></p>
+            <span class="date_main"><%= articles.created_at %></span><br><br>
+        <% end %>
+  </div>
   <div class='widget'>
     <h3>Последние комментарии</h3>
 

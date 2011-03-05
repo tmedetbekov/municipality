@@ -4,6 +4,7 @@ class ReportsController < ApplicationController
   before_filter :authorize, :except => [:index, :new, :show, :create, :destroy, :vote_up]
 
   def index
+    @article = Article
     sleep 2
     @reports = Report.approved.order("created_at desc").paginate(:per_page => 5, :page => params[:page])
     #@comments = Comment.find(:all, :order => 'comments.created_at DESC', :limit=> 5)
