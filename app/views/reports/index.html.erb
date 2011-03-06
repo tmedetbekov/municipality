@@ -26,13 +26,12 @@
         <% @articles = @article.order("created_at desc").limit(5) %>
         <% for articles in @articles %>
             <b><%= articles.title %></b><br>
-            <p><%= truncate(articles.content, :length => 200, :omission => "...") %></p>
+            <p><%= truncate(articles.content, :length => 300, :omission => "...").html_safe %></p>
             <span class="date_main"><%= articles.created_at %></span><br><br>
         <% end %>
   </div>
   <div class='widget'>
     <h3>Последние комментарии</h3>
-
     <!--<%# @comments.each do |comment| %>-->
         <!--<div class="comments_show">-->
           <!--<span class="author_name"><%#= comment.author %></span>-->

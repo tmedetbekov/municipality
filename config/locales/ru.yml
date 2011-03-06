@@ -71,5 +71,6 @@ ru:
 #   comments
     comments: "Коментарии"
     send_comment: "Комментировать"
+    approved: "Можно публиковать ?"
 
     

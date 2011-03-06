@@ -1,0 +1,61 @@
+kg:
+  home: "Башкы бет" 
+  activerecord:
+    errors:
+      messages:
+        inclusion:
+        blank: "Бош калтырууга болбойт"
+        taken: "Бул Email бош эмес"
+
+  general:
+#   header
+    home: "Башкы бет"
+    report_prob: "Табыштоо"
+    about: "Биз жонундо"
+    contact: "Контакт"
+#   recent reports
+    recent_reports: "Акыркы табыштоолор"
+    subject: "Аты"
+    description: "Баяндоо"
+    category: "Категория"
+    state: "Аймак"
+    reporter: "Автор"
+    show: "Корсотуу"
+    edit: "Озгортуу"
+    destroy: "Delete"
+    confirm: "Are you sure that you want to delete this reports?"
+    update: "Update"
+    address: "Adress"
+    solved: "Did this problem solved ?"
+#   recent reports - show
+    report: "Report"
+    date: "Reported at"
+    photo: "Attached photo"
+    view: "View all"
+#   reports new
+    name: "Аты"
+    last_name: "Фамилия"
+    email: "E-mail"
+    phone: "Телефон"
+    category: "Category"
+    subject: "Тема"
+    report_button: "Create report"
+    report_new: "Create new report"
+    report_form: "Report form"
+#   registration
+    password: "Password"
+    password_confirm: "Password confirmation"
+    button: "Register"
+    registration: "Registration"
+#   sign in
+    remember: "Remember me"
+    sign_in: "Sign in"
+    sign_out: "Logout"
+#   flash notice
+    created: "New report created successfully!"
+    destroyed: "Report was successfully destroyed!"
+    updated: "Report was successfully updated!"
+#   Comments
+    comments: "Comments"
+    send_comment: "Comment"
+    approved: "Approved?"

@@ -12,7 +12,7 @@
 
   <p>
     <strong><%= t('general.description') %>:</strong>
-    <%= @reports.description %>
+    <%= @reports.description.html_safe %>
   </p>
 
   <p>

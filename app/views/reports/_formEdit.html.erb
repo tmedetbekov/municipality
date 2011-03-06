@@ -11,7 +11,7 @@
     <%= f.hidden_field :coordinates, :label => 'coordinates' %>
     <%= f.association :category, :label => t('general.category') %>
     <%= f.input :subject, :label => t('general.subject') %>
-    <%= f.text_area :description %><br />
+    <%= f.text_area :description, :class => "mceEditor" %>
 
     <div class="newPaperclipFiles">
       <%= f.fields_for :assets do |asset| %>
