@@ -1,21 +1,26 @@
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'loginForm'}) do |f| %>
-  <h1>Войти в систему или <a href="#signup" onclick="window.location.href='/users/sign_up';return false;">зарегистрироваться</a></h1>
-
-  <p><span class="field">
+    <% if I18n.locale == :ru %>
+        <h1>Войти в систему или
+          <a href="#signup" onclick="window.location.href='/users/sign_up';return false;">зарегистрироваться</a></h1>
+    <% else %>
+        <h1>Системага кирүү же
+          <a href="#signup" onclick="window.location.href='/users/sign_up';return false;"> каттоодон отүү </a></h1>
+    <% end %>
+    <p><span class="field">
       <%= f.text_field :email, :value => t('general.email'), :id => 'email', :title => 'Email Address' %>
   </span></p>
-  <p><span class="field">
+    <p><span class="field">
     <%= f.password_field :password, :id => 'userPassword' %>
-    <% if devise_mapping.rememberable? -%>
+      <% if devise_mapping.rememberable? -%>
       <%= f.check_box :remember_me %>
-      <%= f.label t('general.remember') %>
+          <%= f.label t('general.remember') %>
     <% end -%>
   </span></p>
-  <div id="form_submit">
-    <%= f.submit :value => t('general.sign_in') %>
-  </div>
-  <div class="other-services">
-    <%= link_to image_tag("twitter_256.png", :border=>0, :size => '32x32'), '/auth/twitter' %>
-    <%= link_to image_tag("facebook_256.png", :border=>0, :size => '32x32'), '/auth/facebook' %> 
-  </div>
+    <div id="form_submit">
+      <%= f.submit :value => t('general.sign_in') %>
+    </div>
+    <div class="other-services">
+      <%= link_to image_tag("twitter_256.png", :border=>0, :size => '32x32'), '/auth/twitter' %>
+      <%= link_to image_tag("facebook_256.png", :border=>0, :size => '32x32'), '/auth/facebook' %>
+    </div>
 <% end %>

@@ -4,10 +4,10 @@ module ApplicationHelper
   end
 
   def language_selector
-    if I18n.locale == :en
-      link_to "Русс", url_for(:locale => 'ru')
+    if I18n.locale == :kg
+      link_to image_tag("russia.gif", :size => "25x16"), url_for(:locale => 'ru')
     else
-      link_to "Кырг", url_for(:locale => 'kg')
+      link_to image_tag("kyrgyzstan.png", :size => "25x16"), url_for(:locale => 'kg')
     end
   end
 

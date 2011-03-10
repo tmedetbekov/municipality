@@ -6,7 +6,7 @@
     </p>
     <p>
       <strong><%= t('general.description') %></strong>
-      <%= truncate(reports.description, :length => 200, :omission => "...") %>
+      <%= truncate(reports.description, :length => 200, :omission => "...").html_safe %>
     </p>
     <p>
       <strong><%= t('general.category') %></strong>
