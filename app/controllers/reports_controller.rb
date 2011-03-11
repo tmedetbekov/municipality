@@ -1,4 +1,5 @@
 # encoding: utf-8
+# encoding: utf-8
 class ReportsController < ApplicationController
 
     #uses_tiny_mce :options => {
