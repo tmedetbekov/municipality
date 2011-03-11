@@ -1,6 +1,8 @@
 Monica::Application.routes.draw do
 
   root :to => "homes#index"
+  get "homes/admin"
+
 
   resources :reports do
     member do
