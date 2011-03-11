@@ -29,7 +29,7 @@
         <%= current_user.name %>
         <%= link_to t('general.sign_out'), destroy_user_session_path %>
         <% if admin? %>
-            <%= link_to " | Admin", {:controller=>"rails_admin/main", :action=>"index"} %>
+            <%= link_to " | Admin", rails_admin_dashboard_url %>
         <% end %>
     <% else %>
         <%= link_to t('general.registration'), new_user_registration_path %>
