@@ -3,14 +3,6 @@
 <div id="main" class='col-left box'>
   <h3><%= t('general.recent_reports') %></h3><br/>
 
-  <div class="count">
-    <% if I18n.locale == :kg %>
-        <%= pluralize(@reports.size, 'report') %> found
-    <% else %>
-        Найдено проблем <%= pluralize(@reports.size, '') %>
-    <% end %>
-  </div>
-  <br/>
   <% javascript 'pagination' %>
   <div id="reports">
     <%= render 'reports' %>

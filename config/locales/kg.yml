@@ -1,15 +1,17 @@
+# encoding: utf-8
 kg:
-  errors:
-    messages:
-      confirmation: "Окшош болуш керек"
-        
-  home: "Башкы бет" 
+  time:
+    formats:
+      short: "%d"  
   activerecord:
     errors:
       messages:
         inclusion:
         blank: "Бош калтырууга болбойт"
         taken: "Бул Email бош эмес"
+        not_a_number: "Сан гана киргизиңиз"
+        invalid: "Туура эмес формат"
+        confirmation: "Сыр сөзүңүз окшош эмес"
 
   general:
 #   header

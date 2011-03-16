@@ -3,7 +3,6 @@ class Report < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   belongs_to :state
-
   has_many :comments
 
   accepts_nested_attributes_for :user
@@ -15,6 +14,7 @@ class Report < ActiveRecord::Base
   validates_presence_of :description
 
   time = Time.new
+  scope :approved, where(:approved => true)
   scope :jan, lambda { {:conditions => ['created_at > ? AND created_at < ?', Date.parse(time.year.to_s+'-01-01'), Date.parse(time.year.to_s+'-01-31')]} }
   scope :feb, lambda { {:conditions => ['created_at > ? AND created_at < ?', Date.parse(time.year.to_s+'-02-01'), Date.parse(time.year.to_s+'-01-29')]} }
   scope :mar, lambda { {:conditions => ['created_at > ? AND created_at < ?', Date.parse(time.year.to_s+'-03-01'), Date.parse(time.year.to_s+'-03-31')]} }
@@ -35,7 +35,6 @@ class Report < ActiveRecord::Base
   has_many :assets, :dependent => :destroy
   accepts_nested_attributes_for :assets
 
-  scope :approved, where(:approved => true)
   def self.total_on(date)
     where("date(created_at) = ?", date).count()
   end
