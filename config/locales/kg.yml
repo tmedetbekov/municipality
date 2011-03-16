@@ -1,4 +1,8 @@
 kg:
+  errors:
+    messages:
+      confirmation: "Окшош болуш керек"
+        
   home: "Башкы бет" 
   activerecord:
     errors:

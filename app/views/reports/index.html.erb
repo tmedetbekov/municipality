@@ -28,7 +28,7 @@
     <% end %>
     <% @articles = @article.order("created_at desc").limit(5) %>
     <% for articles in @articles %>
-        <b><%= articles.title %></b><br>
+        <b><%= link_to articles.title, articles %></b><br>
 
         <p><%= truncate(articles.content, :length => 300, :omission => "...").html_safe %></p>
         <span class="date_main"><%= articles.created_at %></span><br><br>

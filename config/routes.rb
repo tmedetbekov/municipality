@@ -1,7 +1,15 @@
 Monica::Application.routes.draw do
 
+
+
+  match "about" => "articles#about"
+  match "contacts" => "articles#contact"
+
+  resources :articles
+  resources :reports
+
+
   root :to => "homes#index"
-  get "homes/admin"
 
 
   resources :reports do

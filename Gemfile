@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.3'
 
 gem 'mysql2', '0.2.6'
-gem 'client_side_validations',  '~> 2.9.9'
 gem 'simple_form', '1.3.1'
 gem 'devise', '1.1.5'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'

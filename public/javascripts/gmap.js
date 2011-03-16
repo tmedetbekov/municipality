@@ -8,7 +8,7 @@ var streetInfoWindow = new google.maps.InfoWindow({
 
 var firstInfoWindow = new google.maps.InfoWindow({
   content : helpInfo
-})
+});
 
 
 function geocodePosition(pos) {
@@ -19,7 +19,7 @@ function geocodePosition(pos) {
       var state = responses[0].address_components[1].long_name;
       updateMarkerAddress(responses[0].formatted_address, state);
     } else {
-      updateMarkerAddress('Адресс не найден! укажите адресс вручную.', '');
+      updateMarkerAddress('Адрес не найден! укажите адрес вручную.', '');
     }
   });
 }
@@ -152,8 +152,10 @@ function initialize() {
   var point;
   var infowindow;
 
-  var map = getKgMap(41.269550, 74.766098, 7, false);
 
+
+  var map = getKgMap(41.269550, 74.766098, 7, false);
+ 
   google.maps.event.addListener(map, "click", function(event) {
     var T1 = new Date();
     var data = '';

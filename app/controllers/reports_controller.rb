@@ -30,7 +30,17 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @reports = Report.find(params[:id])
+    begin
+      @reports = Report.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Такой страницы не существует!"
+      redirect_to reports_path, :notice => "Такой страницы не существует!"
+    else
+      respond_to do |format|
+        format.html
+      end
+    end
+
   end
 
   def new

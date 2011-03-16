@@ -422,3 +422,6 @@ span.status.false {
 #overlay-wrapper span.field input#user_remember_me {
   width: 15px;
 }
+#new {
+    padding: 15px;
+}

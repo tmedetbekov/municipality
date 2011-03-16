@@ -2,7 +2,7 @@
 
   <h3><%= t('general.registration') %></h3>
 
-  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validations => true,  :html => {:id => 'commentform'}) do |f| %>
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => 'commentform'}) do |f| %>
       <%= f.input :name, :label => t('general.name') %>
       <%= f.input :last_name, :label => t('general.last_name') %>
       <%= f.input :email, :label => t('general.email') %>
