@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.5'
 
 gem 'mysql2', '0.2.6'
 gem 'simple_form', '1.3.1'
@@ -16,6 +16,6 @@ gem 'thumbs_up', '0.3.2'
 
 group :development, :test do
   gem 'nifty-generators'
-  gem 'ruby-debug'
+  #gem 'ruby-debug'
   gem 'mocha'
 end

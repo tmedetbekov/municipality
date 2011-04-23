@@ -12,8 +12,45 @@ module RailsAdmin
         false
       end
     end
-
   end
+
+RailsAdmin.config do |config|
+		config.model Asset do
+		  visible false
+		end
+
+		config.model Authentication do
+		  visible false
+		end
+
+		config.model Vote do
+		  visible false
+		end
+
+		config.model Comment do
+		  visible false
+		end
+
+		config.model Report do
+		  list do
+		    field :subject
+				field :description
+				field :approved
+				sort_by :approved
+				sort_reverse false
+		  end
+		end
+
+#		config.model Article do
+#		  edit do
+#				field :title
+#		    field :content, :text do
+#		      ckeditor true
+#		    end
+#		  end
+#		end
+
+	end
 
 
 end

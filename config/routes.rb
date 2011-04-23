@@ -1,8 +1,9 @@
 Monica::Application.routes.draw do
 
-scope '(:locale)' do
-  root :to => "homes#index"
   resources :articles
+
+  root :to => "homes#index"
+#  resources :articles
   resources :reports
   match "about" => "articles#about"
   match "contacts" => "articles#contact"
@@ -14,5 +15,5 @@ scope '(:locale)' do
   end
   devise_for :users, :controllers => {:registrations => 'registrations', :sessions => 'sessions'}
   match "/auth/:provider/callback" => "authentications#create"
-end
+
 end

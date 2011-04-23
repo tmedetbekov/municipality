@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ArticlesController < ApplicationController
   def index
     @articles = Article.order("created_at DESC")
@@ -20,11 +21,10 @@ class ArticlesController < ApplicationController
   end
 
   def about
-     @articles = Article.find(1)
+    @articles = Article.find(1)
   end
 
   def contact
-      @articles = Article.find(1)
+    @articles = Article.find(1)
   end
-
 end

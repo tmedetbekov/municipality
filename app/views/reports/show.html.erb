@@ -30,8 +30,8 @@
     <%= @reports.address %>
   </p>
   <% if admin? %>
-    <p><%= link_to t('general.edit'), edit_report_path(@reports) %> |
-      <%= link_to t('general.destroy'), @reports, :confirm => 'Are you sure?', :method => :delete %> |
+      <p><%= link_to t('general.edit'), edit_report_path(@reports) %> |
+        <%= link_to t('general.destroy'), @reports, :confirm => 'Are you sure?', :method => :delete %> |
   <% end %>
   <%= link_to t('general.view'), reports_path %> |
   <%= link_to 'Поддержать ', vote_up_report_path(@reports), :remote => true, :method => :post, :title => "Нажмите чтобы проголосовать!" %>
@@ -43,33 +43,37 @@
   <div class='widget'>
     <div class="static_map widget"></div>
   </div>
-  <div class="widget">
 
-    <script type="text/javascript">
+  <script type="text/javascript">
       var arr = <%= @reports.to_json(:only => [:coordinates, :id, :image_file_name], :include => :assets).html_safe %>;
       var latLng = arr['report']['coordinates'];
 
       $(document).ready(function() {
 
-        $('.static_map').html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>")
-        
-        for (var i = 0; i < arr['report']['assets'].length; i++) {
-          var image_id = arr['report']['assets'][i]['id'];
-          var image_name = arr['report']['assets'][i]['image_file_name'];
+          $('.static_map').html("<img src='http://maps.google.com/maps/api/staticmap?center=" + latLng + "&zoom=15&size=306x238&&markers=color:blue|label:P|" + latLng + "&sensor=false'/>");
 
-          $('#slider ul').each(function() {
-            $(this).append("<li><img src='/system/images/" + image_id + "/thumb/" + image_name + "'/></li>")
-          });
-        }
+          if (!arr['report']['assets'].length == 0) {
+              for (var i = 0; i < arr['report']['assets'].length; i++) {
+                  var image_id = arr['report']['assets'][i]['id'];
+                  var image_name = arr['report']['assets'][i]['image_file_name'];
 
-        $("#slider").easySlider({
-          auto: true,
-          continuous: true,
-          prevText : 'Предыдущий ',
-          nextText : 'Следующий'
-        });
+                  $('#slider ul').each(function() {
+                      $(this).append("<li><img style='width:302px; margin:2px;' src='/system/images/" + image_id + "/thumb/" + image_name + "'/></li>")
+                  });
+              }
+
+              $("#slider").easySlider({
+                  auto: true,
+                  continuous: true,
+                  prevText : 'Предыдущий ',
+                  nextText : 'Следующий'
+              });
+          } else {
+              $('#attached_images').remove();
+          }
       });
-    </script>
+  </script>
+  <div class="widget" id="attached_images">
     <strong><%= t('general.photo') %>: </strong>
 
     <div class="images_widget widget">

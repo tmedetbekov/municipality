@@ -1,58 +1,57 @@
 <%= javascript_include_tag "http://www.google.com/jsapi", "markerclusterer" %>
 <script type="text/javascript">
-  var arr = <%= @reports.to_json(:only => [:coordinates, :address, :subject, :id, :image_file_name, :solved], :include => :assets).html_safe%>;
-  
-  var jan = <%= Report.jan.count %>;
-  var feb = <%= Report.feb.count %>;
-  var mar = <%= Report.mar.count %>;
-  var apr = <%= Report.apr.count %>;
-  var may = <%= Report.may.count %>;
-  var jun = <%= Report.jun.count %>;
-  var jul = <%= Report.jul.count %>;
-  var aug = <%= Report.aug.count %>;
-  var sep = <%= Report.sep.count %>;
-  var oct = <%= Report.oct.count %>;
-  var nov = <%= Report.nov.count %>;
-  var dec = <%= Report.dec.count %>;
+    var jan = <%= Report.jan.count %>;
+    var feb = <%= Report.feb.count %>;
+    var mar = <%= Report.mar.count %>;
+    var apr = <%= Report.apr.count %>;
+    var may = <%= Report.may.count %>;
+    var jun = <%= Report.jun.count %>;
+    var jul = <%= Report.jul.count %>;
+    var aug = <%= Report.aug.count %>;
+    var sep = <%= Report.sep.count %>;
+    var oct = <%= Report.oct.count %>;
+    var nov = <%= Report.nov.count %>;
+    var dec = <%= Report.dec.count %>;
 
-  /********Regions statictics********/
-  
-  var bi_0 = <%= Report.get_problem_count(8, false) %>;
-  var bi_1 = <%= Report.get_problem_count(8, true) %>;
+    /********Regions statictics********/
 
-  var co_0 = <%= Report.get_problem_count(1, false) %>;
-  var co_1 = <%= Report.get_problem_count(1, true) %>;
+    var bi_0 = <%= Report.get_problem_count(8, false) %>;
+    var bi_1 = <%= Report.get_problem_count(8, true) %>;
 
-  var oo_0 = <%= Report.get_problem_count(2, false) %>;
-  var oo_1 = <%= Report.get_problem_count(2, true) %>;
+    var co_0 = <%= Report.get_problem_count(1, false) %>;
+    var co_1 = <%= Report.get_problem_count(1, true) %>;
 
-  var bo_0 = <%= Report.get_problem_count(3, false) %>;
-  var bo_1 = <%= Report.get_problem_count(3, true) %>;
+    var oo_0 = <%= Report.get_problem_count(2, false) %>;
+    var oo_1 = <%= Report.get_problem_count(2, true) %>;
 
-  var jo_0 = <%= Report.get_problem_count(4, false) %>;
-  var jo_1 = <%= Report.get_problem_count(4, true) %>;
+    var bo_0 = <%= Report.get_problem_count(3, false) %>;
+    var bo_1 = <%= Report.get_problem_count(3, true) %>;
 
-  var to_0 = <%= Report.get_problem_count(5, false) %>;
-  var to_1 = <%= Report.get_problem_count(5, true) %>;
+    var jo_0 = <%= Report.get_problem_count(4, false) %>;
+    var jo_1 = <%= Report.get_problem_count(4, true) %>;
 
-  var io_0 = <%= Report.get_problem_count(6, false) %>;
-  var io_1 = <%= Report.get_problem_count(6, true) %>;
+    var to_0 = <%= Report.get_problem_count(5, false) %>;
+    var to_1 = <%= Report.get_problem_count(5, true) %>;
 
-  var no_0 = <%= Report.get_problem_count(7, false) %>;
-  var no_1 = <%= Report.get_problem_count(7, true) %>;
-  
+    var io_0 = <%= Report.get_problem_count(6, false) %>;
+    var io_1 = <%= Report.get_problem_count(6, true) %>;
 
-  var arr = <%= @report.to_json(:only => [:coordinates, :address, :subject, :id, :image_file_name, :solved], :include => :assets).html_safe%>;
+    var no_0 = <%= Report.get_problem_count(7, false) %>;
+    var no_1 = <%= Report.get_problem_count(7, true) %>;
 
-  google.load('maps', '3', {
-    other_params: 'sensor=false'
-  });
 
-  google.setOnLoadCallback(initialize);
+    var arr = <%= @report.to_json(:only => [:coordinates, :address, :subject, :id, :image_file_name, :solved], :include => :assets).html_safe%>;
 
-  function initialize() {
-    this.getMap(41.269550, 74.766098, 7);
-  }
+    google.load('maps', '3', {
+        callback : initialize,
+        other_params: 'sensor=false'
+    });
+
+    //    google.setOnLoadCallback(initialize);
+
+    function initialize() {
+        this.getMap(41.269550, 74.766098, 7);
+    }
 
 </script>
 <div id="featured" class="col-full">
@@ -82,14 +81,14 @@
       <ul>
         <% @reports = @report.where(:solved => true).limit(5).order("created_at desc") %>
         <% for reports in @reports %>
-          <li><span class="number">№ <%= link_to reports.id, reports %></span>
-            <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
-            <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
-            <br>
-            <b><%= t('general.description') %> </b><%= truncate(reports.description, :length => 200, :omission => "...") %>
-            <br>
-            <b><%= t('general.support') %>: </b><span class="support"><%= reports.votes.count %></span>
-          </li>
+            <li><span class="number">№ <%= link_to reports.id, reports %></span>
+              <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
+              <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
+              <br>
+              <b><%= t('general.description') %> </b><%= truncate(reports.description, :length => 200, :omission => "...") %>
+              <br>
+              <b><%= t('general.support') %>: </b><span class="support"><%= reports.votes.count %></span>
+            </li>
         <% end %>
       </ul>
     </div>
@@ -101,14 +100,14 @@
       <ul>
         <% @reports = @report.where(:solved => false).limit(5).order("created_at desc") %>
         <% for reports in @reports %>
-          <li><span class="number">№ <%= link_to reports.id, reports %></span>
-            <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
-            <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
-            <br>
-            <b><%= t('general.description') %></b> </b> <%= truncate(reports.description, :length => 200, :omission => "...") %>
-            <br>
-            <b><%= t('general.support') %>: </b><span class="support"><%= reports.votes.count %></span>
-          </li>
+            <li><span class="number">№ <%= link_to reports.id, reports %></span>
+              <span class="date_main"><%= short_date(reports.created_at) %></span><br><br>
+              <b><%= t('general.subject') %></b> <%= link_to reports.subject, reports %>
+              <br>
+              <b><%= t('general.description') %></b> </b> <%= truncate(reports.description, :length => 200, :omission => "...") %>
+              <br>
+              <b><%= t('general.support') %>: </b><span class="support"><%= reports.votes.count %></span>
+            </li>
         <% end %>
       </ul>
     </div>
@@ -128,76 +127,76 @@
 
     <div id="states_statistics">
       <script type="text/javascript">
-        var chart;
-        $(document).ready(function() {
-          chart = new Highcharts.Chart({
-            chart: {
-              renderTo: 'states_statistics',
-              defaultSeriesType: 'bar'
-            },
-            title: {
-              text: 'Статистика по областям'
-            },
-            subtitle: {
-              text: 'Мунициполитет'
-            },
-            xAxis: {
-              categories: ['Бишкек', 'Ош', 'Талас', 'Чуй', 'Баткен', 'Джалал-Абад', 'Иссык-куль', 'Нарын' ],
-              title: {
-                text: null
-              }
-            },
-            yAxis: {
-              min: 0,
-              title: {
-                text: '',
-                align: 'high'
-              }
-            },
-            tooltip: {
-              formatter: function() {
-                return '' + this.series.name + ': ' + this.y + ' проблем';
-              }
-            },
-            plotOptions: {
-              bar: {
-                dataLabels: {
-                  enabled: true
-                }
-              }
-            },
-            legend: {
-              layout: 'vertical',
-              align: 'right',
-              verticalAlign: 'bottom',
-              x: 10,
-              y: -10,
-              floating: true,
-              borderWidth: 1,
-              backgroundColor: '#FFFFFF',
-              shadow: true
-            },
-            credits: {
-              enabled: false
-            },
-            series: [
-              {
-                name: 'Не решенных',
-                data: [bi_0, oo_0, to_0, co_0+bi_0, bo_0, jo_0, io_0, no_0],
-                color: 'RED'
-              },
-              {
-                name: 'Решенных',
-                data: [bi_1, oo_1, to_1, co_1+bi_1, bo_1, jo_1, io_1, no_1],
-                color: 'green'
-              },
-              {
-                name: 'Общее количество',
-                data: [bi_0+bi_1,oo_0+oo_1,to_0+to_1,co_0+co_1+bi_0+bi_1,bo_0+bo_1,jo_0+jo_1, io_0+jo_1, no_0+no_1]
-              }
-            ]
+          var chart;
+          $(document).ready(function() {
+              chart = new Highcharts.Chart({
+                  chart: {
+                      renderTo: 'states_statistics',
+                      defaultSeriesType: 'bar'
+                  },
+                  title: {
+                      text: 'Статистика по областям'
+                  },
+                  subtitle: {
+                      text: 'Муниципалитет'
+                  },
+                  xAxis: {
+                      categories: ['Бишкек', 'Ош', 'Талас', 'Чуй', 'Баткен', 'Джалал-Абад', 'Иссык-куль', 'Нарын' ],
+                      title: {
+                          text: null
+                      }
+                  },
+                  yAxis: {
+                      min: 0,
+                      title: {
+                          text: '',
+                          align: 'high'
+                      }
+                  },
+                  tooltip: {
+                      formatter: function() {
+                          return '' + this.series.name + ': ' + this.y + ' проблем';
+                      }
+                  },
+                  plotOptions: {
+                      bar: {
+                          dataLabels: {
+                              enabled: true
+                          }
+                      }
+                  },
+                  legend: {
+                      layout: 'vertical',
+                      align: 'right',
+                      verticalAlign: 'bottom',
+                      x: 10,
+                      y: -10,
+                      floating: true,
+                      borderWidth: 1,
+                      backgroundColor: '#FFFFFF',
+                      shadow: true
+                  },
+                  credits: {
+                      enabled: false
+                  },
+                  series: [
+                      {
+                          name: 'Не решенных',
+                          data: [bi_0, oo_0, to_0, co_0 + bi_0, bo_0, jo_0, io_0, no_0],
+                          color: 'RED'
+                      },
+                      {
+                          name: 'Решенных',
+                          data: [bi_1, oo_1, to_1, co_1 + bi_1, bo_1, jo_1, io_1, no_1],
+                          color: 'green'
+                      },
+                      {
+                          name: 'Общее количество',
+                          data: [bi_0 + bi_1,oo_0 + oo_1,to_0 + to_1,co_0 + co_1 + bi_0 + bi_1,bo_0 + bo_1,jo_0 + jo_1, io_0 + jo_1, no_0 + no_1]
+                      }
+                  ]
+              });
           });
-        });
       </script>
     </div>
 

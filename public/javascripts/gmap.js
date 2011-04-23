@@ -71,7 +71,7 @@ function getState(lat, lng, zoom) {
     panControl: true,
     streetViewControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
+  };
 
   var markerImage = "/images/add.png";
   var map = new google.maps.Map(document.getElementById('report_map'), options);
