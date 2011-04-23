@@ -10,7 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110423074109) do
+ActiveRecord::Schema.define(:version => 20110423113232) do
+
+  create_table "abouts", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -53,6 +59,12 @@ ActiveRecord::Schema.define(:version => 20110423074109) do
 
   add_index "comments", ["report_id"], :name => "index_comments_on_report_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "infos", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"

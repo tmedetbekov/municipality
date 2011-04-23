@@ -34,6 +34,7 @@ State.create([
                  {:name => 'Бишкек'}]
 )
 
-Article.create(:title=>'About', :content=>'Some text here.')
+Info.create(:content => 'Some text here')
+
 
 

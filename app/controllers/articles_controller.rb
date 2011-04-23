@@ -21,10 +21,10 @@ class ArticlesController < ApplicationController
   end
 
   def about
-    @articles = Article.find(1)
+    @about = Info.find(1)
   end
 
   def contact
-    @articles = Article.find(1)
+    @contact = Info.find(1)
   end
 end

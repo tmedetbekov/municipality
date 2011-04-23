@@ -3,7 +3,6 @@ Monica::Application.routes.draw do
   resources :articles
 
   root :to => "homes#index"
-#  resources :articles
   resources :reports
   match "about" => "articles#about"
   match "contacts" => "articles#contact"
