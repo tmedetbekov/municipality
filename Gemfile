@@ -13,6 +13,7 @@ gem 'will_paginate', '2.3.15'
 gem 'mail_form', '1.3.0'
 gem 'disqus', '1.0.4'
 gem 'thumbs_up', '0.3.2'
+gem 'rails_db_dump'
 
 group :development, :test do
   gem 'nifty-generators'
