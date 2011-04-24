@@ -14,4 +14,10 @@ nbproject
 nbproject/*
 public/system/
 public/system/*
-
+.bash_history
+.bundle/*
+.directory
+.gem/*
+.idea/*
+.mysql_history
+log/*
