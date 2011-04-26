@@ -1,14 +1,29 @@
 <!--pages title at top-->
 <% @page_title = 'New report' %>
 
+<% unless user_signed_in? %>
+ <script type="text/javascript">
+   $(document).ready(function() {
+       $('#anonymous_user_fields').css('display', 'none');
+       $('#anonymous_user_fields input#report_user_attributes_name').inputfocus({ value: 'Anonymous'});
+       $('#anonymous_user_fields input#report_user_attributes_last_name').inputfocus({ value: 'Anonymous'});
+       $('#anonymous_user_fields input#report_user_attributes_email').inputfocus({ value: 'anonymous@anonym.net'});
+       $('#anonymous_user_fields input#report_user_attributes_phone').inputfocus({ value: '0312112233'});
+   });
+ </script>
+<% end %>
+
 <%= simple_form_for(@reports, :html => {:id => 'commentform', :multipart => true}) do |f| %>
   <% unless user_signed_in? %>
     <%= f.fields_for :user do |u| %>
-      <%= u.input :name, :label => t('general.name') %>
-      <%= u.input :last_name, :label => t('general.last_name') %>
-      <%= u.input :email, :label => t('general.email') %>
-      <%= u.input :phone, :label => t('general.phone') %>
-      <%= u.hidden_field :is_anonym, :value => true %>
+      <div id="show_hide_link"><a href="#">Дополнительные данные</a></div>
+      <div id="anonymous_user_fields">
+        <%= u.input :name, :label => t('general.name'), :input_html => {:value => 'Anonymous'} %>
+        <%= u.input :last_name, :label => t('general.last_name'), :input_html => {:value => 'Anonymous'} %>
+        <%= u.input :email, :label => t('general.email'), :input_html => {:value => 'anonymous@anonym.net'} %>
+        <%= u.input :phone, :label => t('general.phone'), :input_html => {:value => '0312112233'} %>
+        <%= u.hidden_field :is_anonym, :value => true %>
+      </div>
     <% end %>
   <% end %>
   <%= f.input :address, :label => 'address' %>
@@ -23,7 +38,7 @@
       <% if asset.object.new_record? %>
         <br><br>
         <%= asset.file_field :image %>
-      <% end %> 
+      <% end %>
     <% end %>
   </div>
   <br>

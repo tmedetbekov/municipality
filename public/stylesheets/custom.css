@@ -425,3 +425,14 @@ span.status.false {
 #new {
     padding: 15px;
 }
+
+#show_hide_link {
+    margin-bottom: 10px;
+}
+#show_hide_link a {
+    font-size: 12px;
+}
+
+#anonymous_user_fields {
+
+}
